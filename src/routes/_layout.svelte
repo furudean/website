@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { onMount } from "svelte";
+	import { onMount, onDestroy } from "svelte";
+	import { osTheme } from "../stores/theme";
 	import Nav from "../components/Nav.svelte";
 	import Global from "../styles/Global.svelte";
 	import Theme from "../styles/Theme.svelte";
@@ -10,9 +11,19 @@
 		// rewrite hashes on anchor links
 		// https://github.com/sveltejs/sapper/issues/904#issuecomment-540536561
 		document.querySelectorAll("a").forEach((a) => {
-			if (!a.hash || !document.querySelectorAll(a.hash).length) return;
-			a.href = window.location.pathname + a.hash;
+			if (a.hash && document.querySelectorAll(a.hash).length) {
+				a.href = window.location.pathname + a.hash;
+			}
 		});
+
+		// Set theme on root element
+		const unsubscribe = osTheme.subscribe((theme) => {
+			const root = document.querySelector("html");
+
+			root.classList.remove("light-theme", "dark-theme");
+			root.classList.add(theme + "-theme");
+		});
+		onDestroy(unsubscribe);
 	});
 </script>
 

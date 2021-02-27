@@ -37,3 +37,10 @@ declare module "*.webp" {
 	const value: string;
 	export = value;
 }
+
+// Extend process global so that it has the browser property
+declare namespace NodeJS {
+	export interface Process {
+		browser: boolean;
+	}
+}

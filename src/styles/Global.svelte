@@ -65,41 +65,29 @@
   h2,
   h3 {
     a:hover {
-      text-decoration: 3px solid underline var(--color-text-400);
+      text-decoration: 2px dotted underline var(--color-text-400);
     }
   }
 
   hr {
-    border-top: 3px double var(--color-text-400);
+    border-top: 3px double var(--color-text-300);
     margin: 0 auto 1.5rem;
   }
 
   abbr {
     cursor: help;
+    text-decoration: 2px solid underline var(--color-text-400);
   }
 
   :target {
     position: relative;
-    color: var(--color-text-on-primary);
-
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background: var(--color-primary-200);
-      border-radius: 0.2em;
-      padding: 0 0.2em;
-      margin: 0 -0.2em;
-      z-index: -1;
-    }
+    text-decoration: 2px solid underline var(--color-text-400);
 
     &::before {
       content: "§";
       position: absolute;
       left: -1em;
+      color: var(--color-text-400);
     }
   }
 </style>

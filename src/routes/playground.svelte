@@ -18,13 +18,16 @@
     quam quidem commodi dolorum mollitia repudiandae? Doloribus placeat aliquid
     nesciunt dolor!
   </p>
+
   <hr />
-  <h2 id="linkable-1"><a href="#linkable-1">A linkable header</a></h2>
+
+  <h2 id="linkable-1"><a href="#linkable-1">A linkable heading</a></h2>
+  <p>text</p>
+
   <h2 id="linkable-2">
-    <a href="#linkable-2"
-      >A very long linkable header, in fact so long that it flows to the next
-      line</a
-    >
+    <a href="#linkable-2">
+      A very long linkable heading, so long that it flows to the next line
+    </a>
   </h2>
   <p>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, earum
@@ -38,6 +41,6 @@
   article {
     max-width: 40em;
     margin: 0 auto;
-    min-height: 200vh;
+    min-height: 150vh;
   }
 </style>

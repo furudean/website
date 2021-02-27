@@ -14,11 +14,11 @@
 			<Icon
 				title="Heart icon"
 				path={mdiHeart}
-				color="var(--color-secondary-400)"
+				color="var(--color-primary-400)"
 			/>
 		</h1>
 		<p>
-			I'm a full-stack engineer, based in UT, USA. I care deeply about CSS,
+			I'm a full-stack engineer based in UT, USA. I care deeply about CSS,
 			typography, <abbr title="accessibility">a11y</abbr> and cute things.
 		</p>
 		<p>
@@ -32,7 +32,6 @@
 	</section>
 	<hr />
 	<section class="links">
-		<!-- <img src={portrait} alt="Cassidy's Portrait" /> -->
 		<ul class="links">
 			<li>
 				<a
