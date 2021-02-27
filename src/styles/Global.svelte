@@ -65,7 +65,9 @@
   h2,
   h3 {
     a:hover {
-      text-decoration: 2px dotted underline var(--color-text-400);
+      text-decoration-thickness: 3px;
+      text-decoration-style: dotted;
+      text-decoration-line: underline;
     }
   }
 
@@ -76,12 +78,15 @@
 
   abbr {
     cursor: help;
-    text-decoration: 2px solid underline var(--color-text-400);
+    text-decoration-style: dotted;
+    text-decoration-line: underline;
   }
 
   :target {
     position: relative;
-    text-decoration: 2px solid underline var(--color-text-400);
+    text-decoration-thickness: 3px;
+    text-decoration-style: solid;
+    text-decoration-line: underline;
 
     &::before {
       content: "§";
