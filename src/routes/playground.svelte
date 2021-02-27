@@ -1,5 +1,5 @@
 <svelte:head>
-  <title>Elements test</title>
+  <title>Element playground</title>
 </svelte:head>
 
 <article>

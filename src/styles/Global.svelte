@@ -13,6 +13,8 @@
     width: 100%;
   }
 
+  $line-height: 1.75;
+
   body {
     background: var(--color-background-400);
     color: var(--color-text-400);
@@ -20,8 +22,11 @@
     height: 100%;
     width: 100%;
 
-    font-family: "Open Sans", sans-serif;
-    line-height: 1.5;
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+      "Helvetica Neue", sans-serif;
+
+    line-height: $line-height;
   }
 
   p {
@@ -29,28 +34,31 @@
     font-kerning: normal;
     font-variant-ligatures: common-ligatures contextual;
     font-feature-settings: "kern", "liga", "clig", "calt";
-    margin-bottom: 1.5rem;
+    margin-bottom: $line-height * 1rem;
   }
 
+  $serif-font-stack: "Lora", "Iowan Old Style", "Apple Garamond", "Baskerville",
+    "Times New Roman", "Droid Serif", "Times", "Source Serif Pro", serif;
+
   h1 {
-    font-family: "Lora", serif;
+    font-family: $serif-font-stack;
     font-size: 3em;
     font-weight: 500;
-    margin-bottom: 3rem;
+    margin-bottom: $line-height * 2rem;
   }
 
   h2 {
-    font-family: "Lora", serif;
+    font-family: $serif-font-stack;
     font-size: 2em;
     font-weight: 500;
-    margin-bottom: 1.5rem;
+    margin-bottom: $line-height * 1rem;
   }
 
   h3 {
-    font-family: "Lora", serif;
+    font-family: $serif-font-stack;
     font-size: 1.5em;
     font-weight: 500;
-    margin-bottom: 1.5rem;
+    margin-bottom: $line-height * 1rem;
   }
 
   h1,
@@ -64,6 +72,10 @@
   hr {
     border-top: 3px double var(--color-text-400);
     margin: 0 auto 1.5rem;
+  }
+
+  abbr {
+    cursor: help;
   }
 
   :target {

@@ -6,7 +6,7 @@
     --color-primary-400: #23f0c7;
     --color-primary-500: #0fd2ab;
     --color-primary-600: #0cac8c;
-    --color-text-on-primary: var(--color-text-on-background);
+    --color-text-on-primary: var(--color-text-400);
 
     --color-secondary-300: #d4afd4;
     --color-secondary-400: #bd84bc;
