@@ -27,6 +27,6 @@
 <style>
 	main {
 		position: relative;
-		padding: 2.5em;
+		padding: 3em;
 	}
 </style>
