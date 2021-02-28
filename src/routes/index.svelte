@@ -10,7 +10,7 @@
 <div class="container">
 	<section class="landing">
 		<h1>
-			Hello, I'm <br /> Cassidy Bandy.
+			Hello, I'm <br /> Cassidy Bandy
 			<Icon
 				title="Heart icon"
 				path={mdiHeart}
