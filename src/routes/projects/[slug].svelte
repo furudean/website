@@ -87,10 +87,13 @@
   }
 
   .links {
-    // display: flex;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -1em;
   }
 
   .links > * {
+    margin-top: 1em;
     margin-right: 1em;
   }
 
