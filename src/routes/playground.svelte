@@ -1,7 +1,3 @@
-<svelte:head>
-  <title>Element playground</title>
-</svelte:head>
-
 <article>
   <h1>Heading 1</h1>
   <h2>Heading 2</h2>
@@ -35,12 +31,16 @@
     necessitatibus nostrum officia. Sunt, iure at sequi veniam reprehenderit
     nemo.
   </p>
+  <h3>
+    <a href="https://example.org" target="_blank" rel="noopener">
+      A heading that links externally
+    </a>
+  </h3>
 </article>
 
 <style>
   article {
-    max-width: 40em;
-    margin: 0 auto;
+    max-width: 50em;
     min-height: 150vh;
   }
 </style>

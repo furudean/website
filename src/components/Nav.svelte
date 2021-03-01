@@ -1,29 +1,73 @@
 <script lang="ts">
-	export let segment: string;
+	import { mdiHeart } from "@mdi/js";
+	import { stores } from "@sapper/app";
+	import Icon from "../components/Icon.svelte";
+
+	const { page } = stores();
 </script>
 
-<style>
+{#if $page.path !== "/"}
+	<nav role="navigation">
+		<a href="." title="Home" class="logo">
+			<Icon path={mdiHeart} size="2em" color="var(--color-primary-400)" />
+		</a>
+		<div class="divider" aria-hidden="true" />
+		<ul>
+			<li>
+				<a
+					href="/projects"
+					aria-current={$page.path.startsWith("/projects") ? "page" : undefined}
+				>
+					projects
+				</a>
+			</li>
+			<!-- <li>
+				<a
+					href="/contact"
+					aria-current={$page.path.startsWith("/contact") ? "page" : undefined}
+				>
+					contact
+				</a>
+			</li> -->
+		</ul>
+	</nav>
+{/if}
+
+<style lang="scss">
 	nav {
-		border-bottom: 1px solid rgba(255,62,0,0.1);
-		font-weight: 300;
-		padding: 0 1em;
+		display: flex;
+		align-items: center;
+		margin-bottom: calc(var(--line-space) * 2);
+	}
+
+	.logo :global(.svg-icon) {
+		display: flex;
+	}
+
+	.divider {
+		height: 1em;
+		width: 2px;
+		background: var(--color-text-200);
+		margin: 0 1.5em;
 	}
 
 	ul {
-		margin: 0;
-		padding: 0;
-	}
-
-	/* clearfix */
-	ul::after {
-		content: '';
-		display: block;
-		clear: both;
+		display: flex;
 	}
 
 	li {
 		display: block;
-		float: left;
+		position: relative;
+		cursor: pointer;
+
+		&:not(:last-of-type) {
+			margin-right: 1em;
+		}
+	}
+
+	li a {
+		display: block;
+		padding: 0.75em 0;
 	}
 
 	[aria-current] {
@@ -32,29 +76,12 @@
 	}
 
 	[aria-current]::after {
+		content: "";
 		position: absolute;
-		content: '';
-		width: calc(100% - 1em);
+		width: 100%;
 		height: 2px;
-		background-color: rgb(255,62,0);
+		background-color: var(--color-primary-400);
 		display: block;
-		bottom: -1px;
-	}
-
-	a {
-		text-decoration: none;
-		padding: 1em 0.5em;
-		display: block;
+		bottom: 0;
 	}
 </style>
-
-<nav>
-	<ul>
-		<li><a aria-current="{segment === undefined ? 'page' : undefined}" href=".">home</a></li>
-		<li><a aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a></li>
-
-		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-		     the blog data when we hover over the link or tap it on a touchscreen -->
-		<li><a rel=prefetch aria-current="{segment === 'blog' ? 'page' : undefined}" href="blog">blog</a></li>
-	</ul>
-</nav>
