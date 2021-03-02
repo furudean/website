@@ -74,5 +74,9 @@
       text-decoration: underline;
       color: var(--color-primary-400);
     }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
   }
 </style>
