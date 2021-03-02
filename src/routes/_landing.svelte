@@ -44,7 +44,7 @@
   }
 
   h1 :global(.svg-icon) {
-    top: 8px;
+    top: 10px;
   }
 
   hr {
