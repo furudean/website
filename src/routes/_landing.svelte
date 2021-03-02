@@ -57,10 +57,11 @@
     display: flex;
     flex-direction: column;
     list-style-type: none;
+    margin-bottom: var(--line-space);
   }
 
   ul.links li {
-    margin-bottom: calc(var(--line-height) * 1rem);
+    margin-bottom: var(--line-space);
   }
 
   ul.links a {
