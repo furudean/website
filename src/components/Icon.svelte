@@ -25,7 +25,7 @@
 
 <style>
   .svg-icon {
-    display: inline-flex;
+    display: inline-block;
     vertical-align: baseline;
     position: relative;
   }
