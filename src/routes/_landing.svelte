@@ -9,8 +9,8 @@
     <Icon title="Heart icon" path={mdiHeart} color="var(--color-primary-400)" />
   </h1>
   <p>
-    I'm a full-stack engineer based in UT, USA. I care deeply about CSS,
-    typography, <abbr title="accessibility">a11y</abbr> and cute things.
+    I'm a full-stack engineer based in UT, USA. I care about CSS, typography,
+    <abbr title="accessibility">a11y</abbr> and cute things.
   </p>
   <p>
     In my free time I like to learn more about programming, study the Japanese
