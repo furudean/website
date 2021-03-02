@@ -89,12 +89,12 @@
   .links {
     display: flex;
     flex-wrap: wrap;
-    margin-top: -1em;
+    margin-top: -2em;
   }
 
   .links > * {
-    margin-top: 1em;
-    margin-right: 1em;
+    margin-top: 2em;
+    margin-right: 2em;
   }
 
   .link-button {
