@@ -50,7 +50,7 @@
   hr {
     border-top: 1px solid var(--color-text-300);
     margin-left: 0;
-    width: 5em;
+    width: 4em;
   }
 
   ul.links {
