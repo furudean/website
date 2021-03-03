@@ -13,7 +13,7 @@
     clearTimeout(preloadingDelayTimeout);
 
     if (value) {
-      preloadingDelayTimeout = setTimeout(() => set(value), 250);
+      preloadingDelayTimeout = setTimeout(() => set(value), 200);
     } else {
       set(value);
     }
@@ -90,10 +90,10 @@
   }
 
   .loading-progress.finished {
-    animation: 600ms fade-out var(--standard-curve) forwards 300ms;
+    animation: 600ms fade-out var(--standard-curve) forwards 200ms;
   }
 
   .loading-progress.finished::after {
-    animation: 600ms finish var(--standard-curve) forwards;
+    animation: 400ms finish var(--deceleration-curve) forwards;
   }
 </style>

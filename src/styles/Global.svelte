@@ -7,6 +7,7 @@
 
   html {
     --standard-curve: cubic-bezier(0.4, 0, 0.2, 1);
+    --deceleration-curve: cubic-bezier(0, 0, 0.2, 1);
     --line-height: 1.75;
     --line-space: 1.75rem;
 
