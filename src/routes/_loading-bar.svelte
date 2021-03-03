@@ -25,7 +25,7 @@
     clearTimeout(readyTimeout);
 
     if (value === false) {
-      readyTimeout = setTimeout(() => (ready = false), 600 + 300);
+      readyTimeout = setTimeout(() => (ready = false), 600 + 200);
     }
   });
   onDestroy(unsub);
