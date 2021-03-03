@@ -9,7 +9,9 @@
   let readyTimeout: number;
   let preloadingDelayTimeout: number;
 
-  const isVisible = derived(preloading, (value, set) => {
+  // store that lags behind "preloading" store a few ms until the progress bar
+  // should be shown. we don't want to show it for short loading times
+  const preloadingDelayed = derived(preloading, (value, set) => {
     clearTimeout(preloadingDelayTimeout);
 
     if (value) {
@@ -19,11 +21,14 @@
     }
   }) as Readable<boolean>;
 
-  const unsub = isVisible.subscribe((value) => {
+  const unsub = preloadingDelayed.subscribe((value) => {
+    // set initial "ready" value so element is added to DOM
     ready = ready || value;
 
     clearTimeout(readyTimeout);
 
+    // clear "ready" value after animations are settled, this will remove the
+    // element from DOM
     if (value === false) {
       readyTimeout = setTimeout(() => (ready = false), 600 + 200);
     }
@@ -34,8 +39,8 @@
 {#if ready}
   <div
     class="loading-progress"
-    class:loading={$isVisible}
-    class:finished={$isVisible === false}
+    class:loading={$preloadingDelayed}
+    class:finished={!$preloadingDelayed}
     aria-hidden="true"
   />
 {/if}
