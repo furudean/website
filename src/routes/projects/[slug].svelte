@@ -20,7 +20,13 @@
   import Icon from "../../components/Icon.svelte";
 
   export let project: Project;
+
+  const title = `${project.title} · Projects · Cassidy Bandy`;
 </script>
+
+<svelte:head>
+  <title>{title}</title>
+</svelte:head>
 
 <nav aria-label="Breadcrumb">
   <a href="/projects">Projects</a> /
