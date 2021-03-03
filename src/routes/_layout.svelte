@@ -5,6 +5,7 @@
 	import Global from "../styles/Global.svelte";
 	import Theme from "../styles/Theme.svelte";
 	import { stores } from "@sapper/app";
+	import LoadingBar from "./_loading-bar.svelte";
 
 	const { page } = stores();
 
@@ -33,6 +34,8 @@
 
 <Global />
 <Theme />
+
+<LoadingBar />
 
 <div class="container">
 	<Nav />
