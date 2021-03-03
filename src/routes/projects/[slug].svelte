@@ -101,6 +101,7 @@
     display: inline-flex;
     align-items: center;
     background: var(--color-secondary-400);
+    color: var(--color-secondary-400-text);
     text-transform: uppercase;
     font-size: 0.8em;
     font-weight: 600;
