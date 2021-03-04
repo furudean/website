@@ -2,8 +2,7 @@ name: Validate commit
 
 on:
   push:
-    # all except master
-    branches-ignore:
+    branches:
       - main
   pull_request:
     branches:
