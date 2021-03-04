@@ -33,5 +33,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # we have to run build so @sapper/app types exist
+      - name: Build
+        run: npm run build
+
       - name: Validate
         run: npm run validate
