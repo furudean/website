@@ -1,4 +1,4 @@
-name: Validate
+name: Validate commit
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
       - main
 
 jobs:
-  validate-pull-request:
+  Validate:
     runs-on: ubuntu-latest
 
     strategy:
