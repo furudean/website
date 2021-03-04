@@ -112,14 +112,12 @@
 
   abbr {
     cursor: help;
-    text-decoration-style: dotted;
-    text-decoration-line: underline;
+    text-decoration: dotted underline;
   }
 
   :target {
     position: relative;
-    text-decoration-style: solid;
-    text-decoration-line: underline;
+    text-decoration: underline;
 
     &::before {
       content: "§";
