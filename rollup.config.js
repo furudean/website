@@ -10,6 +10,7 @@ import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
+import autoprefixer from 'autoprefixer';
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
@@ -31,7 +32,14 @@ export default {
 				'process.env.NODE_ENV': JSON.stringify(mode)
 			}),
 			svelte({
-				preprocess: sveltePreprocess({ sourceMap: dev }),
+				preprocess: sveltePreprocess({
+					sourceMap: dev,
+					postcss: {
+						plugins: [
+							autoprefixer(),
+						]
+					}
+				}),
 				compilerOptions: {
 					dev,
 					hydratable: true
@@ -53,9 +61,7 @@ export default {
 				babelHelpers: 'runtime',
 				exclude: ['node_modules/@babel/**'],
 				presets: [
-					['@babel/preset-env', {
-						targets: '> 0.25%, not dead'
-					}]
+					['@babel/preset-env']
 				],
 				plugins: [
 					'@babel/plugin-syntax-dynamic-import',
