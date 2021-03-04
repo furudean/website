@@ -49,7 +49,6 @@
     background-color: var(--color-background-300);
     padding: var(--line-space);
     margin-bottom: var(--line-space);
-    max-width: 30em;
     border-radius: 1em;
     overflow: hidden; /* prevent margin collapse */
 

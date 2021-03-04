@@ -39,7 +39,6 @@
 
 <style>
   .landing {
-    max-width: 25em;
     grid-area: landing;
   }
 

@@ -28,16 +28,17 @@
 <style lang="scss">
 	.container {
 		display: grid;
-		grid-template-columns: auto minmax(0, 1fr);
+		grid-template-columns: 1fr 1fr;
 		grid-template-areas: "landing projects";
-		column-gap: calc(var(--line-space) * 3);
+		column-gap: calc(var(--line-space) * 2);
 	}
 
-	@media screen and (max-width: 60em) {
+	@media screen and (max-width: 45em) {
 		.container {
-			display: flex;
-			flex-direction: column;
-			justify-items: center;
+			grid-template-columns: 1fr;
+			grid-template-areas:
+				"landing"
+				"projects";
 		}
 	}
 </style>
