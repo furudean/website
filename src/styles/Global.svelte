@@ -69,12 +69,40 @@
   h1,
   h2,
   h3 {
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
     a:hover {
       text-decoration: underline;
     }
     a[href*="#"]:hover {
       text-decoration-style: dotted;
     }
+  }
+
+  a.text-link,
+  a.text-link:visited {
+    text-decoration: underline;
+    color: var(--color-primary-400);
+  }
+
+  // external links
+  a.text-link[href*="//"]:before
+  {
+    content: "";
+    display: inline-block;
+    vertical-align: baseline;
+    position: relative;
+    top: 2px; // visual balance
+    width: 1em;
+    height: 1em;
+    background-color: var(--color-primary-400);
+    mask-image: url("/media/open-in-new.svg");
+    mask-size: 100%;
+    mask-repeat: no-repeat;
+    mask-position: 50% 50%;
+    margin-right: 0.2em;
   }
 
   hr {

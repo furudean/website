@@ -31,16 +31,25 @@
     necessitatibus nostrum officia. Sunt, iure at sequi veniam reprehenderit
     nemo.
   </p>
-  <h3>
-    <a href="https://example.org" target="_blank" rel="noopener">
-      A heading that links externally
-    </a>
-  </h3>
+  <h2>Links</h2>
+  <p>
+    Just a common
+    <a class="text-link" href=".">link</a>
+  </p>
+  <p>
+    <a
+      class="text-link"
+      href="https://example.org"
+      target="_blank"
+      rel="noopener"
+    >
+      An external link</a
+    >
+  </p>
 </article>
 
 <style>
   article {
-    max-width: 50em;
     min-height: 150vh;
   }
 </style>
