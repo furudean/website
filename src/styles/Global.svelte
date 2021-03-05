@@ -140,6 +140,8 @@
     mask-size: 100%;
     mask-repeat: no-repeat;
     mask-position: 50% 50%;
+    position: relative;
+    top: 3px; /* visual balance */
   }
 
   figure {
