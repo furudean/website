@@ -11,7 +11,7 @@
 
 <h1>Error {status}</h1>
 
-<p>{error.message}</p>
+<p>{@html error.message}</p>
 
 {#if dev && error.stack}
 	<pre>{error.stack}</pre>
