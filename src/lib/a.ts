@@ -18,12 +18,12 @@ export function rewriteFragmentLinks(url: string): void {
  */
 export function updateFragmentLinkTarget(url: string): void {
   const anchors = document.querySelectorAll("h1 > a, h2 > a	, h3 > a" as "a");
-  const currentHash = new URL(url).hash;
+  const hash = new URL(url).hash;
 
   anchors.forEach((a) => {
     if (
-      currentHash.length &&
-      currentHash === new URL(a.href).hash
+      hash.length &&
+      hash === new URL(a.href).hash
     ) {
       a.parentElement.classList.add("is-target");
     } else {
