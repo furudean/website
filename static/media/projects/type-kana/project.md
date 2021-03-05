@@ -28,7 +28,7 @@ chunks can go a long way.
 Something I struggled with was a good way to visually represent that you can
 select any kana for the quiz, but while also allowing the user to study both
 pairs in one session. After getting some input from a friend, we figured out an
-intuitive solution for this — When you have 'both' selected and select a kana,
+intuitive solution for this --- When you have 'both' selected and select a kana,
 the katakana form first appears, and a short while later the hiragana form drops
 down on top. This communicates a good visual metaphor for what is happening.
 
