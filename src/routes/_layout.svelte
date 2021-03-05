@@ -4,8 +4,10 @@
 	import Nav from "../components/Nav.svelte";
 	import Global from "../styles/Global.svelte";
 	import Theme from "../styles/Theme.svelte";
+	import Code from "../styles/Code.svelte";
 	import { stores } from "@sapper/app";
 	import LoadingBar from "./_loading-bar.svelte";
+	import { rewriteFragmentLinks, updateFragmentLinkTarget } from "../lib/a";
 
 	const { page } = stores();
 
@@ -18,22 +20,20 @@
 			root.classList.add(theme + "-theme");
 		});
 
-		/**
-		 * Rewrite hashes on anchor links to include path
-		 * https://github.com/sveltejs/sapper/issues/904#issuecomment-540536561
-		 */
-		page.subscribe((value) => {
-			document.querySelectorAll("a").forEach((a) => {
-				if (a.hash && document.querySelectorAll(a.hash).length) {
-					a.href = value.path + a.hash;
-				}
-			});
+		page.subscribe(() => {
+			rewriteFragmentLinks(window.location.href);
+			updateFragmentLinkTarget(window.location.href);
 		});
 	});
 </script>
 
+<svelte:window
+	on:hashchange={() => updateFragmentLinkTarget(window.location.href)}
+/>
+
 <Global />
 <Theme />
+<Code />
 
 <LoadingBar />
 

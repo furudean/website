@@ -5,6 +5,7 @@ export interface Project {
   summary: string;
   link?: string;
   repo?: string;
+  articleUrl?: string;
 }
 
 export const projects: Project[] = [
@@ -21,6 +22,7 @@ export const projects: Project[] = [
     date: "2020-08-02",
     summary: "A quiz app to help you learn hiragana and katakana, the Japanese syllabaries",
     link: "https://type-kana.cass.moe/",
-    repo: "https://github.com/c-bandy/type-kana"
+    repo: "https://github.com/c-bandy/type-kana",
+    articleUrl: "/media/projects/type-kana/project.md"
   }
 ]

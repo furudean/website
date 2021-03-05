@@ -1,0 +1,210 @@
+<style lang="scss" global>
+	/*
+		Name: Base16 Atelier Sulphurpool Light
+		Author: Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/sulphurpool)
+
+		Prism template by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/prism/)
+		Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
+	*/
+	html.light-theme {
+		code,
+		pre {
+			background: #f5f7ff;
+			color: #5e6687;
+		}
+
+		.token.comment,
+		.token.prolog,
+		.token.doctype,
+		.token.cdata {
+			color: #898ea4;
+		}
+
+		.token.punctuation {
+			color: #5e6687;
+		}
+
+		.token.namespace {
+			opacity: 0.7;
+		}
+
+		.token.operator,
+		.token.boolean,
+		.token.number {
+			color: #c76b29;
+		}
+
+		.token.property {
+			color: #c08b30;
+		}
+
+		.token.tag {
+			color: #3d8fd1;
+		}
+
+		.token.string {
+			color: #22a2c9;
+		}
+
+		.token.selector {
+			color: #6679cc;
+		}
+
+		.token.attr-name {
+			color: #c76b29;
+		}
+
+		.token.entity,
+		.token.url,
+		.language-css .token.string,
+		.style .token.string {
+			color: #22a2c9;
+		}
+
+		.token.attr-value,
+		.token.keyword,
+		.token.control,
+		.token.directive,
+		.token.unit {
+			color: #ac9739;
+		}
+
+		.token.statement,
+		.token.regex,
+		.token.atrule {
+			color: #22a2c9;
+		}
+
+		.token.placeholder,
+		.token.variable {
+			color: #3d8fd1;
+		}
+
+		.token.deleted {
+			text-decoration: line-through;
+		}
+
+		.token.inserted {
+			border-bottom: 1px dotted #202746;
+			text-decoration: none;
+		}
+
+		.token.italic {
+			font-style: italic;
+		}
+
+		.token.important,
+		.token.bold {
+			font-weight: bold;
+		}
+
+		.token.important {
+			color: #c94922;
+		}
+
+		.token.entity {
+			cursor: help;
+		}
+
+		pre > code.highlight {
+			outline: 0.4em solid #c94922;
+			outline-offset: 0.4em;
+		}
+	}
+
+	/*
+		Dracula Theme originally by Zeno Rocha [@zenorocha]
+		https://draculatheme.com/
+		
+		Ported for PrismJS by Albert Vallverdu [@byverdu]
+	*/
+	html.dark-theme {
+		code,
+		pre {
+			color: #f8f8f2;
+			background: #282a36;
+		}
+
+		/* Inline code */
+		:not(pre) > code {
+			padding: 0.1em;
+			border-radius: 0.3em;
+			white-space: normal;
+		}
+
+		.token.comment,
+		.token.prolog,
+		.token.doctype,
+		.token.cdata {
+			color: #6272a4;
+		}
+
+		.token.punctuation {
+			color: #f8f8f2;
+		}
+
+		.namespace {
+			opacity: 0.7;
+		}
+
+		.token.property,
+		.token.tag,
+		.token.constant,
+		.token.symbol,
+		.token.deleted {
+			color: #ff79c6;
+		}
+
+		.token.boolean,
+		.token.number {
+			color: #bd93f9;
+		}
+
+		.token.selector,
+		.token.attr-name,
+		.token.string,
+		.token.char,
+		.token.builtin,
+		.token.inserted {
+			color: #50fa7b;
+		}
+
+		.token.operator,
+		.token.entity,
+		.token.url,
+		.language-css .token.string,
+		.style .token.string,
+		.token.variable {
+			color: #f8f8f2;
+		}
+
+		.token.atrule,
+		.token.attr-value,
+		.token.function,
+		.token.class-name {
+			color: #f1fa8c;
+		}
+
+		.token.keyword {
+			color: #8be9fd;
+		}
+
+		.token.regex,
+		.token.important {
+			color: #ffb86c;
+		}
+
+		.token.important,
+		.token.bold {
+			font-weight: bold;
+		}
+
+		.token.italic {
+			font-style: italic;
+		}
+
+		.token.entity {
+			cursor: help;
+		}
+	}
+</style>

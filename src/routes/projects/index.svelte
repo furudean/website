@@ -18,11 +18,13 @@
   <title>Projects · Cassidy Bandy</title>
 </svelte:head>
 
-<h1>Projects</h1>
-<ul>
-  {#each projects as project}
-    <li>
-      <a href={"projects/" + project.slug}>{project.title}</a> - {project.summary}
-    </li>
-  {/each}
-</ul>
+<article class="article">
+  <h1>Projects</h1>
+  <ul>
+    {#each projects as project}
+      <li>
+        <a href={"projects/" + project.slug}>{project.title}</a> - {project.summary}
+      </li>
+    {/each}
+  </ul>
+</article>

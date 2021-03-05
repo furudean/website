@@ -1,25 +1,45 @@
 <script context="module" lang="ts">
+  import marked from "marked";
+  import { markedOptions } from "../../lib/markdown";
+
+  marked.use(markedOptions);
+
   export async function preload({ params }) {
     // the `slug` parameter is available because
     // this file is called [slug].svelte
     const res = await this.fetch(`projects/${params.slug}.json`);
-    const data = await res.json();
+    const project = await res.json();
+
+    let html: string | undefined;
+
+    // fetch and parse markdown, if any
+    if (project.articleUrl) {
+      const article = await this.fetch(project.articleUrl);
+      if (article.status === 200) {
+        html = marked(await article.text());
+      } else {
+        this.error(500, `Missing article at ${project.articleUrl}`);
+      }
+    }
 
     if (res.status === 200) {
-      return { project: data };
+      return { project, articleHtml: html };
     } else {
-      this.error(res.status, data.message);
+      this.error(res.status, project.message);
     }
   }
 </script>
 
 <script lang="ts">
-  import { mdiGithub, mdiLink } from "@mdi/js";
   import type { Project } from "./_projects";
   import { relativeDate } from "../../lib/dateTime";
-  import Icon from "../../components/Icon.svelte";
+  import { stores } from "@sapper/app";
+  import Links from "./_project-links.svelte";
+
+  const { page } = stores();
 
   export let project: Project;
+  export let articleHtml: string | undefined;
 
   const title = `${project.title} · Projects · Cassidy Bandy`;
 </script>
@@ -28,36 +48,26 @@
   <title>{title}</title>
 </svelte:head>
 
-<nav aria-label="Breadcrumb">
-  <a href="/projects">Projects</a> /
-</nav>
-<h1>{project.title}</h1>
-<div class="article-info">
-  <time datetime={project.date}>{relativeDate(new Date(project.date))}</time>
-</div>
+<article class="article" class:has-tombstone={articleHtml}>
+  <nav aria-label="Breadcrumb">
+    <a href="/projects">Projects</a> /
+  </nav>
+  <h1>
+    <a href={$page.path}>{project.title}</a>
+  </h1>
+  <div class="article-info">
+    <time datetime={project.date}>{relativeDate(new Date(project.date))}</time>
+  </div>
 
-<p>{project.summary}</p>
+  <Links {project} />
 
-<div class="links">
-  {#if project.link}
-    <a class="link-button" href={project.link} target="_blank" rel="noopener">
-      <Icon path={mdiLink} size="1.5em" />
-      <span>Visit project</span>
-    </a>
+  {#if articleHtml}
+    {@html articleHtml}
+    <Links {project} />
+  {:else}
+    <p>{project.summary}</p>
   {/if}
-  {#if project.repo}
-    <a
-      class="link-button"
-      href={project.repo}
-      target="_blank"
-      rel="noopener"
-      title="GitHub repository"
-    >
-      <Icon path={mdiGithub} size="1.5em" />
-      <span>GitHub repo</span>
-    </a>
-  {/if}
-</div>
+</article>
 
 <style lang="scss">
   nav {
@@ -78,38 +88,5 @@
   .article-info {
     color: var(--color-text-300);
     margin-bottom: var(--line-space);
-  }
-
-  .links {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: -2em;
-  }
-
-  .links > * {
-    margin-top: 2em;
-    margin-right: 2em;
-  }
-
-  .link-button {
-    display: inline-flex;
-    align-items: center;
-    background: var(--color-secondary-400);
-    color: var(--color-secondary-400-text);
-    text-transform: uppercase;
-    font-size: 0.8em;
-    font-weight: 600;
-    line-height: 3;
-    letter-spacing: 0.1em;
-    padding: 0 2em;
-    border-radius: 0.5em;
-
-    span {
-      margin-left: 1em;
-    }
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 </style>

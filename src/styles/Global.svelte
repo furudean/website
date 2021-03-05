@@ -20,9 +20,9 @@
     background: var(--color-background-400);
     color: var(--color-text-400);
     position: relative;
-    height: 100%;
+    min-height: 100%;
     width: 100%;
-    padding: 3em 3em 0;
+    padding: 3em;
 
     font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
       "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
@@ -69,15 +69,23 @@
   h1,
   h2,
   h3 {
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
     a:hover {
       text-decoration: underline;
     }
     a[href*="#"]:hover {
       text-decoration-style: dotted;
+    }
+
+    &.is-target {
+      position: relative;
+      text-decoration: underline;
+
+      &::before {
+        content: "§";
+        position: absolute;
+        left: -1em;
+        color: var(--color-text-400);
+      }
     }
   }
 
@@ -102,7 +110,7 @@
     mask-size: 100%;
     mask-repeat: no-repeat;
     mask-position: 50% 50%;
-    margin-right: 0.2em;
+    margin-right: 0.1em;
   }
 
   hr {
@@ -115,15 +123,77 @@
     text-decoration: dotted underline;
   }
 
-  :target {
-    position: relative;
-    text-decoration: underline;
+  article.article {
+    max-width: 45em;
+    margin: 0 auto;
+  }
 
-    &::before {
-      content: "§";
-      position: absolute;
-      left: -1em;
-      color: var(--color-text-400);
+  .has-tombstone > p:last-of-type:after {
+    content: "";
+    display: inline-block;
+    vertical-align: baseline;
+    margin-left: 0.25em;
+    width: 1em;
+    height: 1em;
+    background-color: var(--color-primary-400);
+    mask-image: url("/media/heart.svg");
+    mask-size: 100%;
+    mask-repeat: no-repeat;
+    mask-position: 50% 50%;
+  }
+
+  figure {
+    width: 100%;
+    margin-bottom: var(--line-space);
+
+    :first-child {
+      max-width: 100%;
+      margin: 0 auto;
+      display: block;
     }
+    figcaption {
+      margin-top: calc(var(--line-space) * 0.5);
+      text-align: center;
+      color: var(--color-text-300);
+    }
+  }
+
+  pre,
+  code {
+    font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono",
+      "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono",
+      "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L",
+      "Courier New", Courier, monospace;
+    font-size: 0.9em;
+    line-height: 1.4;
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    tab-size: 4;
+    hyphens: none;
+  }
+
+  /* Code blocks */
+  pre {
+    padding: 1rem 0 1rem 1rem;
+    margin-bottom: var(--line-space);
+    overflow: auto;
+  }
+
+  /* Inline code */
+  :not(pre) > code {
+    padding: 0.1em;
+    border-radius: 0.3em;
+    white-space: normal;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  strong {
+    font-weight: bold;
   }
 </style>
