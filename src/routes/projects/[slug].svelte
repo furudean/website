@@ -21,7 +21,7 @@
       } else {
         this.error(
           500,
-          `Expected status 200 from ${project.articleUrl}, got ${article.status}`
+          `Expected status 200 from <code>${article.url}</code>, got ${article.status}`
         );
       }
     }
