@@ -45,7 +45,7 @@
     align-items: center;
     background: var(--color-secondary-400);
     color: var(--color-secondary-400-text);
-    border-bottom: 1px solid var(--color-secondary-500);
+    border-bottom: 2px solid var(--color-secondary-500);
     text-transform: uppercase;
     font-size: 0.8em;
     font-weight: 600;
