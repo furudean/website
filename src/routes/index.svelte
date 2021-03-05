@@ -1,5 +1,6 @@
 <script context="module" lang="ts">
 	import type { Preload } from "@sapper/common";
+	import Meta from "../components/Meta.svelte";
 
 	export const preload: Preload = async function (page) {
 		return this.fetch("/projects.json")
@@ -20,6 +21,10 @@
 
 <svelte:head>
 	<title>Home · Cassidy Bandy</title>
+	<Meta
+		title="Cassidy Bandy"
+		description="Cassidy Bandy is a full-stack engineer based in UT, USA."
+	/>
 </svelte:head>
 
 <div class="container">

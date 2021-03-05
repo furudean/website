@@ -39,17 +39,17 @@
   import { relativeDate } from "../../lib/dateTime";
   import { stores } from "@sapper/app";
   import Links from "./_project-links.svelte";
+  import Meta from "../../components/Meta.svelte";
 
   const { page } = stores();
 
   export let project: Project;
   export let articleHtml: string | undefined;
-
-  const title = `${project.title} · Projects · Cassidy Bandy`;
 </script>
 
 <svelte:head>
-  <title>{title}</title>
+  <title>{`${project.title} · Projects · Cassidy Bandy`}</title>
+  <Meta title={project.title} description={project.summary} />
 </svelte:head>
 
 <article class="article" class:has-tombstone={articleHtml}>
