@@ -49,7 +49,11 @@
 
 <svelte:head>
   <title>{`${project.title} · Projects · Cassidy Bandy`}</title>
-  <Meta title={project.title} description={project.summary} />
+  <Meta
+    title={project.title}
+    description={project.summary}
+    image={project.coverImageUrl}
+  />
 </svelte:head>
 
 <article class="article" class:has-tombstone={articleHtml}>
