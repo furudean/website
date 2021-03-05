@@ -51,7 +51,7 @@
   <title>{`${project.title} · Projects · Cassidy Bandy`}</title>
   <Meta
     title={project.title}
-    description={project.summary}
+    description={`${project.title}, a project by Cassidy Bandy — ${project.summary}`}
     image={project.coverImageUrl}
   />
 </svelte:head>
