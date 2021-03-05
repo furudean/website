@@ -1,10 +1,11 @@
 <script context="module" lang="ts">
   import marked from "marked";
   import { markedOptions } from "../../lib/markdown";
+  import type { Preload } from "@sapper/common";
 
   marked.use(markedOptions);
 
-  export async function preload({ params }) {
+  export const preload: Preload = async function ({ params }) {
     // the `slug` parameter is available because
     // this file is called [slug].svelte
     const res = await this.fetch(`projects/${params.slug}.json`);
@@ -18,7 +19,10 @@
       if (article.status === 200) {
         html = marked(await article.text());
       } else {
-        this.error(500, `Missing article at ${project.articleUrl}`);
+        this.error(
+          500,
+          `Expected status 200 from ${project.articleUrl}, got ${article.status}`
+        );
       }
     }
 
@@ -27,7 +31,7 @@
     } else {
       this.error(res.status, project.message);
     }
-  }
+  };
 </script>
 
 <script lang="ts">
