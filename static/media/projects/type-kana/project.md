@@ -33,7 +33,7 @@ the katakana form first appears, and a short while later the hiragana form drops
 down on top. This communicates a good visual metaphor for what is happening.
 
 <figure>
-  <video autoplay loop muted>
+  <video autoplay loop playsinline muted>
     <source src="/media/projects/type-kana/select-kana.mov" type="video/mp4">
   </video>
   <figcaption>
@@ -48,7 +48,7 @@ Implementing the quiz itself was pretty straight forward. I inherited the clever
 where I saw fit and sprinkling my own design language into the interface.
 
 <figure>
-  <video autoplay loop muted>
+  <video autoplay loop playsinline muted>
     <source src="/media/projects/type-kana/session.mov" type="video/mp4">
   </video>
   <figcaption>
