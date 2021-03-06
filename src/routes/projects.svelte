@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-  import type { Project } from "./_projects";
+  import type { Project } from "./projects/_projects";
 
   export let projects: Project[];
 </script>
