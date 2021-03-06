@@ -26,6 +26,6 @@ export const projects: Project[] = [
     coverImageUrl: "https://cass.moe/media/projects/type-kana/session.jpg",
     link: "https://type-kana.cass.moe/",
     repo: "https://github.com/c-bandy/type-kana",
-    articleUrl: "/media/projects/type-kana/project.md"
+    articleUrl: "/articles/type-kana.md"
   }
 ]
