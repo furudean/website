@@ -198,4 +198,14 @@
   strong {
     font-weight: bold;
   }
+
+  ul.list,
+  ol.list {
+    margin-bottom: var(--line-space);
+
+    li {
+      margin-left: 2em;
+      padding-left: 1em;
+    }
+  }
 </style>

@@ -23,10 +23,10 @@ export const renderer: Renderer = {
 	},
 
 	// render images as a <figure> element
-	image(href, title, text) {
+	image(href, title, alt) {
 		return html`
 			<figure>
-				<img src="${href}" alt="${text}">
+				<img src="${href}" alt="${alt}">
 				${title ? `<figcaption>${title}</figcaption>` : ""}
 			</figure>
     `;
@@ -44,6 +44,12 @@ export const renderer: Renderer = {
 				${externalAttributes}
 			>${text}</a>
   	`;
+	},
+
+	list(body, ordered, start) {
+		const type = ordered ? 'ol' : 'ul',
+			startatt = (ordered && start !== 1) ? (' start="' + start + '"') : '';
+		return `<${type}${startatt} class="list">${body}</${type}>`;
 	},
 };
 
