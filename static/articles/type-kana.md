@@ -17,7 +17,7 @@ and built on the newest standards in web technology.
 
 ## Study options
 
-The first thing I immediately wanted to "fix" from the original Type Kana is to
+The first thing I immediately wanted to fix from the original Type Kana is to
 make it more friendly to beginners. The original tests you on the full set of
 katakana or hiragana at time. If, for example, you only know 50% of hiragana,
 then you'd get the wrong answer 50% of the time. This pushes "you messed up"
@@ -91,7 +91,7 @@ function handleInput() {
 }
 ```
 
-Functional JavaScript is awesome. 😎
+Functional JavaScript is awesome! 😎
 
 ---
 
