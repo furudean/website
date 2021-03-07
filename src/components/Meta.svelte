@@ -27,6 +27,7 @@
 <meta name="description" content={description} />
 <meta name="theme-color" content="#bd84bc" />
 
+<meta property="og:site_name" content="Cassidy Bandy" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
