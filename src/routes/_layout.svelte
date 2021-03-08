@@ -8,7 +8,7 @@
 	import Code from "../styles/Code.svelte";
 	import { stores } from "@sapper/app";
 	import LoadingBar from "./_loading-bar.svelte";
-	import { rewriteFragmentLinks, updateFragmentLinkTarget } from "../lib/a";
+	import { rewriteFragmentLinks, updateFragmentLinkTarget } from "../lib/link";
 
 	const { page } = stores();
 
