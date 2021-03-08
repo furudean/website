@@ -1,9 +1,7 @@
 <script context="module" lang="ts">
   import marked from "marked";
-  import { markedOptions } from "../../lib/markdown";
+  import { renderer } from "../../lib/markdown";
   import type { Preload } from "@sapper/common";
-
-  marked.use(markedOptions);
 
   export const preload: Preload = async function ({ params }) {
     // the `slug` parameter is available because
@@ -17,7 +15,7 @@
     if (project.articleUrl) {
       const article = await this.fetch(project.articleUrl);
       if (article.status === 200) {
-        html = marked(await article.text());
+        html = marked(await article.text(), { renderer });
       } else {
         this.error(
           500,
