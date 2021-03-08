@@ -2,6 +2,7 @@
 	import { onMount } from "svelte";
 	import { osTheme } from "../stores/theme";
 	import Nav from "../components/Nav.svelte";
+	import Reset from "../styles/Reset.svelte";
 	import Global from "../styles/Global.svelte";
 	import Theme from "../styles/Theme.svelte";
 	import Code from "../styles/Code.svelte";
@@ -31,6 +32,7 @@
 	on:hashchange={() => updateFragmentLinkTarget(window.location.href)}
 />
 
+<Reset />
 <Global />
 <Theme />
 <Code />

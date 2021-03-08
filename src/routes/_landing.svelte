@@ -29,7 +29,7 @@
         target="_blank"
         rel="noopener"
       >
-        <Icon title="GitHub Icon" path={mdiGithub} size="1.75em" />
+        <Icon title="GitHub Icon" path={mdiGithub} size="1.5em" />
         <span>GitHub</span>
         <Icon path={mdiOpenInNew} />
       </a>
@@ -47,9 +47,9 @@
   }
 
   hr {
-    border-top: 1px solid var(--color-text-300);
-    margin-left: 0;
     width: 4em;
+    margin: 0;
+    margin-bottom: var(--line-space);
   }
 
   ul.links {
@@ -60,16 +60,18 @@
   }
 
   ul.links li {
+    float: left;
     margin-bottom: var(--line-space);
   }
 
   ul.links a {
     display: flex;
     align-items: center;
+    float: left;
   }
 
-  ul.links a::hover {
-    text-decoration: solid underline var(--text-color-400);
+  ul.links a:hover {
+    text-decoration: underline;
   }
 
   ul.links span {

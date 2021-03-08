@@ -56,22 +56,22 @@
   />
 </svelte:head>
 
+<nav aria-label="Breadcrumb">
+  <a href="/projects">Projects</a> /
+</nav>
+<h1>
+  <a href={$page.path}>{project.title}</a>
+</h1>
+<div class="article-info">
+  <time datetime={project.date}>{relativeDate(new Date(project.date))}</time>
+</div>
+<Links {project} />
+
 <article class="article" class:has-tombstone={articleHtml}>
-  <nav aria-label="Breadcrumb">
-    <a href="/projects">Projects</a> /
-  </nav>
-  <h1>
-    <a href={$page.path}>{project.title}</a>
-  </h1>
-  <div class="article-info">
-    <time datetime={project.date}>{relativeDate(new Date(project.date))}</time>
-  </div>
-
-  <Links {project} />
-
   {#if articleHtml}
     {@html articleHtml}
-    <Links {project} />
+    <br />
+    <Links {project} fill={true} />
   {:else}
     <p>{project.summary}</p>
   {/if}

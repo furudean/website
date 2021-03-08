@@ -29,6 +29,10 @@
       "Helvetica Neue", sans-serif;
 
     line-height: var(--line-height);
+
+    @media screen and (max-width: 45em) {
+      padding: 1.5em;
+    }
   }
 
   p {
@@ -114,8 +118,10 @@
   }
 
   hr {
-    border-top: 3px double var(--color-text-300);
-    margin-bottom: var(--line-space);
+    height: 1px;
+    max-width: 15ch;
+    background: var(--color-text-300);
+    margin: calc(2 * var(--line-space)) auto;
   }
 
   abbr {
@@ -125,7 +131,7 @@
 
   article.article {
     max-width: 45em;
-    margin: 0 auto;
+    margin: 0 auto var(--line-space);
   }
 
   .has-tombstone > p:last-of-type:after {
