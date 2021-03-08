@@ -1,4 +1,4 @@
-import { Renderer } from "marked";
+import { Renderer, MarkedOptions } from "marked";
 import { html } from "common-tags";
 import Prism from 'prismjs';
 import 'prism-svelte';
@@ -7,16 +7,7 @@ function isAbsoluteUrl(url: string): boolean {
 	return url.startsWith('http://') || url.startsWith('https://');
 }
 
-const renderer = new Renderer({
-	smartypants: true,
-	highlight: (code, language) => {
-		if (language in Prism.languages) {
-			return Prism.highlight(code, Prism.languages[language], language);
-		} else {
-			return code;
-		}
-	},
-})
+const renderer = new Renderer()
 
 // add fragment links to headings
 renderer.heading = (text, level, _, slugger) => {
@@ -69,3 +60,11 @@ renderer.paragraph = (text) => {
 }
 
 export { renderer };
+
+export const highlight: MarkedOptions["highlight"] = (code, language) => {
+	if (language in Prism.languages) {
+		return Prism.highlight(code, Prism.languages[language], language);
+	} else {
+		return code;
+	}
+}
