@@ -4,7 +4,7 @@ const months = [
   "Sep", "Oct", "Nov", "Dec"
 ];
 
-export function relativeDate(date: string | number | Date): string {
+export function friendlyDate(date: string | number | Date): string {
   const d = new Date(date);
   const dd = d.getDate() + 1;
   const mmm = months[d.getMonth()];

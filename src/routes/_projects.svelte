@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Project } from "./projects/_projects";
-  import { relativeDate } from "../lib/dateTime";
+  import { friendlyDate } from "../lib/dateTime";
   import Icon from "../components/Icon.svelte";
   import { mdiGithub } from "@mdi/js";
 
@@ -29,7 +29,7 @@
       </h3>
       <div class="article-info">
         <time datetime={project.date}>
-          {relativeDate(new Date(project.date))}
+          {friendlyDate(new Date(project.date))}
         </time>
       </div>
       <p>{project.summary}</p>
