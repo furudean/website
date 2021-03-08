@@ -58,4 +58,14 @@ renderer.list = (body, ordered, start) => {
 	return `<${type}${startatt} class="list">${body}</${type}>`;
 }
 
+// Prevent images from generating extraneous paragraphs
+// See issue: https://github.com/markedjs/marked/issues/773#issuecomment-238095374
+renderer.paragraph = (text) => {
+	if (text.startsWith('<figure') && text.endsWith('</figure>')) {
+		return text;
+	} else {
+		return '<p>' + text + '</p>';
+	}
+}
+
 export { renderer };
