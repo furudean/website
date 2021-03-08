@@ -29,7 +29,7 @@
       </h3>
       <div class="article-info">
         <time datetime={project.date}>
-          {friendlyDate(new Date(project.date))}
+          {friendlyDate(project.date)}
         </time>
       </div>
       <p>{project.summary}</p>

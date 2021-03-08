@@ -36,7 +36,7 @@
 
 <script lang="ts">
   import type { Project } from "./_projects";
-  import { relativeDate } from "../../lib/dateTime";
+  import { friendlyDate } from "../../lib/dateTime";
   import { stores } from "@sapper/app";
   import Links from "./_project-links.svelte";
   import Meta from "../../components/Meta.svelte";
@@ -63,7 +63,7 @@
   <a href={$page.path}>{project.title}</a>
 </h1>
 <div class="article-info">
-  <time datetime={project.date}>{relativeDate(new Date(project.date))}</time>
+  <time datetime={project.date}>{friendlyDate(project.date)}</time>
 </div>
 <Links {project} />
 
