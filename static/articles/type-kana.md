@@ -91,8 +91,6 @@ function handleInput() {
 }
 ```
 
-Functional JavaScript is awesome! 😎
-
 ---
 
 In the hopefully not so distant future I would like to look into adding <abbr
