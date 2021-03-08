@@ -57,7 +57,7 @@
     }
 
     .repo-link :global(.svg-icon) {
-      top: 3px;
+      top: 0.125em; /* visual balance */
     }
 
     .article-info {

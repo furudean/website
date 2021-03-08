@@ -10,7 +10,7 @@
   </h1>
   <p>
     I'm a full-stack engineer based in UT, USA. I care about CSS, typography,
-    <abbr title="accessibility">a11y</abbr> and cute things.
+    accessibility and cute things.
   </p>
   <p>
     In my free time I like to learn more about programming, study the Japanese
@@ -43,7 +43,7 @@
   }
 
   h1 :global(.svg-icon) {
-    top: 10px;
+    top: 0.15em; /* visual balance */
   }
 
   hr {
