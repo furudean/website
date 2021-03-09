@@ -17,8 +17,8 @@
     language and explore new media.
   </p>
   <p>
-    I'm currently open for new work opportunities. Let's make the web a little
-    nicer together?
+    I'm currently looking for new work opportunities. Let's make the web a
+    little nicer together?
   </p>
   <hr />
   <ul class="links">
