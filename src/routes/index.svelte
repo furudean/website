@@ -38,11 +38,13 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		grid-template-areas: "landing projects";
-		column-gap: calc(var(--line-space) * 2);
-	}
+		column-gap: calc(2 * var(--line-space));
 
-	@media screen and (max-width: 45em) {
-		.container {
+		@media screen and (min-width: 45em) and (max-width: 60em) {
+			grid-template-columns: 4fr 5fr;
+		}
+
+		@media screen and (max-width: 45em) {
 			grid-template-columns: 1fr;
 			grid-template-areas:
 				"landing"
