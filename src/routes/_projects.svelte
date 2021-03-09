@@ -34,7 +34,7 @@
       </div>
       <p>{project.summary}</p>
       <p>
-        <a class="project-link" href={"/projects/" + project.slug}>Read more</a>
+        <a class="text-link" href={"/projects/" + project.slug}>Read more</a>
       </p>
     </article>
   {/each}
@@ -46,8 +46,9 @@
   }
 
   .project {
-    background-color: var(--color-background-300);
-    padding: var(--line-space);
+    // background-color: var(--color-background-300);
+    border: 2px solid var(--color-text-100);
+    padding: calc(var(--line-space) - 2px);
     margin-bottom: var(--line-space);
     border-radius: 1em;
     overflow: hidden; /* prevent margin collapse */
@@ -67,11 +68,6 @@
 
     p {
       margin-bottom: calc(var(--line-space) * 0.5);
-    }
-
-    .project-link {
-      text-decoration: underline;
-      color: var(--color-primary-400);
     }
 
     > :last-child {

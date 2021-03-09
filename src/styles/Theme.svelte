@@ -25,9 +25,9 @@
 
     --color-error: #ff495c;
 
-    --color-background-400: #fffbf2;
-    --color-background-300: #fff3d6;
-    --color-background-200: #ffedc2;
+    --color-background-400: #ffffff;
+    --color-background-300: #fff2e5;
+    --color-background-200: #ffeedd;
 
     --color-text-400: #12242b;
     --color-text-300: #47545a;
@@ -47,9 +47,9 @@
     --color-primary-600: #fbdbea;
     --color-primary-600-text: #210124;
 
-    --color-secondary-300: #323eae;
+    --color-secondary-300: #001c82;
     --color-secondary-300-text: #ffffff;
-    --color-secondary-200: #001c82;
+    --color-secondary-200: #323eae;
     --color-secondary-200-text: #ffffff;
     --color-secondary-400: #6564db;
     --color-secondary-400-text: #ffffff;

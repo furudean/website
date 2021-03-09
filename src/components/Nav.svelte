@@ -46,9 +46,9 @@
 
 	.divider {
 		height: 1em;
-		width: 2px;
+		width: 1px;
 		background: var(--color-text-200);
-		margin: 0 1.5em;
+		margin: 0 var(--line-space);
 	}
 
 	ul {
