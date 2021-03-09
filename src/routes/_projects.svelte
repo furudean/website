@@ -31,6 +31,8 @@
         <time datetime={project.date}>
           {friendlyDate(project.date)}
         </time>
+        ·
+        <span>{project.kind}</span>
       </div>
       <p>{project.summary}</p>
       <p>

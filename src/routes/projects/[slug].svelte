@@ -1,9 +1,9 @@
 <script context="module" lang="ts">
-  import marked from "marked";
+  import marked, { MarkedOptions } from "marked";
   import { renderer, highlight } from "../../lib/markdown";
   import type { Preload } from "@sapper/common";
 
-  const markedOptions = {
+  const markedOptions: MarkedOptions = {
     renderer,
     highlight,
     smartypants: true,
@@ -46,6 +46,7 @@
   import Meta from "../../components/Meta.svelte";
 
   const { page } = stores();
+  const segments = $page.path.slice(1).split("/").slice(0, -1);
 
   export let project: Project;
   export let articleHtml: string | undefined;
@@ -60,14 +61,19 @@
   />
 </svelte:head>
 
-<nav aria-label="Breadcrumb">
-  <a href="/projects">Projects</a> /
+<nav aria-label="Breadcrumbs">
+  {#each segments as segment, i}
+    <a href={"/" + segments.slice(0, i + 1).join("/")}>{segment}</a>
+    <span> / </span>
+  {/each}
 </nav>
 <h1>
   <a href={$page.path}>{project.title}</a>
 </h1>
 <div class="article-info">
   <time datetime={project.date}>{friendlyDate(project.date)}</time>
+  ·
+  <span>{project.kind}</span>
 </div>
 <Links {project} />
 

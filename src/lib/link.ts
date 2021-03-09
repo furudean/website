@@ -5,9 +5,14 @@
  * https://github.com/sveltejs/sapper/issues/904#issuecomment-540536561
  */
 export function rewriteFragmentLinks(url: string): void {
+  const { origin, pathname } = new URL(url);
+
   document.querySelectorAll("a").forEach((a) => {
-    if (a.hash && a.hash.length) {
-      a.href = new URL(url).pathname + a.hash;
+    if (
+      a.hash.length > 0 &&
+      a.origin === origin
+    ) {
+      a.href = pathname + a.hash;
     }
   });
 }
@@ -18,7 +23,7 @@ export function rewriteFragmentLinks(url: string): void {
  */
 export function updateFragmentLinkTarget(url: string): void {
   const anchors = document.querySelectorAll("h1 > a, h2 > a	, h3 > a" as "a");
-  const hash = new URL(url).hash;
+  const { hash } = new URL(url);
 
   anchors.forEach((a) => {
     if (
