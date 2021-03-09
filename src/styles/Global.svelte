@@ -211,7 +211,7 @@
 
     li {
       margin-left: 2em;
-      padding-left: 1em;
+      padding-left: 0.5em;
     }
   }
 
