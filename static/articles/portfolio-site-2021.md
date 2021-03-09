@@ -7,10 +7,6 @@ I moved to a completely new country! I wanted to represent this change in
 my life with a new brand that represents how both me and my skills have evolved
 in the recent years.
 
-## Design
-
-Inspired by 
-
 ## Dive into Sapper
 
 Since I really enjoyed using Svelte for my [last project](/projects/type-kana),
