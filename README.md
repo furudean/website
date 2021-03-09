@@ -1,8 +1,8 @@
 # [website](https://cass.moe/)
 
 <img src="static/logo.svg" 
-  width="192" 
-  height="192" 
+  width="128" 
+  height="128" 
   align="right" 
   alt="Website logotype" />
 
