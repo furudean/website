@@ -22,7 +22,8 @@
 <ul class="list">
   {#each projects as project}
     <li>
-      <a href={"projects/" + project.slug}>{project.title}</a> - {project.summary}
+      <a href={"projects/" + project.slug} class="text-link">{project.title}</a>
+      - {project.summary}
     </li>
   {/each}
 </ul>
