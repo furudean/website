@@ -2,6 +2,7 @@ import { Renderer, MarkedOptions } from "marked";
 import { html } from "common-tags";
 import Prism from 'prismjs';
 import 'prism-svelte';
+import 'prismjs/components/prism-json';
 
 function isAbsoluteUrl(url: string): boolean {
 	return url.startsWith('http://') || url.startsWith('https://');
