@@ -52,9 +52,8 @@
   }
 
   .project {
-    // background-color: var(--color-background-300);
-    border: 2px solid var(--color-text-100);
-    padding: calc(var(--line-space) - 2px);
+    border: 1px solid var(--color-text-100);
+    padding: calc(var(--line-space) - 1px);
     margin-bottom: var(--line-space);
     border-radius: 1em;
     overflow: hidden; /* prevent margin collapse */
