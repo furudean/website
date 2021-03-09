@@ -127,8 +127,8 @@
 
 		/* Inline code */
 		:not(pre) > code {
-			padding: 0.1em;
-			border-radius: 0.3em;
+			padding: 0.3em;
+			border-radius: 0.5em;
 			white-space: normal;
 		}
 

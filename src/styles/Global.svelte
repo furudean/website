@@ -214,4 +214,9 @@
       padding-left: 1em;
     }
   }
+
+  blockquote {
+    padding: 0 1em;
+    border-left: 0.25em solid var(--color-text-100);
+  }
 </style>
