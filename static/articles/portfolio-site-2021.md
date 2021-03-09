@@ -2,10 +2,10 @@
 times, the middle row with linguistic guide
 lines](/media/projects/portfolio-site-2021/cover.png)
 
-2021 was a big year for me. Not only did I quit my 3 year position at TIQQE, but
-I moved to a completely new country! I wanted to represent this change in
-my life with a new brand that represents how both me and my skills have evolved
-in the recent years.
+2021 was a big year for me. Not only did I leave my 3 year position at
+[TIQQE](https://tiqqe.com/), but I moved to a completely new country! I wanted
+to represent this change in my life with a new brand that represents how both me
+and my skills have evolved in the recent years.
 
 ## Dive into Sapper
 
