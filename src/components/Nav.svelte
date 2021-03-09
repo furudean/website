@@ -22,14 +22,14 @@
 					projects
 				</a>
 			</li>
-			<li>
+			<!-- <li>
 				<a
 					href="/about"
 					aria-current={$page.path.startsWith("/about") ? "page" : undefined}
 				>
 					about
 				</a>
-			</li>
+			</li> -->
 		</ul>
 	</nav>
 {/if}
