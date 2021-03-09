@@ -8,7 +8,7 @@
 
 {#if $page.path !== "/"}
 	<nav role="navigation">
-		<a href="." title="Home" class="logo">
+		<a href="." title="Home" class="logo" sapper:prefetch>
 			<Icon path={mdiHeart} size="2em" color="var(--color-primary-400)" />
 		</a>
 		<div class="divider" aria-hidden="true" />
@@ -17,18 +17,19 @@
 				<a
 					href="/projects"
 					aria-current={$page.path.startsWith("/projects") ? "page" : undefined}
+					sapper:prefetch
 				>
 					projects
 				</a>
 			</li>
-			<!-- <li>
+			<li>
 				<a
-					href="/contact"
-					aria-current={$page.path.startsWith("/contact") ? "page" : undefined}
+					href="/about"
+					aria-current={$page.path.startsWith("/about") ? "page" : undefined}
 				>
-					contact
+					about
 				</a>
-			</li> -->
+			</li>
 		</ul>
 	</nav>
 {/if}

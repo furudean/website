@@ -9,12 +9,14 @@
 
 <section class="projects">
   <h2>
-    <a href="/projects">Projects</a>
+    <a href="/projects" sapper:prefetch>Projects</a>
   </h2>
   {#each projects as project}
     <article class="project">
       <h3>
-        <a href={"/projects/" + project.slug}>{project.title}</a>
+        <a href={"/projects/" + project.slug} sapper:prefetch>
+          {project.title}
+        </a>
         {#if project.repo}
           <a
             class="repo-link"
@@ -36,7 +38,9 @@
       </div>
       <p>{project.summary}</p>
       <p>
-        <a class="text-link" href={"/projects/" + project.slug}>Read more</a>
+        <a class="text-link" href={"/projects/" + project.slug} sapper:prefetch>
+          Read more
+        </a>
       </p>
     </article>
   {/each}

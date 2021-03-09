@@ -63,7 +63,9 @@
 
 <nav aria-label="Breadcrumbs">
   {#each segments as segment, i}
-    <a href={"/" + segments.slice(0, i + 1).join("/")}>{segment}</a>
+    <a href={"/" + segments.slice(0, i + 1).join("/")} sapper:prefetch>
+      {segment}
+    </a>
     <span> / </span>
   {/each}
 </nav>
