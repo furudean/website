@@ -22,6 +22,15 @@ const onwarn = (warning, onwarn) =>
 	(warning.code === 'THIS_IS_UNDEFINED') ||
 	onwarn(warning);
 
+const preprocessOptions = {
+	sourceMap: dev,
+	postcss: {
+		plugins: [
+			autoprefixer(),
+		]
+	}
+}
+
 export default {
 	client: {
 		input: config.client.input().replace(/\.js$/, '.ts'),
@@ -32,14 +41,7 @@ export default {
 				'process.env.NODE_ENV': JSON.stringify(mode)
 			}),
 			svelte({
-				preprocess: sveltePreprocess({
-					sourceMap: dev,
-					postcss: {
-						plugins: [
-							autoprefixer(),
-						]
-					}
-				}),
+				preprocess: sveltePreprocess(preprocessOptions),
 				compilerOptions: {
 					dev,
 					hydratable: true
@@ -89,7 +91,7 @@ export default {
 				'process.env.NODE_ENV': JSON.stringify(mode)
 			}),
 			svelte({
-				preprocess: sveltePreprocess({ sourceMap: dev }),
+				preprocess: sveltePreprocess(preprocessOptions),
 				compilerOptions: {
 					dev,
 					generate: 'ssr',
