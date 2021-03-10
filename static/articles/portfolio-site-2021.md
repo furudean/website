@@ -86,8 +86,6 @@ data.
 twitter.com](/media/projects/portfolio-site-2021/link-preview.png "What you see
 when you link the Type Kana project on Twitter. Isn't my baby beautiful?")
 
-## Even crazier
-
 Of course, you can get as complicated as you want with this pattern. The page
 you're reading right now [is composed of
 Markdown](/articles/portfolio-site-2021.md) that gets rendered when you request
