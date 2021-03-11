@@ -6,7 +6,7 @@ const months = [
 
 export function friendlyDate(date: string | number | Date): string {
   const d = new Date(date);
-  const dd = d.getDate() + 1;
+  const dd = d.getDate();
   const mmm = months[d.getMonth()];
   const yyyy = d.getFullYear();
 
