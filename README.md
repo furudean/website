@@ -1,10 +1,10 @@
 # [website](https://cass.moe/)
 
-<img src="static/logo.svg" 
+<img src="static/favicon.svg" 
   width="128" 
   height="128" 
   align="right" 
-  alt="Website logotype" />
+  alt="Logotype" />
 
 Personal portfolio website. Built with Sapper and Svelte.
 
