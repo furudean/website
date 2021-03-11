@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { mdiHeart } from "@mdi/js";
 	import { stores } from "@sapper/app";
-	import Icon from "../components/Icon.svelte";
+	import Logo from "../components/Logo.svelte";
 
 	const { page } = stores();
 </script>
@@ -9,7 +8,7 @@
 {#if $page.path !== "/"}
 	<nav role="navigation">
 		<a href="." title="Home" class="logo" sapper:prefetch>
-			<Icon path={mdiHeart} size="2em" color="var(--color-primary-400)" />
+			<Logo size="2em" color="var(--color-primary-400)" />
 		</a>
 		<div class="divider" aria-hidden="true" />
 		<ul>

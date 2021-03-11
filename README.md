@@ -18,3 +18,7 @@ npm run dev
 ```
 
 This will install the dependencies needed, then start the development server on localhost:3000.
+
+## Thanks to
+
+- [Feather icons, for logotype](https://feathericons.com/)

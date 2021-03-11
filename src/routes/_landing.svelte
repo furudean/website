@@ -1,12 +1,13 @@
 <script lang="ts">
-  import { mdiHeart, mdiGithub, mdiOpenInNew } from "@mdi/js";
+  import { mdiGithub, mdiOpenInNew } from "@mdi/js";
   import Icon from "../components/Icon.svelte";
+  import Logo from "../components/Logo.svelte";
 </script>
 
 <section class="landing">
   <h1>
     Hi, I'm <br /> Cassidy Bandy
-    <Icon title="Heart icon" path={mdiHeart} color="var(--color-primary-400)" />
+    <Logo size="0.9em" color="var(--color-primary-400)" />
   </h1>
   <p>
     I'm a full-stack engineer based in UT, USA. I care about CSS, typography,

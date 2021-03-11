@@ -142,12 +142,12 @@
     width: 1em;
     height: 1em;
     background-color: var(--color-primary-400);
-    mask-image: url("/media/heart.svg");
+    mask-image: url("/media/tombstone.svg");
     mask-size: 100%;
     mask-repeat: no-repeat;
     mask-position: 50% 50%;
     position: relative;
-    top: 3px; /* visual balance */
+    top: 0.12em; /* visual balance */
   }
 
   figure {
