@@ -7,33 +7,37 @@
   export let fill = false;
 </script>
 
-<div class="links">
+<ul class="links">
   {#if project.link}
-    <a
-      class="link-button"
-      class:fill
-      href={project.link}
-      target="_blank"
-      rel="noopener"
-    >
-      <Icon path={mdiLink} size="1.5em" />
-      <span>Visit project</span>
-    </a>
+    <li>
+      <a
+        class="link-button"
+        class:fill
+        href={project.link}
+        target="_blank"
+        rel="noopener"
+      >
+        <Icon path={mdiLink} size="1.5em" />
+        <span>Visit project</span>
+      </a>
+    </li>
   {/if}
   {#if project.repo}
-    <a
-      class="link-button"
-      class:fill
-      href={project.repo}
-      target="_blank"
-      rel="noopener"
-      title="GitHub repository"
-    >
-      <Icon path={mdiGithub} size="1.5em" />
-      <span>GitHub repo</span>
-    </a>
+    <li>
+      <a
+        class="link-button"
+        class:fill
+        href={project.repo}
+        target="_blank"
+        rel="noopener"
+        title="GitHub repository"
+      >
+        <Icon path={mdiGithub} size="1.5em" />
+        <span>GitHub repo</span>
+      </a>
+    </li>
   {/if}
-</div>
+</ul>
 
 <style lang="scss">
   .links {
@@ -41,6 +45,7 @@
     flex-wrap: wrap;
     margin-top: calc(-1 * var(--line-space));
     margin-bottom: var(--line-space);
+    list-style-type: none;
   }
 
   .links > * {
