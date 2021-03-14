@@ -113,10 +113,6 @@ Here's a stripped down version of what that code looks like:
 
 ---
 
-Sapper is a really clever framework that puts usability first. It was a pleasant
-surprise to see how easy it is to create a website that has the defaults built
-in. 
-
 There was a lot that I left out to kept this article on the shorter side. If
 you're interested in learning more, you can check out the source code at the
 link below.
