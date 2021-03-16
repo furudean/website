@@ -26,8 +26,8 @@
     --color-error: #ff495c;
 
     --color-background-400: #ffffff;
-    --color-background-300: #fff2e5;
-    --color-background-200: #ffeedd;
+    --color-background-300: #f7f7f7;
+    --color-background-200: #f0f0f0;
 
     --color-text-400: #12242b;
     --color-text-300: #47545a;

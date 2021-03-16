@@ -9,8 +9,8 @@
 	html.light-theme {
 		code,
 		pre {
-			background: #f5f7ff;
-			color: #5e6687;
+			background: var(--color-background-300);
+			color: var(--color-text-400);
 		}
 
 		.token.comment,
@@ -121,8 +121,8 @@
 	html.dark-theme {
 		code,
 		pre {
-			color: #f8f8f2;
-			background: #282a36;
+			background: var(--color-background-300);
+			color: var(--color-text-400);
 		}
 
 		/* Inline code */
