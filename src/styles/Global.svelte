@@ -77,17 +77,19 @@
       text-decoration: underline;
     }
     a[href*="#"] {
-      &:hover {
-        text-decoration-style: dotted;
+      &:hover,
+      &:focus {
+        text-decoration: dotted underline;
       }
-      &:hover::after {
-        content: " #";
-      }
+
       &.is-target {
         background-color: var(--color-secondary-400);
         color: var(--color-secondary-400-text);
         text-decoration: underline;
       }
+
+      &:hover::after,
+      &:focus::after,
       &.is-target::after {
         content: " #";
       }
