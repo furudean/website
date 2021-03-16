@@ -2,9 +2,6 @@
 	"background_color": "#ffffff",
 	"theme_color": "#bd84bc",
 	"name": "Cassidy Bandy",
-	"short_name": "Cassidy Bandy",
-	"display": "minimal-ui",
-	"start_url": "/",
 	"icons": [
 		{
 			"src": "logo-192.png",
