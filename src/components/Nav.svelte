@@ -49,6 +49,7 @@
 		width: 1px;
 		background: var(--color-text-200);
 		margin: 0 var(--line-space);
+		flex-shrink: 0;
 	}
 
 	ul {
