@@ -25,6 +25,7 @@
 		title="Cassidy Bandy"
 		description="Cassidy Bandy is a full-stack engineer based in UT, USA."
 		image="/embed.png"
+		isRoot={true}
 	/>
 </svelte:head>
 

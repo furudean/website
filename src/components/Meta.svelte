@@ -4,6 +4,7 @@
   export let title: string;
   export let description: string;
   export let image: string = undefined;
+  export let isRoot = false;
 
   onDestroy(() => {
     if (process.browser) {
@@ -27,7 +28,9 @@
 <meta name="description" content={description} />
 <meta name="theme-color" content="#bd84bc" />
 
-<meta property="og:site_name" content="Cassidy Bandy" />
+{#if !isRoot}
+  <meta property="og:site_name" content="Cassidy Bandy" />
+{/if}
 <meta property="og:type" content="website" />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
