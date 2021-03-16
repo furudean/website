@@ -30,9 +30,9 @@ export function updateFragmentLinkTarget(url: string): void {
       hash.length &&
       hash === new URL(a.href).hash
     ) {
-      a.parentElement.classList.add("is-target");
+      a.classList.add("is-target");
     } else {
-      a.parentElement.classList.remove("is-target");
+      a.classList.remove("is-target");
     }
   });
 }

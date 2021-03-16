@@ -76,19 +76,20 @@
     a:hover {
       text-decoration: underline;
     }
-    a[href*="#"]:hover {
-      text-decoration-style: dotted;
-    }
-
-    &.is-target {
-      position: relative;
-      text-decoration: underline;
-
-      &::before {
-        content: "§";
-        position: absolute;
-        left: -1em;
-        color: var(--color-text-400);
+    a[href*="#"] {
+      &:hover {
+        text-decoration-style: dotted;
+      }
+      &:hover::after {
+        content: " #";
+      }
+      &.is-target {
+        background-color: var(--color-secondary-400);
+        color: var(--color-secondary-400-text);
+        text-decoration: underline;
+      }
+      &.is-target::after {
+        content: " #";
       }
     }
   }
