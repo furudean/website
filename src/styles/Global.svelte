@@ -80,6 +80,7 @@
       &:hover,
       &:focus {
         text-decoration: dotted underline;
+        outline: none;
       }
 
       &.is-target {
