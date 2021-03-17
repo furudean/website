@@ -6,7 +6,7 @@
     --color-primary-300: #d4acd2;
     --color-primary-300-text: #12242b;
     --color-primary-400: #bd84bc;
-    --color-primary-400-text: #12242b;
+    --color-primary-400-text: #ffffff;
     --color-primary-500: #854f84;
     --color-primary-500-text: #ffffff;
     --color-primary-600: #4f1e51;

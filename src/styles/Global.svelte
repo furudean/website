@@ -98,8 +98,19 @@
 
   a.text-link,
   a.text-link:visited {
-    text-decoration: underline;
+    text-decoration: none;
     color: var(--color-primary-400);
+    border-bottom: 1px solid var(--color-primary-400);
+
+    &:hover,
+    &:focus {
+      background-color: var(--color-primary-400);
+      color: var(--color-primary-400-text);
+
+      &:before {
+        background-color: currentColor;
+      }
+    }
   }
 
   // external links
