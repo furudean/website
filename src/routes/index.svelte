@@ -2,7 +2,7 @@
 	import type { Preload } from "@sapper/common";
 	import Meta from "../components/Meta.svelte";
 
-	export const preload: Preload = async function (page) {
+	export const preload: Preload = async function () {
 		return this.fetch("/projects.json")
 			.then((r) => r.json())
 			.then((projects) => {
