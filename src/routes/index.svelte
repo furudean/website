@@ -3,11 +3,14 @@
 	import Meta from "../components/Meta.svelte";
 
 	export const preload: Preload = async function () {
-		return this.fetch("/projects.json")
-			.then((r) => r.json())
-			.then((projects) => {
-				return { projects };
-			});
+		const res = await this.fetch("/projects.json");
+
+		if (res.status === 200) {
+			const projects = await res.json();
+			return { projects };
+		} else {
+			this.error(res.status, `Could not fetch ${res.url}`);
+		}
 	};
 </script>
 

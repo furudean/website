@@ -10,7 +10,7 @@
     if (res.status === 200) {
       return { project };
     } else {
-      this.error(res.status, project.message);
+      this.error(res.status, `Could not fetch ${res.url}`);
     }
   };
 </script>
