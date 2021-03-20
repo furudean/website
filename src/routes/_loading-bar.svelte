@@ -1,52 +1,83 @@
 <script lang="ts">
   import { stores } from "@sapper/app";
-  import { derived } from "svelte/store";
+  import { derived, writable } from "svelte/store";
   import type { Readable } from "svelte/store";
-  import { onDestroy } from "svelte";
+  import { fade } from "svelte/transition";
+  import { cubicOut } from "svelte/easing";
+  import { tick } from "svelte";
 
   const { preloading } = stores();
-  let ready = false;
-  let readyTimeout: number;
-  let preloadingDelayTimeout: number;
+  const progress = writable(0);
+
+  let preloadingTimeout: number;
+  let growInterval: number;
+
+  let isVisible = false;
+  let isVisibleTimeout: number;
 
   // store that lags behind "preloading" store a few ms until the progress bar
   // should be shown. we don't want to show it for short loading times
   const preloadingDelayed = derived(preloading, (value, set) => {
-    clearTimeout(preloadingDelayTimeout);
+    clearTimeout(preloadingTimeout);
 
     if (value) {
-      preloadingDelayTimeout = setTimeout(() => set(value), 200);
+      preloadingTimeout = setTimeout(() => set(value), 200);
     } else {
       set(value);
     }
   }) as Readable<boolean>;
 
-  const unsub = preloadingDelayed.subscribe((value) => {
-    // set initial "ready" value so element is added to DOM
-    ready = ready || value;
+  function grow(x: number): number {
+    return x < 0.8 ? x + 0.2 : x;
+  }
 
-    clearTimeout(readyTimeout);
+  async function startLoading() {
+    if (isVisible) return;
+    isVisible = true;
 
-    // clear "ready" value after animations are settled, this will remove the
-    // element from DOM
-    if (value === false) {
-      readyTimeout = setTimeout(() => (ready = false), 600 + 200);
+    clearTimeout(isVisibleTimeout);
+    clearInterval(growInterval);
+
+    /* 
+      We want loading to start immediately, not after 1000ms, so we simulate 
+      the first load step.
+    */
+    progress.set(0);
+    await tick();
+    await new Promise(requestAnimationFrame);
+    progress.update(grow);
+
+    growInterval = setInterval(() => progress.update(grow), 1000);
+  }
+
+  function endLoading() {
+    progress.set(1);
+    clearInterval(growInterval);
+
+    isVisibleTimeout = setTimeout(() => (isVisible = false), 750);
+  }
+
+  preloadingDelayed.subscribe((isLoading) => {
+    if (isLoading) {
+      startLoading();
+    } else {
+      endLoading();
     }
   });
-  onDestroy(unsub);
 </script>
 
-{#if ready}
+{#if isVisible}
   <div
-    class="loading-progress"
-    class:loading={$preloadingDelayed}
-    class:finished={!$preloadingDelayed}
+    class="loading-track"
+    out:fade={{ duration: 250, easing: cubicOut }}
     aria-hidden="true"
-  />
+  >
+    <div class="progress" style={`width: ${100 * $progress}%`} />
+  </div>
 {/if}
 
 <style>
-  .loading-progress {
+  .loading-track {
     position: fixed;
     top: 0;
     left: 0;
@@ -55,50 +86,12 @@
     overflow: hidden;
   }
 
-  .loading-progress::after {
+  .progress {
     content: "";
     display: block;
-    width: 100%;
+    width: 0%;
     height: 100%;
     background: var(--color-primary-400);
-  }
-
-  @keyframes loading {
-    from {
-      margin-left: -100%;
-    }
-    to {
-      margin-left: -30%;
-    }
-  }
-
-  @keyframes fade-out {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
-  }
-
-  @keyframes finish {
-    from {
-      margin-left: -30%;
-    }
-    to {
-      margin-left: -0%;
-    }
-  }
-
-  .loading-progress.loading::after {
-    animation: 10s loading cubic-bezier(0.05, 1.02, 0.25, 1) forwards;
-  }
-
-  .loading-progress.finished {
-    animation: 600ms fade-out var(--standard-curve) forwards 200ms;
-  }
-
-  .loading-progress.finished::after {
-    animation: 400ms finish var(--deceleration-curve) forwards;
+    transition: width 750ms;
   }
 </style>
