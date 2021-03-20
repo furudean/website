@@ -1,13 +1,5 @@
 <script context="module" lang="ts">
-  import marked, { MarkedOptions } from "marked";
-  import { renderer, highlight } from "../../lib/markdown";
   import type { Preload } from "@sapper/common";
-
-  const markedOptions: MarkedOptions = {
-    renderer,
-    highlight,
-    smartypants: true,
-  };
 
   export const preload: Preload = async function ({ params }) {
     // the `slug` parameter is available because
@@ -15,23 +7,8 @@
     const res = await this.fetch(`projects/${params.slug}.json`);
     const project = await res.json();
 
-    let html: string | undefined;
-
-    // fetch and parse markdown, if any
-    if (project.articleUrl) {
-      const article = await this.fetch(project.articleUrl);
-      if (article.status === 200) {
-        html = marked(await article.text(), markedOptions);
-      } else {
-        this.error(
-          500,
-          `Expected status 200 from <code>${article.url}</code>, got ${article.status}`
-        );
-      }
-    }
-
     if (res.status === 200) {
-      return { project, articleHtml: html };
+      return { project };
     } else {
       this.error(res.status, project.message);
     }
@@ -49,7 +26,6 @@
   const segments = $page.path.slice(1).split("/").slice(0, -1);
 
   export let project: Project;
-  export let articleHtml: string | undefined;
 </script>
 
 <svelte:head>
@@ -79,9 +55,9 @@
 </div>
 <Links {project} />
 
-<article class="article" class:has-tombstone={articleHtml}>
-  {#if articleHtml}
-    {@html articleHtml}
+<article class="article" class:has-tombstone={project.articleHtml}>
+  {#if project.articleHtml}
+    {@html project.articleHtml}
     <br />
     <Links {project} fill={true} />
   {:else}

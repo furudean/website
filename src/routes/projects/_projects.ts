@@ -8,6 +8,7 @@ export interface Project {
   link?: string;
   repo?: string;
   articleUrl?: string;
+  articleHtml?: string;
 }
 
 export const projects: Project[] = [
