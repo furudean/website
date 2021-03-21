@@ -10,7 +10,6 @@
   const progress = writable(0);
 
   let preloadingTimeout: number;
-  let growInterval: number;
 
   let isVisible = false;
   let isVisibleTimeout: number;
@@ -27,34 +26,19 @@
     }
   }) as Readable<boolean>;
 
-  function grow(x: number): number {
-    return x < 0.8 ? x + 0.2 : x;
-  }
-
   async function startLoading() {
-    if (isVisible) return;
     isVisible = true;
-
     clearTimeout(isVisibleTimeout);
-    clearInterval(growInterval);
 
-    /* 
-      We want loading to start immediately, not after 1000ms, so we simulate 
-      the first load step.
-    */
     progress.set(0);
     await tick();
     await new Promise(requestAnimationFrame);
-    progress.update(grow);
-
-    growInterval = setInterval(() => progress.update(grow), 1000);
+    progress.set(0.7);
   }
 
   function endLoading() {
     progress.set(1);
-    clearInterval(growInterval);
-
-    isVisibleTimeout = setTimeout(() => (isVisible = false), 750);
+    isVisibleTimeout = setTimeout(() => (isVisible = false), 500);
   }
 
   preloadingDelayed.subscribe((isLoading) => {
@@ -69,11 +53,11 @@
 {#if isVisible}
   <div
     class="loading-track"
-    out:fade={{ duration: 250, easing: cubicOut }}
+    out:fade={{ duration: 500, easing: cubicOut }}
+    style={`width: ${100 * $progress}%`}
+    class:finished={$progress === 1}
     aria-hidden="true"
-  >
-    <div class="progress" style={`width: ${100 * $progress}%`} />
-  </div>
+  />
 {/if}
 
 <style>
@@ -81,17 +65,14 @@
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
     height: 2px;
-    overflow: hidden;
+    width: 0%;
+    background: var(--color-primary-400);
+    transition: width 7s cubic-bezier(0.05, 1, 0.22, 1);
   }
 
-  .progress {
-    content: "";
-    display: block;
-    width: 0%;
-    height: 100%;
-    background: var(--color-primary-400);
-    transition: width 750ms;
+  .loading-track.finished {
+    transition-duration: 500ms;
+    transition-timing-function: var(--standard-curve);
   }
 </style>
