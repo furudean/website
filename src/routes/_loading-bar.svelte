@@ -38,6 +38,7 @@
 
   function endLoading() {
     progress.set(1);
+    clearTimeout(isVisibleTimeout);
     isVisibleTimeout = setTimeout(() => (isVisible = false), 500);
   }
 
