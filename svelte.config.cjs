@@ -1,5 +1,5 @@
 const sveltePreprocess = require('svelte-preprocess');
-const node = require('@sveltejs/adapter-node');
+const vercel = require('@sveltejs/adapter-vercel');
 const pkg = require('./package.json');
 const autoprefixer = require('autoprefixer');
 
@@ -9,7 +9,7 @@ module.exports = {
   extensions: [".svelte"],
 
   kit: {
-    adapter: node(),
+    adapter: vercel(),
     prerender: {
       enabled: true,
       pages: ["*"],

@@ -19,12 +19,12 @@ function renderMarkdown(text: string) {
 	})
 }
 
-async function fetchAndCache(slug: string, host: string): Promise<void> {
+async function fetchAndCache(slug: string): Promise<void> {
 	if (!cache.has(slug)) {
 		const project = projects.find(p => p.slug === slug)
 
 		if ("articleUrl" in project) {
-			const article = await fetch(new URL(project.articleUrl, `http://${host}`))
+			const article = await fetch(new URL(project.articleUrl, `http://localhost:3000`))
 				.then(res => res.text());
 			project.articleHtml = renderMarkdown(article);
 		}
@@ -39,7 +39,7 @@ export const get: RequestHandler = async function (request) {
 	const { slug } = request.params;
 
 	if (projectSlugs.has(slug) && !cache.has(slug)) {
-		await fetchAndCache(slug, request.headers.host);
+		await fetchAndCache(slug);
 	}
 
 	if (cache.has(slug)) {

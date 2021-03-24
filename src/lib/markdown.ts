@@ -1,14 +1,15 @@
-import { Renderer, MarkedOptions } from "marked";
+import marked from 'marked';
+import type { MarkedOptions } from "marked";
 import { html } from "common-tags";
 import Prism from 'prismjs';
 import 'prism-svelte';
-import 'prismjs/components/prism-json';
+import 'prismjs/components/prism-json.js';
 
 function isAbsoluteUrl(url: string): boolean {
 	return url.startsWith('http://') || url.startsWith('https://');
 }
 
-const renderer = new Renderer()
+const renderer = new marked.Renderer()
 
 // add fragment links to headings
 renderer.heading = (text, level, _, slugger) => {

@@ -26,6 +26,9 @@
 			],
 			"$lib/*": [
 				"src/lib/*"
+			],
+			"$service-worker": [
+				".svelte/build/runtime/service-worker"
 			]
 		}
 	},
