@@ -34,7 +34,7 @@
   <h2>Links</h2>
   <p>
     Just a common
-    <a class="text-link" href="/">link</a>
+    <a class="text-link" href=".">link</a>
   </p>
   <p>
     <a

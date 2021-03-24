@@ -5,7 +5,7 @@
 
 {#if $page.path !== "/"}
 	<nav role="navigation">
-		<a href="/" title="Home" class="logo" sveltekit:prefetch>
+		<a href="." title="Home" class="logo" sveltekit:prefetch>
 			<Logo size="2em" color="var(--color-primary-400)" />
 		</a>
 		<div class="divider" aria-hidden="true" />
