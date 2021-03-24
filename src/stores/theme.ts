@@ -1,4 +1,5 @@
 import type { Readable } from 'svelte/store'
+import { browser } from "$app/env";
 
 /**
  * Inspiration from
@@ -14,7 +15,7 @@ function createOSThemeStore(): Readable<string> {
   }
 
   // Only call browser APIs if browser
-  if (process.browser) {
+  if (browser) {
     const mediaQuery = matchMedia('(prefers-color-scheme: dark)');
     colorScheme = mediaQuery.matches ? 'dark' : 'light';
     mediaQuery.addEventListener('change', onChangeMediaQuery);

@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Project } from "./_projects";
-  import Icon from "../../components/Icon.svelte";
+  import Icon from "../../lib/Icon.svelte";
   import { mdiGithub, mdiLink } from "@mdi/js";
 
   export let project: Project;

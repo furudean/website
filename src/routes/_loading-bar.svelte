@@ -1,26 +1,25 @@
 <script lang="ts">
-  import { stores } from "@sapper/app";
+  import { navigating } from "$app/stores";
   import { derived, writable } from "svelte/store";
   import type { Readable } from "svelte/store";
   import { fade } from "svelte/transition";
   import { cubicOut } from "svelte/easing";
   import { tick } from "svelte";
 
-  const { preloading } = stores();
   const progress = writable(0);
 
-  let preloadingTimeout: number;
+  let navigatingTimeout: NodeJS.Timeout;
 
   let isVisible = false;
-  let isVisibleTimeout: number;
+  let isVisibleTimeout: NodeJS.Timeout;
 
-  // store that lags behind "preloading" store a few ms until the progress bar
+  // store that lags behind 'navigating' store a few ms until the progress bar
   // should be shown. we don't want to show it for short loading times
-  const preloadingDelayed = derived(preloading, (value, set) => {
-    clearTimeout(preloadingTimeout);
+  const navigatingDelayed = derived(navigating, (value, set) => {
+    clearTimeout(navigatingTimeout);
 
     if (value) {
-      preloadingTimeout = setTimeout(() => set(value), 200);
+      navigatingTimeout = setTimeout(() => set(value), 200);
     } else {
       set(value);
     }
@@ -42,8 +41,8 @@
     isVisibleTimeout = setTimeout(() => (isVisible = false), 500);
   }
 
-  preloadingDelayed.subscribe((isLoading) => {
-    if (isLoading) {
+  navigatingDelayed.subscribe((isNavigating) => {
+    if (isNavigating) {
       startLoading();
     } else {
       endLoading();

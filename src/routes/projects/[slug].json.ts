@@ -1,12 +1,11 @@
 import marked from 'marked';
 import fetch from "node-fetch";
-import type { ServerResponse } from 'http';
-import type { Request } from 'polka';
-import { renderer, highlight } from "../../lib/markdown";
-import { projects } from './_projects';
+import type { RequestHandler } from '@sveltejs/kit';
+import { renderer, highlight } from "$lib/markdown";
+import { projects, Project } from './_projects';
 
 const projectSlugs = new Set<string>();
-const cache = new Map<string, string>();
+const cache = new Map<string, Project>();
 
 projects.forEach(project => {
 	projectSlugs.add(project.slug);
@@ -30,36 +29,35 @@ async function fetchAndCache(slug: string, host: string): Promise<void> {
 			project.articleHtml = renderMarkdown(article);
 		}
 
-		cache.set(slug, JSON.stringify(project));
+		cache.set(slug, project);
 	}
 }
 
-export async function get(
-	req: Request,
-	res: ServerResponse,
-	next: () => void
-) {
+export const get: RequestHandler = async function (request) {
 	// the `slug` parameter is available because
 	// this file is called [slug].json.js
-	const { slug } = req.params;
+	const { slug } = request.params;
 
 	if (projectSlugs.has(slug) && !cache.has(slug)) {
-		await fetchAndCache(slug, req.headers.host);
+		await fetchAndCache(slug, request.headers.host);
 	}
 
 	if (cache.has(slug)) {
-		res.writeHead(200, {
-			'Content-Type': 'application/json'
-		});
-
-		res.end(cache.get(slug));
+		return {
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: cache.get(slug)
+		}
 	} else {
-		res.writeHead(404, {
-			'Content-Type': 'application/json'
-		});
-
-		res.end(JSON.stringify({
-			message: `Not found`
-		}));
+		return {
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			status: 404,
+			body: {
+				message: `Not found`
+			}
+		}
 	}
 }

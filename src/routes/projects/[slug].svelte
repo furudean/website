@@ -1,16 +1,24 @@
 <script context="module" lang="ts">
-  import type { Preload } from "@sapper/common";
+  import type { Load } from "@sveltejs/kit";
 
-  export const preload: Preload = async function ({ params }) {
+  export const load: Load = async function ({ fetch, page }) {
     // the `slug` parameter is available because
     // this file is called [slug].svelte
-    const res = await this.fetch(`projects/${params.slug}.json`);
-    const project = await res.json();
+    const url = `/projects/${page.params.slug}.json`;
+    const res = await fetch(url);
 
     if (res.status === 200) {
-      return { project };
+      const project = await res.json();
+      return {
+        props: {
+          project,
+        },
+      };
     } else {
-      this.error(res.status, `Could not fetch ${res.url}`);
+      return {
+        status: res.status,
+        error: new Error(`Could not fetch ${url}`),
+      };
     }
   };
 </script>
@@ -18,11 +26,10 @@
 <script lang="ts">
   import type { Project } from "./_projects";
   import { friendlyDate } from "../../lib/dateTime";
-  import { stores } from "@sapper/app";
+  import { page } from "$app/stores";
   import Links from "./_project-links.svelte";
-  import Meta from "../../components/Meta.svelte";
+  import Meta from "$lib/Meta.svelte";
 
-  const { page } = stores();
   const segments = $page.path.slice(1).split("/").slice(0, -1);
 
   export let project: Project;
@@ -39,7 +46,7 @@
 
 <nav aria-label="Breadcrumbs">
   {#each segments as segment, i}
-    <a href={"/" + segments.slice(0, i + 1).join("/")} sapper:prefetch>
+    <a href={"/" + segments.slice(0, i + 1).join("/")} sveltekit:prefetch>
       {segment}
     </a>
     <span> / </span>

@@ -1,15 +1,23 @@
 <script context="module" lang="ts">
-	import type { Preload } from "@sapper/common";
-	import Meta from "../components/Meta.svelte";
+	import Meta from "$lib/Meta.svelte";
+	import type { Load } from "@sveltejs/kit";
 
-	export const preload: Preload = async function () {
-		const res = await this.fetch("/projects.json");
+	export const load: Load = async function ({ fetch }) {
+		const url = "/projects.json";
+		const res = await fetch(url);
 
-		if (res.status === 200) {
+		if (res.ok) {
 			const projects = await res.json();
-			return { projects };
+			return {
+				props: {
+					projects,
+				},
+			};
 		} else {
-			this.error(res.status, `Could not fetch ${res.url}`);
+			return {
+				status: 500,
+				error: new Error(`Could not fetch ${url}`),
+			};
 		}
 	};
 </script>

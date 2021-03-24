@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { browser } from "$app/env";
   import { onDestroy } from "svelte";
 
   export let title: string;
@@ -7,7 +8,7 @@
   export let isRoot = false;
 
   onDestroy(() => {
-    if (process.browser) {
+    if (browser) {
       /* 
         Remove meta tags on unmount to fix client-side issue where svelte:head
         appends tags on navigation and never cleans them up.

@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Project } from "./projects/_projects";
   import { friendlyDate } from "../lib/dateTime";
-  import Icon from "../components/Icon.svelte";
+  import Icon from "$lib/Icon.svelte";
   import { mdiGithub } from "@mdi/js";
 
   export let projects: Project[];
@@ -9,12 +9,12 @@
 
 <section class="projects">
   <h2>
-    <a href="/projects" sapper:prefetch>Projects</a>
+    <a href="/projects" sveltekit:prefetch>Projects</a>
   </h2>
   {#each projects as project}
     <article class="project">
       <h3>
-        <a href={"/projects/" + project.slug} sapper:prefetch>
+        <a href={"/projects/" + project.slug} sveltekit:prefetch>
           {project.title}
         </a>
         {#if project.repo}
@@ -38,7 +38,11 @@
       </div>
       <p>{project.summary}</p>
       <p>
-        <a class="text-link" href={"/projects/" + project.slug} sapper:prefetch>
+        <a
+          class="text-link"
+          href={"/projects/" + project.slug}
+          sveltekit:prefetch
+        >
           Read more
         </a>
       </p>

@@ -5,8 +5,6 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	%sapper.base%
-
 	<link rel="manifest" href="manifest.json" crossorigin="use-credentials">
 
 	<!-- Favicon -->
@@ -19,25 +17,12 @@
 	<link rel="stylesheet" defer
 		href="https://fonts.googleapis.com/css2?family=Lora:wght@400&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap">
 
-	<!-- Sapper creates a <script> tag containing `src/client.ts`
-	     and anything else it needs to hydrate the app and
-	     initialise the router -->
-	%sapper.scripts%
-
-	<!-- Sapper generates a <style> tag containing critical CSS
-	     for the current page. CSS for the rest of the app is
-	     lazily loaded when it precaches secondary pages -->
-	%sapper.styles%
-
-	<!-- This contains the contents of the <svelte:head> component, if
-	     the current page has one -->
-	%sapper.head%
+	<!-- Svelte head	-->
+	%svelte.head%
 </head>
 
 <body>
-	<!-- The application will be rendered inside this element,
-	     because `src/client.ts` references it -->
-	%sapper.html%
+	%svelte.body%
 </body>
 
 </html>
