@@ -1,8 +1,9 @@
-import marked from 'marked';
+import marked from "marked";
 import fetch from "node-fetch";
-import type { RequestHandler } from '@sveltejs/kit';
+import type { RequestHandler } from "@sveltejs/kit";
 import { renderer, highlight } from "$lib/markdown";
-import { projects, Project } from './_projects';
+import { projects } from "./_projects";
+import type { Project } from "./_projects";
 
 const projectSlugs = new Set<string>();
 const cache = new Map<string, Project>();
@@ -19,12 +20,12 @@ function renderMarkdown(text: string) {
 	})
 }
 
-async function fetchAndCache(slug: string): Promise<void> {
+async function fetchAndCache(slug: string, host: string): Promise<void> {
 	if (!cache.has(slug)) {
 		const project = projects.find(p => p.slug === slug)
 
 		if ("articleUrl" in project) {
-			const article = await fetch(new URL(project.articleUrl, `http://localhost:3000`))
+			const article = await fetch(new URL(project.articleUrl, `http://${host}`))
 				.then(res => res.text());
 			project.articleHtml = renderMarkdown(article);
 		}
@@ -38,25 +39,27 @@ export const get: RequestHandler = async function (request) {
 	// this file is called [slug].json.js
 	const { slug } = request.params;
 
+	console.log(request.host)
+
 	if (projectSlugs.has(slug) && !cache.has(slug)) {
-		await fetchAndCache(slug);
+		await fetchAndCache(slug, request.host);
 	}
 
 	if (cache.has(slug)) {
 		return {
 			headers: {
-				'Content-Type': 'application/json'
+				"Content-Type": "application/json"
 			},
 			body: cache.get(slug)
 		}
 	} else {
 		return {
 			headers: {
-				'Content-Type': 'application/json'
+				"Content-Type": "application/json"
 			},
 			status: 404,
 			body: {
-				message: `Not found`
+				message: "Not found"
 			}
 		}
 	}
