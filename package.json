@@ -8,8 +8,15 @@
     "start": "svelte-kit start",
     "validate": "svelte-check"
   },
-  "devDependencies": {
+  "dependencies": {
     "@mdi/js": "^5.9.55",
+    "common-tags": "^1.8.0",
+    "marked": "^2.0.1",
+    "node-fetch": "^2.6.1",
+    "prism-svelte": "^0.4.7",
+    "prismjs": "^1.23.0"
+  },
+  "devDependencies": {
     "@sveltejs/adapter-vercel": "next",
     "@sveltejs/kit": "next",
     "@types/common-tags": "^1.8.0",
@@ -18,12 +25,7 @@
     "@types/node-fetch": "^2.5.8",
     "@types/prismjs": "^1.16.3",
     "autoprefixer": "^10.2.4",
-    "common-tags": "^1.8.0",
-    "marked": "^2.0.1",
-    "node-fetch": "^2.6.1",
     "postcss": "^8.2.6",
-    "prism-svelte": "^0.4.7",
-    "prismjs": "^1.23.0",
     "sass": "^1.32.8",
     "svelte": "^3.35.0",
     "svelte-check": "^1.1.36",
