@@ -39,8 +39,6 @@ export const get: RequestHandler = async function (request) {
 	// this file is called [slug].json.js
 	const { slug } = request.params;
 
-	console.log(request.host)
-
 	if (projectSlugs.has(slug) && !cache.has(slug)) {
 		await fetchAndCache(slug, request.host);
 	}
