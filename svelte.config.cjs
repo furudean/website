@@ -19,6 +19,12 @@ module.exports = {
     vite: {
       ssr: {
         noExternal: Object.keys(pkg.dependencies || {})
+      },
+      resolve: {
+        alias: {
+          // fix IIFE imports
+          'marked': 'marked/lib/marked.esm.js',
+        }
       }
     }
   },
