@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onMount } from "svelte";
 	import { osTheme } from "../stores/theme";
 	import Nav from "$lib/Nav.svelte";
 	import Reset from "../styles/Reset.svelte";
@@ -9,26 +8,34 @@
 	import { page } from "$app/stores";
 	import LoadingBar from "./_loading-bar.svelte";
 	import { rewriteFragmentLinks, updateFragmentLinkTarget } from "../lib/link";
+	import { browser } from "$app/env";
+	import { onMount } from "svelte";
+
+	let element: HTMLElement;
 
 	onMount(() => {
+		if (!browser) return;
+
 		// Set theme on root element
 		osTheme.subscribe((theme) => {
-			const root = document.querySelector("html");
+			const root = document.querySelector(":root");
 
 			root.classList.remove("light-theme", "dark-theme");
 			root.classList.add(theme + "-theme");
 		});
 
-		// page.subscribe does not work 🤔
+		// panic, this doesn't work right now
+		// See: https://github.com/sveltejs/kit/issues/649
 		// page.subscribe(() => {
-		// 	rewriteFragmentLinks(window.location.href);
-		// 	updateFragmentLinkTarget(window.location.href);
+		// Rewrite <a> elements with # to respect <base href="/">
+		// rewriteFragmentLinks(window.location.href, element);
+		// updateFragmentLinkTarget(window.location.href, element);
 		// });
 	});
 </script>
 
 <svelte:window
-	on:hashchange={() => updateFragmentLinkTarget(window.location.href)}
+	on:hashchange={() => updateFragmentLinkTarget(window.location.href, element)}
 />
 
 <Reset />
@@ -38,7 +45,7 @@
 
 <LoadingBar />
 
-<div class="container">
+<div class="container" bind:this={element}>
 	<Nav />
 	<main>
 		<slot />

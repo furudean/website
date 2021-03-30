@@ -1,13 +1,10 @@
 /**
- * Rewrite hashes on anchor links to include path, we need this due to
- * `<base href="/">` which is enforced by sapper.
- *
- * https://github.com/sveltejs/sapper/issues/904#issuecomment-540536561
+ * Rewrite hashes on anchor links to include path
  */
-export function rewriteFragmentLinks(url: string): void {
+export function rewriteFragmentLinks(url: string, element: HTMLElement): void {
   const { origin, pathname } = new URL(url);
 
-  document.querySelectorAll("a").forEach((a) => {
+  element.querySelectorAll("a").forEach((a) => {
     if (
       a.hash.length > 0 &&
       a.origin === origin
@@ -21,8 +18,8 @@ export function rewriteFragmentLinks(url: string): void {
  * Set a class on all headers with fragment link so a unique style can be
  * shown.
  */
-export function updateFragmentLinkTarget(url: string): void {
-  const anchors = document.querySelectorAll("h1 > a, h2 > a	, h3 > a" as "a");
+export function updateFragmentLinkTarget(url: string, element: HTMLElement): void {
+  const anchors = element.querySelectorAll("h1 > a, h2 > a	, h3 > a" as "a");
   const { hash } = new URL(url);
 
   anchors.forEach((a) => {
