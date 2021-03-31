@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { page } from "$app/stores";
-	import Logo from "$lib/Logo.svelte";
+	import { page } from "$app/stores"
+	import Logo from "$lib/Logo.svelte"
 </script>
 
 {#if $page.path !== "/"}

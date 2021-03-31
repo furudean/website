@@ -48,31 +48,31 @@ page](https://sapper.svelte.dev/docs#Pages).
 
 ```svelte
 <script context="module">
-  // the preload function is special -- it runs before regular rendering and
-  // assigns its return value to the component's exported variables
-  export async function preload ({ params }) {
-    // the `slug` parameter is available because
-    // this file is called [slug].svelte
-    const res = await this.fetch(`projects/${params.slug}.json`);
-    const project = await res.json();
+	// the preload function is special -- it runs before regular rendering and
+	// assigns its return value to the component's exported variables
+	export async function preload({ params }) {
+		// the `slug` parameter is available because
+		// this file is called [slug].svelte
+		const res = await this.fetch(`projects/${params.slug}.json`)
+		const project = await res.json()
 
-    if (res.status === 200) {
-      return { project }; // set `project` variable in <script>
-    } else {
-      this.error(res.status, res.message);
-    }
-  };
+		if (res.status === 200) {
+			return { project } // set `project` variable in <script>
+		} else {
+			this.error(res.status, res.message)
+		}
+	}
 </script>
 
 <script>
-  export let project;
+	export let project
 </script>
 
 <svelte:head>
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={project.title} />
-  <meta name="twitter:description" content={project.description} />
-  <meta name="twitter:image" content={project.image} />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={project.title} />
+	<meta name="twitter:description" content={project.description} />
+	<meta name="twitter:image" content={project.image} />
 </svelte:head>
 
 <!-- rest of the component goes here -->
@@ -95,19 +95,21 @@ Here's a stripped down version of what that code looks like:
 
 ```svelte
 <script context="module">
-  import marked from "marked";
+	import marked from "marked"
 
-  export async function preload ({ params }) {
-    const project = await this.fetch(`projects/${params.slug}.json`)
-      .then(res => res.json());
-    const article = await this.fetch(project.articleUrl)
-      .then(res => res.text());
+	export async function preload({ params }) {
+		const project = await this.fetch(
+			`projects/${params.slug}.json`
+		).then((res) => res.json())
+		const article = await this.fetch(project.articleUrl).then((res) =>
+			res.text()
+		)
 
-    return {
-      project,
-      html: marked(article)
-    };
-  };
+		return {
+			project,
+			html: marked(article)
+		}
+	}
 </script>
 ```
 
