@@ -29,14 +29,14 @@ tags that render link-embeds for dynamic routes:
 
 ```json
 {
-  "title": "Type Kana",
-  "slug": "type-kana",
-  "date": "2020-08-02",
-  "summary": "A quiz app to help you learn hiragana and katakana, the Japanese syllabaries. Powered by Svelte.",
-  "coverImageUrl": "https://cass.moe/media/projects/type-kana/session.jpg",
-  "link": "https://type-kana.cass.moe/",
-  "repo": "https://github.com/c-bandy/type-kana",
-  "articleUrl": "/articles/type-kana.md"
+	"title": "Type Kana",
+	"slug": "type-kana",
+	"date": "2020-08-02",
+	"summary": "A quiz app to help you learn hiragana and katakana, the Japanese syllabaries. Powered by Svelte.",
+	"coverImageUrl": "https://cass.moe/media/projects/type-kana/session.jpg",
+	"link": "https://type-kana.cass.moe/",
+	"repo": "https://github.com/c-bandy/type-kana",
+	"articleUrl": "/articles/type-kana.md"
 }
 ```
 
@@ -48,7 +48,7 @@ page](https://sapper.svelte.dev/docs#Pages).
 
 ```svelte
 <script context="module">
-  // the preload function is special -- it runs before regular rendering and 
+  // the preload function is special -- it runs before regular rendering and
   // assigns its return value to the component's exported variables
   export async function preload ({ params }) {
     // the `slug` parameter is available because
@@ -89,7 +89,7 @@ when you link the Type Kana project on Twitter. Isn't my baby beautiful?")
 Of course, you can get as complicated as you want with this pattern. The page
 you're reading right now [is composed of
 Markdown](/articles/portfolio-site-2021.md) that gets rendered when you request
-the page. 
+the page.
 
 Here's a stripped down version of what that code looks like:
 
@@ -103,9 +103,9 @@ Here's a stripped down version of what that code looks like:
     const article = await this.fetch(project.articleUrl)
       .then(res => res.text());
 
-    return { 
-      project, 
-      html: marked(article) 
+    return {
+      project,
+      html: marked(article)
     };
   };
 </script>

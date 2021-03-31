@@ -1,37 +1,40 @@
 {
-  "name": "website",
-  "version": "1.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
-    "start": "svelte-kit start",
-    "validate": "svelte-check"
-  },
-  "dependencies": {
-    "@mdi/js": "^5.9.55",
-    "common-tags": "^1.8.0",
-    "marked": "^2.0.1",
-    "node-fetch": "^2.6.1",
-    "prism-svelte": "^0.4.7",
-    "prismjs": "^1.23.0"
-  },
-  "devDependencies": {
-    "@sveltejs/adapter-vercel": "next",
-    "@sveltejs/kit": "next",
-    "@types/common-tags": "^1.8.0",
-    "@types/marked": "^2.0.0",
-    "@types/node": "^14.11.1",
-    "@types/node-fetch": "^2.5.8",
-    "@types/prismjs": "^1.16.3",
-    "autoprefixer": "^10.2.4",
-    "postcss": "^8.2.6",
-    "sass": "^1.32.8",
-    "svelte": "^3.35.0",
-    "svelte-check": "^1.1.36",
-    "svelte-preprocess": "^4.3.0",
-    "tslib": "^2.0.1",
-    "typescript": "^4.0.3",
-    "vite": "^2.1.2"
-  }
+	"name": "website",
+	"version": "1.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "svelte-kit dev",
+		"build": "svelte-kit build",
+		"start": "svelte-kit start",
+		"check": "svelte-check",
+		"lint": "prettier --check .",
+		"format": "prettier --write ."
+	},
+	"dependencies": {
+		"@mdi/js": "^5.9.55",
+		"common-tags": "^1.8.0",
+		"marked": "^2.0.1",
+		"node-fetch": "^2.6.1",
+		"prism-svelte": "^0.4.7",
+		"prismjs": "^1.23.0"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-vercel": "next",
+		"@sveltejs/kit": "next",
+		"@types/common-tags": "^1.8.0",
+		"@types/marked": "^2.0.0",
+		"@types/node": "^14.11.1",
+		"@types/node-fetch": "^2.5.8",
+		"@types/prismjs": "^1.16.3",
+		"autoprefixer": "^10.2.4",
+		"postcss": "^8.2.6",
+		"prettier": "^2.2.1",
+		"sass": "^1.32.8",
+		"svelte": "^3.35.0",
+		"svelte-check": "^1.1.36",
+		"svelte-preprocess": "^4.3.0",
+		"tslib": "^2.0.1",
+		"typescript": "^4.0.3",
+		"vite": "^2.1.2"
+	}
 }

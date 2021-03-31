@@ -9,10 +9,10 @@ Kana](https://lab.fleon.org/type-kana/) (will be referred to as "the original")
 and [Real Kana](https://realkana.com/). While they both have their strengths,
 neither was perfect.
 
-Type Kana aims to be the best way to study 
-<abbr title="Collective name for hiragana and katakana">kana</abbr>, by 
-combining the best features from its predecessors, along with some fresh ideas. 
-The end goal is to create a study experience that both functional and pretty, 
+Type Kana aims to be the best way to study
+<abbr title="Collective name for hiragana and katakana">kana</abbr>, by
+combining the best features from its predecessors, along with some fresh ideas.
+The end goal is to create a study experience that both functional and pretty,
 and built on the newest standards in web technology.
 
 ## Study options
@@ -58,9 +58,8 @@ inheriting the clever "typewriter" layout that the original Type Kana invented.
 I worked iteratively on this design until I arrived at something pretty and
 functional.
 
-
 The quiz comes with some options to tailor your learning experience for you, one
-such feature allows you to retry failed answers.  The feature is pretty simple
+such feature allows you to retry failed answers. The feature is pretty simple
 --- fail an item and it will appear later in the queue for review again. This
 was something that worked really nicely in RealKana, so I borrowed it.
 
@@ -74,20 +73,20 @@ The logic for these cases is pretty fun:
 
 ```js
 function handleInput() {
-  // get an array of valid answers
-  // ["shi", "si"]
-  const answers = getAnswers(currentKana); 
+	// get an array of valid answers
+	// ["shi", "si"]
+	const answers = getAnswers(currentKana)
 
-  // $settings.autoCommit can have 3 different values:
-  // "disabled" | "forgiving" | "strict"
-  if (
-    ($settings.autoCommit !== "disabled" &&
-      isCorrectAnswer(input, currentKana)) ||
-    ($settings.autoCommit === "strict" &&
-      !answers.some((answer) => answer.startsWith(input)))
-  ) {
-    handleSubmit();
-  }
+	// $settings.autoCommit can have 3 different values:
+	// "disabled" | "forgiving" | "strict"
+	if (
+		($settings.autoCommit !== "disabled" &&
+			isCorrectAnswer(input, currentKana)) ||
+		($settings.autoCommit === "strict" &&
+			!answers.some((answer) => answer.startsWith(input)))
+	) {
+		handleSubmit()
+	}
 }
 ```
 
