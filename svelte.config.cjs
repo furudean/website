@@ -22,7 +22,7 @@ module.exports = {
 			},
 			resolve: {
 				alias: {
-					// fix IIFE imports
+					// resolve marked's esm version manually. this fixes import issues in kit
 					marked: "marked/lib/marked.esm.js"
 				}
 			}
