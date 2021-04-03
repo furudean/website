@@ -5,32 +5,28 @@
 	import Global from "../styles/Global.svelte"
 	import Theme from "../styles/Theme.svelte"
 	import Code from "../styles/Code.svelte"
-	import { page } from "$app/stores"
+	import { getStores } from "$app/stores"
 	import LoadingBar from "./_loading-bar.svelte"
 	import { rewriteFragmentLinks, updateFragmentLinkTarget } from "../lib/link"
-	import { browser } from "$app/env"
 	import { onMount } from "svelte"
 
+	const { page } = getStores()
 	let element: HTMLElement
 
 	onMount(() => {
-		if (!browser) return
-
-		// Set theme on root element
 		osTheme.subscribe((theme) => {
+			// Set theme on root element
 			const root = document.querySelector(":root")
 
 			root.classList.remove("light-theme", "dark-theme")
 			root.classList.add(theme + "-theme")
 		})
 
-		// panic, this doesn't work right now
-		// See: https://github.com/sveltejs/kit/issues/649
-		// page.subscribe(() => {
-		// Rewrite <a> elements with # to respect <base href="/">
-		// rewriteFragmentLinks(window.location.href, element);
-		// updateFragmentLinkTarget(window.location.href, element);
-		// });
+		page.subscribe(() => {
+			// Rewrite <a> elements with a # to respect <base href="/">
+			rewriteFragmentLinks(window.location.href, element)
+			updateFragmentLinkTarget(window.location.href, element)
+		})
 	})
 </script>
 
