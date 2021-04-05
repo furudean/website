@@ -1,14 +1,15 @@
 <script lang="ts">
 	import { osTheme } from "../stores/theme"
 	import Nav from "$lib/Nav.svelte"
-	import Reset from "../styles/Reset.svelte"
-	import Global from "../styles/Global.svelte"
-	import Theme from "../styles/Theme.svelte"
-	import Code from "../styles/Code.svelte"
 	import { getStores } from "$app/stores"
 	import LoadingBar from "./_loading-bar.svelte"
 	import { rewriteFragmentLinks, updateFragmentLinkTarget } from "../lib/link"
 	import { onMount } from "svelte"
+
+	import "../styles/reset.scss"
+	import "../styles/global.scss"
+	import "../styles/theme.scss"
+	import "../styles/code.scss"
 
 	const { page } = getStores()
 	let element: HTMLElement
@@ -33,11 +34,6 @@
 <svelte:window
 	on:hashchange={() => updateFragmentLinkTarget(window.location.href, element)}
 />
-
-<Reset />
-<Global />
-<Theme />
-<Code />
 
 <LoadingBar />
 
