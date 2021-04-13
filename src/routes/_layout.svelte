@@ -25,6 +25,10 @@
 			rewriteFragmentLinks(window.location.href);
 			updateFragmentLinkTarget(window.location.href);
 		});
+
+		navigator.serviceWorker
+			.getRegistration()
+			.then((registration) => registration?.unregister());
 	});
 </script>
 
