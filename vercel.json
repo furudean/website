@@ -5,10 +5,11 @@
       "src": "package.json",
       "use": "vercel-sapper",
       "config": {
-        "include": [
-          "static"
-        ]
+        "include": ["static"]
       }
     }
-  ]
+  ],
+  "github": {
+    "silent": true
+  }
 }
