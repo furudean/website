@@ -1,6 +1,5 @@
 const sveltePreprocess = require("svelte-preprocess")
 const vercel = require("@sveltejs/adapter-vercel")
-const pkg = require("./package.json")
 const autoprefixer = require("autoprefixer")
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -15,18 +14,7 @@ module.exports = {
 			pages: ["*"],
 			crawl: true
 		},
-		target: "body",
-		vite: {
-			ssr: {
-				noExternal: Object.keys(pkg.dependencies || {})
-			},
-			resolve: {
-				alias: {
-					// resolve marked's esm version manually. this fixes import issues in kit
-					marked: "marked/lib/marked.esm.js"
-				}
-			}
-		}
+		target: "body"
 	},
 
 	// options passed to svelte.preprocess (https://svelte.dev/docs#svelte_preprocess)
