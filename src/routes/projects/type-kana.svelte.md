@@ -1,3 +1,14 @@
+---
+title: Type Kana
+slug: type-kana
+kind: Web app
+date: 2020-08-02T00:00:00
+summary: A quiz app to help you learn hiragana and katakana, the Japanese syllabaries.
+coverImageUrl: https://cass.moe/media/projects/type-kana/session.jpg
+link: https://type-kana.cass.moe/
+repo: https://github.com/c-bandy/type-kana
+---
+
 ![Type Kana screenshot that shows a typical gameplay
 session](/media/projects/type-kana/session.jpg)
 
@@ -9,8 +20,7 @@ Kana](https://lab.fleon.org/type-kana/) (will be referred to as "the original")
 and [Real Kana](https://realkana.com/). While they both have their strengths,
 neither was perfect.
 
-Type Kana aims to be the best way to study
-<abbr title="Collective name for hiragana and katakana">kana</abbr>, by
+Type Kana aims to be the best way to study kana, by
 combining the best features from its predecessors, along with some fresh ideas.
 The end goal is to create a study experience that both functional and pretty,
 and built on the newest standards in web technology.
@@ -92,10 +102,13 @@ function handleInput() {
 
 ---
 
-In the hopefully not so distant future I would like to look into adding <abbr
-title="Progressive web app">PWA</abbr> support using Sapper (or [whatever its
-replacement will be](https://svelte.dev/blog/whats-the-deal-with-sveltekit)).
-This way you wouldn't need an internet connection to be able to use Type Kana,
-and you could install it onto your phone.
+In the hopefully not so distant future I would like to look into adding PWA
+support using Sapper (or [whatever its replacement will
+be](https://svelte.dev/blog/whats-the-deal-with-sveltekit)). This way you
+wouldn't need an internet connection to be able to use Type Kana, and you could
+install it onto your phone.
 
 You can check out the project and its source code at the links below.
+
+*[kana]: Collective name for hiragana and katakana
+*[PWA]: Progressive web app

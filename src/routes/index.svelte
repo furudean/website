@@ -1,33 +1,7 @@
-<script context="module" lang="ts">
-	import Meta from "$lib/Meta.svelte"
-	import type { Load } from "@sveltejs/kit"
-
-	export const load: Load = async function ({ fetch }) {
-		const url = "/projects.json"
-		const res = await fetch(url)
-
-		if (res.ok) {
-			const projects = await res.json()
-			return {
-				props: {
-					projects
-				}
-			}
-		} else {
-			return {
-				status: 500,
-				error: new Error(`Could not fetch ${url}`)
-			}
-		}
-	}
-</script>
-
 <script lang="ts">
 	import Landing from "./_landing.svelte"
 	import Projects from "./_projects.svelte"
-	import type { Project } from "./projects/_projects"
-
-	export let projects: Project[]
+	import Meta from "$lib/Meta.svelte"
 </script>
 
 <svelte:head>
@@ -42,7 +16,7 @@
 
 <div class="container">
 	<Landing />
-	<Projects {projects} />
+	<Projects />
 </div>
 
 <style lang="scss">

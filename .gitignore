@@ -6,3 +6,5 @@ node_modules
 /functions
 /.vercel_build_output
 .vercel
+
+src/routes/projects/_projects.js

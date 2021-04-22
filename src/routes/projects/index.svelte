@@ -1,28 +1,7 @@
-<script context="module" lang="ts">
-	import type { Load } from "@sveltejs/kit"
+<script>
+	import projects from "./_projects.js"
 
-	export const load: Load = async function ({ fetch }) {
-		const url = "/projects.json"
-		const res = await fetch(url)
-
-		if (res.ok) {
-			const projects = await res.json()
-			return {
-				props: { projects }
-			}
-		} else {
-			return {
-				status: 500,
-				error: new Error(`Could not fetch ${url}`)
-			}
-		}
-	}
-</script>
-
-<script lang="ts">
-	import type { Project } from "./_projects"
-
-	export let projects: Project[]
+	console.log(projects)
 </script>
 
 <svelte:head>
@@ -33,8 +12,10 @@
 <ul class="list">
 	{#each projects as project}
 		<li>
-			<a href={"projects/" + project.slug} class="text-link">{project.title}</a>
-			- {project.summary}
+			<a href={"projects/" + project.slug} class="text-link">
+				{project.attributes.title}
+			</a>
+			- {project.attributes.summary}
 		</li>
 	{/each}
 </ul>

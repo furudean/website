@@ -1,6 +1,13 @@
-![Graphic that has the text "Making of the 2021 portfolio site" repeated three
-times, the middle row with linguistic guide
-lines](/media/projects/portfolio-site-2021/cover.png)
+---
+title: Portfolio site
+kind: Website
+date: 2021-02-26T00:00:00
+summary: Updated portfolio website for 2021. Built with Sapper and Svelte
+coverImageUrl: https://cass.moe/media/projects/portfolio-site-2021/cover.png
+repo: https://github.com/c-bandy/website
+---
+
+![Graphic that has the text 'Making of the 2021 portfolio site' repeated three times, the middle row with linguistic guide lines](/media/projects/portfolio-site-2021/cover.png)
 
 2021 is a big year for me. Not only did I leave my 3 year position at
 [TIQQE](https://tiqqe.com/), but I moved to a completely new country! I wanted
@@ -43,8 +50,7 @@ tags that render link-embeds for dynamic routes:
 ### /projects/[slug].svelte
 
 This file renders as a route to any url that matches `/projects/*`. You
-can read about how this works on [Sapper's documentation
-page](https://sapper.svelte.dev/docs#Pages).
+can read about how this works on [Sapper's documentation page](https://sapper.svelte.dev/docs#Pages).
 
 ```svelte
 <script context="module">

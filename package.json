@@ -3,7 +3,9 @@
 	"version": "1.0.0",
 	"type": "module",
 	"scripts": {
+		"predev": "node src/list-projects.js",
 		"dev": "svelte-kit dev",
+		"prebuild": "node src/list-projects.js",
 		"build": "svelte-kit build",
 		"start": "svelte-kit start",
 		"check": "svelte-check",
@@ -13,10 +15,8 @@
 	"dependencies": {
 		"@mdi/js": "^5.9.55",
 		"common-tags": "^1.8.0",
-		"marked": "^2.0.1",
 		"node-fetch": "^2.6.1",
-		"prism-svelte": "^0.4.7",
-		"prismjs": "^1.23.0"
+		"rehype-slug": "^4.0.1"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-vercel": "next",
@@ -27,9 +27,16 @@
 		"@types/node-fetch": "^2.5.8",
 		"@types/prismjs": "^1.16.3",
 		"autoprefixer": "^10.2.4",
+		"front-matter": "^4.0.2",
+		"mdsvex": "^0.9.0",
 		"postcss": "^8.2.6",
 		"prettier": "^2.2.1",
 		"prettier-plugin-svelte": "^2.2.0",
+		"rehype-add-classes": "^1.0.0",
+		"rehype-autolink-headings": "^5.0.1",
+		"rehype-figure": "^1.0.1",
+		"rehype-urls": "^1.1.1",
+		"remark-abbr": "^1.4.1",
 		"sass": "^1.32.8",
 		"svelte": "^3.35.0",
 		"svelte-check": "^1.1.36",

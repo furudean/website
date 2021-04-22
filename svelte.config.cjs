@@ -1,11 +1,12 @@
 const sveltePreprocess = require("svelte-preprocess")
 const vercel = require("@sveltejs/adapter-vercel")
-const autoprefixer = require("autoprefixer")
+const { mdsvex } = require("mdsvex")
+const mdsvexConfig = require("./mdsvex.config.cjs")
 
 /** @type {import('@sveltejs/kit').Config} */
 module.exports = {
 	// an array of file extensions that should be treated as Svelte components
-	extensions: [".svelte"],
+	extensions: [".svelte", ".svelte.md"],
 
 	kit: {
 		adapter: vercel(),
@@ -18,9 +19,5 @@ module.exports = {
 	},
 
 	// options passed to svelte.preprocess (https://svelte.dev/docs#svelte_preprocess)
-	preprocess: sveltePreprocess({
-		postcss: {
-			plugins: [autoprefixer()]
-		}
-	})
+	preprocess: [sveltePreprocess(), mdsvex(mdsvexConfig)]
 }

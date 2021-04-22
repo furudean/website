@@ -1,19 +1,19 @@
 <script lang="ts">
-	import type { Project } from "./_projects"
 	import Icon from "../../lib/Icon.svelte"
 	import { mdiGithub, mdiLink } from "@mdi/js"
 
-	export let project: Project
+	export let repo: string | undefined
+	export let link: string | undefined
 	export let fill = false
 </script>
 
 <ul class="links">
-	{#if project.link}
+	{#if link}
 		<li>
 			<a
 				class="link-button"
 				class:fill
-				href={project.link}
+				href={link}
 				target="_blank"
 				rel="noopener"
 			>
@@ -22,12 +22,12 @@
 			</a>
 		</li>
 	{/if}
-	{#if project.repo}
+	{#if repo}
 		<li>
 			<a
 				class="link-button"
 				class:fill
-				href={project.repo}
+				href={repo}
 				target="_blank"
 				rel="noopener"
 				title="GitHub repository"
