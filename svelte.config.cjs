@@ -15,13 +15,7 @@ module.exports = {
 			pages: ["*"],
 			crawl: true
 		},
-		target: "body",
-		vite: {
-			ssr: {
-				// annoying dependencies go here
-				noExternal: ["@mdi/js"]
-			}
-		}
+		target: "body"
 	},
 
 	// options passed to svelte.preprocess (https://svelte.dev/docs#svelte_preprocess)
