@@ -12,7 +12,6 @@ const h = require("hastscript")
  */
 function figure() {
 	function buildFigure({ properties }) {
-		console.log(properties)
 		const figure = h("figure", null, [
 			h("img", { ...properties }),
 			properties.title ? h("figcaption", properties.title) : ""
