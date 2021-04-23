@@ -1,7 +1,5 @@
 <script>
 	import projects from "./_projects.js"
-
-	console.log(projects)
 </script>
 
 <svelte:head>
