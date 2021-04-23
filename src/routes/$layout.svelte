@@ -28,6 +28,10 @@
 			rewriteFragmentLinks(window.location.href, element)
 			updateFragmentLinkTarget(window.location.href, element)
 		})
+
+		navigator.serviceWorker
+			.getRegistration()
+			.then((registration) => registration?.unregister())
 	})
 </script>
 

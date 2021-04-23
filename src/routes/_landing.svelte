@@ -18,8 +18,12 @@
 		language and explore new media.
 	</p>
 	<p>
-		I'm currently looking for new work opportunities. Let's make the web a
-		little nicer together?
+		I'm currently doing engineering work at <a
+			href="https://www.sourcestrike.com/"
+			class="text-link"
+			target="_blank"
+			rel="noopener">SourceStrike</a
+		>.
 	</p>
 	<hr />
 	<ul class="links">
