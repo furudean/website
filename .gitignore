@@ -1,6 +1,10 @@
 .DS_Store
-/node_modules/
-/src/node_modules/@sapper/
-yarn-error.log
-/__sapper__/
+node_modules
+/.vercel
+/.svelte
+/build
+/functions
+/.vercel_build_output
 .vercel
+
+src/routes/projects/_projects.js

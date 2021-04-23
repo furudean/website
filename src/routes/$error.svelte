@@ -1,8 +1,8 @@
 <script lang="ts">
-	export let status: number;
-	export let error: Error;
+	import { dev } from "$app/env"
 
-	const dev = process.env.NODE_ENV === "development";
+	export let status: number
+	export let error: Error
 </script>
 
 <svelte:head>

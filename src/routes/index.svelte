@@ -1,25 +1,7 @@
-<script context="module" lang="ts">
-	import type { Preload } from "@sapper/common";
-	import Meta from "../components/Meta.svelte";
-
-	export const preload: Preload = async function () {
-		const res = await this.fetch("/projects.json");
-
-		if (res.status === 200) {
-			const projects = await res.json();
-			return { projects };
-		} else {
-			this.error(res.status, `Could not fetch ${res.url}`);
-		}
-	};
-</script>
-
 <script lang="ts">
-	import Landing from "./_landing.svelte";
-	import Projects from "./_projects.svelte";
-	import type { Project } from "./projects/_projects";
-
-	export let projects: Project[];
+	import Landing from "./_landing.svelte"
+	import Projects from "./_projects.svelte"
+	import Meta from "$lib/Meta.svelte"
 </script>
 
 <svelte:head>
@@ -34,7 +16,7 @@
 
 <div class="container">
 	<Landing />
-	<Projects {projects} />
+	<Projects />
 </div>
 
 <style lang="scss">
