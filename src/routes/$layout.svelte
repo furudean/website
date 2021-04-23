@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { osTheme } from "../stores/theme"
 	import Nav from "$lib/Nav.svelte"
 	import { getStores } from "$app/stores"
 	import LoadingBar from "./_loading-bar.svelte"
@@ -15,14 +14,6 @@
 	let element: HTMLElement
 
 	onMount(() => {
-		osTheme.subscribe((theme) => {
-			// Set theme on root element
-			const root = document.querySelector(":root")
-
-			root.classList.remove("light-theme", "dark-theme")
-			root.classList.add(theme + "-theme")
-		})
-
 		page.subscribe(() => {
 			// Rewrite <a> elements with a # to respect <base href="/">
 			rewriteFragmentLinks(window.location.href, element)
