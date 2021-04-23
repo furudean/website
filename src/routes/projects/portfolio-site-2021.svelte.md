@@ -16,6 +16,9 @@ and my skills have evolved in the recent years.
 
 ## Dive into Sapper
 
+> It's worth noting that this site no longer uses Sapper and has now migrated to
+> its successor, [SvelteKit](https://kit.svelte.dev/).
+
 Since I really enjoyed using Svelte for my [last project](/projects/type-kana),
 Sapper felt like a natural progression to create a website with server side
 rendering. Sapper comes with isomorphic rendering, meaning that markup renders
