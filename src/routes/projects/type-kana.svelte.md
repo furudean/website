@@ -102,6 +102,9 @@ function handleInput() {
 
 ---
 
+> Since writing, the app is now built using SvelteKit, the successor to Sapper.
+> This comes with full PWA support out of the box, yippee!
+
 In the hopefully not so distant future I would like to look into adding PWA
 support using Sapper (or [whatever its replacement will
 be](https://svelte.dev/blog/whats-the-deal-with-sveltekit)). This way you
