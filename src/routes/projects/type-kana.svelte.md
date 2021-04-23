@@ -113,5 +113,6 @@ install it onto your phone.
 
 You can check out the project and its source code at the links below.
 
+<!-- prettier-ignore  -->
 *[kana]: Collective name for hiragana and katakana
 *[PWA]: Progressive web app
