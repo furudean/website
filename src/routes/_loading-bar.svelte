@@ -19,9 +19,9 @@
 		clearTimeout(navigatingTimeout)
 
 		if (value) {
-			navigatingTimeout = setTimeout(() => set(value), 200)
+			navigatingTimeout = setTimeout(() => set(true), 200)
 		} else {
-			set(value)
+			set(false)
 		}
 	}) as Readable<boolean>
 
