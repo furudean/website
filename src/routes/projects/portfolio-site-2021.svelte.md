@@ -88,9 +88,7 @@ And with all that --- we have set up a link preview for our dynamic route. Now
 when we add more projects all we have to do was edit a JSON file to fill in the
 data.
 
-![A screenshot of the link preview for a project as it appears on
-twitter.com](/media/projects/portfolio-site-2021/link-preview.png "What you see
-when you link the Type Kana project on Twitter. Isn't my baby beautiful?")
+![What you see when you link the Type Kana project on Twitter. Isn't my baby beautiful?](/media/projects/portfolio-site-2021/link-preview.png "A screenshot of the link preview for a project as it appears on twitter.com")
 
 Of course, you can get as complicated as you want with this pattern. The page
 you're reading right now [is composed of
