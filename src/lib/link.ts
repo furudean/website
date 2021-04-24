@@ -19,7 +19,7 @@ export function updateFragmentLinkTarget(
 	url: string,
 	element: HTMLElement
 ): void {
-	const anchors = element.querySelectorAll("h1 > a, h2 > a	, h3 > a" as "a")
+	const anchors = element.querySelectorAll("h1 > a, h2 > a, h3 > a" as "a")
 	const { hash } = new URL(url)
 
 	anchors.forEach((a) => {
