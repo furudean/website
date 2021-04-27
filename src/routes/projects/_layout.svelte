@@ -13,7 +13,7 @@
 	export let date
 	export let summary
 	export let coverImageUrl
-	export let link
+	export let url
 	export let repo
 
 	const segments = $page.path.slice(1).split("/").slice(0, -1)
@@ -44,13 +44,13 @@
 	·
 	<span>{kind}</span>
 </div>
-<Links {repo} {link} />
+<Links {repo} {url} />
 
 <article class="article has-tombstone">
 	<slot />
 </article>
 
-<Links {repo} {link} fill={true} />
+<Links {repo} {url} fill={true} />
 
 <style lang="scss">
 	nav {

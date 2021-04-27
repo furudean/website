@@ -2,7 +2,8 @@
 	import { friendlyDate } from "../lib/dateTime"
 	import Icon from "$lib/Icon.svelte"
 	import { mdiGithub } from "@mdi/js"
-	import projects from "./projects/_projects"
+
+	export let projects: any[]
 </script>
 
 <section class="projects">
@@ -13,12 +14,12 @@
 		<article class="project">
 			<h3>
 				<a href={"/projects/" + project.slug} sveltekit:prefetch>
-					{project.attributes.title}
+					{project.title}
 				</a>
-				{#if project.attributes.repo}
+				{#if project.repo}
 					<a
 						class="repo-link"
-						href={project.attributes.repo}
+						href={project.repo}
 						title="GitHub repository"
 						target="_blank"
 						rel="noopener"
@@ -28,13 +29,13 @@
 				{/if}
 			</h3>
 			<div class="article-info">
-				<time datetime={project.attributes.date}>
-					{friendlyDate(project.attributes.date)}
+				<time datetime={project.date}>
+					{friendlyDate(project.date)}
 				</time>
 				·
-				<span>{project.attributes.kind}</span>
+				<span>{project.kind}</span>
 			</div>
-			<p>{project.attributes.summary}</p>
+			<p>{project.summary}</p>
 			<p>
 				<a
 					class="text-link"

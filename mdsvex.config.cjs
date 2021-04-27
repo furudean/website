@@ -51,7 +51,7 @@ module.exports = {
 	smartypants: true,
 	remarkPlugins: [abbr], // adds support for footnote-like abbreviations
 	rehypePlugins: [
-		[figure], // convert images into <figure> elements
+		figure, // convert images into <figure> elements
 		[urls, processUrl], // adds rel and target to <a> elements
 		slug, // adds slug to <h1>-<h6> elements
 		[link, { behavior: "wrap" }], // adds a <a> around slugged <h1>-<h6> elements
