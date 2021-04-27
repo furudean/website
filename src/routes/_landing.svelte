@@ -11,7 +11,11 @@
 	</h1>
 	<p>
 		I'm a full-stack engineer based in UT, USA. I care about CSS, typography,
-		accessibility and cute things.
+		accessibility and cute things. — <a
+			href="about"
+			class="text-link"
+			sveltekit:prefetch>about</a
+		>
 	</p>
 	<p>
 		In my free time I like to learn more about programming, study the Japanese

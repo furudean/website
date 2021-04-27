@@ -19,14 +19,15 @@
 					projects
 				</a>
 			</li>
-			<!-- <li>
+			<li>
 				<a
 					href="/about"
 					aria-current={$page.path.startsWith("/about") ? "page" : undefined}
+					sveltekit:prefetch
 				>
-					about
+					about me
 				</a>
-			</li> -->
+			</li>
 		</ul>
 	</nav>
 {/if}

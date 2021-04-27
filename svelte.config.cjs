@@ -2,6 +2,7 @@ const sveltePreprocess = require("svelte-preprocess")
 const vercel = require("@sveltejs/adapter-vercel")
 const { mdsvex } = require("mdsvex")
 const mdsvexConfig = require("./mdsvex.config.cjs")
+const { imagetools } = require("vite-imagetools")
 
 /** @type {import('@sveltejs/kit').Config} */
 module.exports = {
@@ -15,7 +16,10 @@ module.exports = {
 			pages: ["*"],
 			crawl: true
 		},
-		target: "body"
+		target: "body",
+		vite: {
+			plugins: [imagetools()]
+		}
 	},
 
 	// options passed to svelte.preprocess (https://svelte.dev/docs#svelte_preprocess)
