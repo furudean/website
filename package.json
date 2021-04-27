@@ -19,7 +19,6 @@
 		"@sveltejs/adapter-vercel": "next",
 		"@sveltejs/kit": "next",
 		"@types/common-tags": "^1.8.0",
-		"@types/marked": "^2.0.0",
 		"@types/node": "^14.11.1",
 		"autoprefixer": "^10.2.4",
 		"hastscript": "^6.0.0",
