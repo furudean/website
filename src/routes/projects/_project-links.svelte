@@ -3,17 +3,17 @@
 	import { mdiGithub, mdiLink } from "@mdi/js"
 
 	export let repo: string | undefined
-	export let link: string | undefined
+	export let url: string | undefined
 	export let fill = false
 </script>
 
 <ul class="links">
-	{#if link}
+	{#if url}
 		<li>
 			<a
 				class="link-button"
 				class:fill
-				href={link}
+				href={url}
 				target="_blank"
 				rel="noopener"
 			>

@@ -5,7 +5,7 @@ kind: Web app
 date: 2020-08-02T00:00:00
 summary: A quiz app to help you learn hiragana and katakana, the Japanese syllabaries.
 coverImageUrl: https://cass.moe/media/projects/type-kana/session.jpg
-link: https://type-kana.cass.moe/
+url: https://type-kana.cass.moe/
 repo: https://github.com/c-bandy/type-kana
 ---
 

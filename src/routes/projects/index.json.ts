@@ -15,7 +15,7 @@ export const get: RequestHandler = async () => {
 			date: new Date(meta.date),
 			summary: meta.summary,
 			coverImageUrl: meta.coverImageUrl,
-			link: meta.link,
+			url: meta.url,
 			repo: meta.repo
 		}
 	})
