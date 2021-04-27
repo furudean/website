@@ -20,7 +20,7 @@ export const get: RequestHandler = async () => {
 		}
 	})
 
-	projects = projects.sort((a, b) => (a.date > b.date ? -1 : 1))
+	projects.sort((a, b) => (a.date > b.date ? -1 : 1))
 
 	return {
 		status: 200,
