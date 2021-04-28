@@ -67,21 +67,26 @@
 
 	li a {
 		display: block;
-		padding: 0.75em 0;
-	}
-
-	[aria-current] {
 		position: relative;
-		display: inline-block;
-	}
+		padding: 0.75em 0;
 
-	[aria-current]::after {
-		content: "";
-		position: absolute;
-		width: 100%;
-		height: 2px;
-		background-color: var(--color-primary-400);
-		display: block;
-		bottom: 0;
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			height: 2px;
+			width: 0;
+			bottom: 0;
+			background-color: var(--color-primary-400);
+			transition: width 70ms var(--standard-curve);
+		}
+
+		&[aria-current]::after {
+			width: 100%;
+		}
+
+		&:not([aria-current]):hover::after {
+			width: 33%;
+		}
 	}
 </style>

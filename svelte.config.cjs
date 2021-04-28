@@ -18,7 +18,10 @@ module.exports = {
 		},
 		target: "body",
 		vite: {
-			plugins: [imagetools()]
+			plugins: [imagetools()],
+			json: {
+				namedExports: true
+			}
 		}
 	},
 

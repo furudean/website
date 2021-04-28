@@ -11,15 +11,7 @@
 	</h1>
 	<p>
 		I'm a full-stack engineer based in UT, USA. I care about CSS, typography,
-		accessibility and cute things. — <a
-			href="about"
-			class="text-link"
-			sveltekit:prefetch>about</a
-		>
-	</p>
-	<p>
-		In my free time I like to learn more about programming, study the Japanese
-		language and explore new media.
+		accessibility and cute things.
 	</p>
 	<p>
 		I'm currently doing engineering work at <a
@@ -28,6 +20,12 @@
 			target="_blank"
 			rel="noopener">SourceStrike</a
 		>.
+	</p>
+	<p>
+		In my free time I like to learn more about programming, study the Japanese
+		language and explore new media.
+		<br />
+		<a href="about" class="text-link" sveltekit:prefetch>More</a>
 	</p>
 	<hr />
 	<ul class="links">
