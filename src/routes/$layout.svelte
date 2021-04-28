@@ -2,7 +2,7 @@
 	import Nav from "$lib/Nav.svelte"
 	import { getStores } from "$app/stores"
 	import LoadingBar from "./_loading-bar.svelte"
-	import { rewriteFragmentLinks, updateFragmentLinkTarget } from "../lib/link"
+	import { updateFragmentLinkTarget } from "../lib/link"
 	import { onMount } from "svelte"
 
 	import "../styles/reset.scss"
@@ -15,9 +15,10 @@
 
 	onMount(() => {
 		page.subscribe(() => {
-			// Rewrite <a> elements with a # to respect <base href="/">
-			rewriteFragmentLinks(window.location.href, element)
-			updateFragmentLinkTarget(window.location.href, element)
+			if (element) {
+				// Rewrite <a> elements with a # to respect <base href="/">
+				updateFragmentLinkTarget(window.location.href, element)
+			}
 		})
 
 		navigator.serviceWorker
