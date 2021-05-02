@@ -1,4 +1,4 @@
-const months = [
+const monthsShort = [
 	"Jan",
 	"Feb",
 	"Mar",
@@ -13,15 +13,31 @@ const months = [
 	"Dec"
 ]
 
-export function friendlyDate(date: string | number | Date): string {
+const monthsLong = [
+	"January",
+	"February",
+	"March",
+	"April",
+	"May",
+	"June",
+	"July",
+	"August",
+	"Sepember",
+	"October",
+	"November",
+	"December"
+]
+
+export function friendlyDate(date: string | number | Date, long = false): string {
+	const months = long ? monthsLong : monthsShort
 	const d = new Date(date)
 	const dd = d.getDate()
 	const mmm = months[d.getMonth()]
 	const yyyy = d.getFullYear()
 
-	if (yyyy === new Date().getFullYear()) {
-		return `${mmm} ${dd} `
-	} else {
+	if (long || yyyy !== new Date().getFullYear()) {
 		return `${mmm} ${dd}, ${yyyy}`
+	} else {
+		return `${mmm} ${dd}`
 	}
 }
