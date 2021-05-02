@@ -46,7 +46,7 @@
 		height: 1em;
 		width: 1px;
 		background: var(--color-text-200);
-		margin: 0 var(--line-space);
+		margin: 0 1.5rem;
 		flex-shrink: 0;
 	}
 
