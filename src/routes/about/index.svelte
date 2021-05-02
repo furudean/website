@@ -21,9 +21,9 @@
 			<div class="tagline">Full Stack Engineer, Designer</div>
 		</div>
 		<p>
-			Hi, I'm Cassidy! Cassie works too, if we're friends. My pronouns are
-			she/her. As a day job I'm a full-stack engineer. I like to design things
-			too, like this website.
+			Hi, I'm Cassidy! Cassie works too, if we're friends. Pronouns are she/her.
+			As a day job I'm a full-stack engineer. I like to design things too, like
+			this website.
 		</p>
 		<p>
 			I grew up in a (relatively) small town called Örebro, Sweden. At the end
