@@ -57,7 +57,7 @@
 			<noscript>
 				<blockquote>
 					Contact info is hidden with JavaScript disabled. This is to prevent it
-					from getting picked up by web scrapers. Enable JavaScript to view.
+					from getting picked up by web scrapers.
 				</blockquote>
 			</noscript>
 		{/if}
