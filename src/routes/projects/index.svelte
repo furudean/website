@@ -42,6 +42,6 @@
 
 <style>
 	.quiet {
-		color: var(--color-text-300)
+		color: var(--color-text-300);
 	}
 </style>

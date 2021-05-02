@@ -28,7 +28,10 @@ const monthsLong = [
 	"December"
 ]
 
-export function friendlyDate(date: string | number | Date, long = false): string {
+export function friendlyDate(
+	date: string | number | Date,
+	long = false
+): string {
 	const months = long ? monthsLong : monthsShort
 	const d = new Date(date)
 	const dd = d.getDate()
