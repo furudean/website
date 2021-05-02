@@ -20,6 +20,7 @@
 </script>
 
 <script lang="ts">
+	import { friendlyDate } from "$lib/dateTime"
 	export let projects: any[]
 </script>
 
@@ -34,7 +35,13 @@
 			<a href={"projects/" + project.slug} class="text-link">
 				{project.title}
 			</a>
-			- {project.summary}
+			<span class="quiet">- {friendlyDate(project.date, true)}</span>
 		</li>
 	{/each}
 </ul>
+
+<style>
+	.quiet {
+		color: var(--color-text-300);
+	}
+</style>

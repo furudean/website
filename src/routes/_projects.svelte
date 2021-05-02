@@ -49,7 +49,7 @@
 	{/each}
 </section>
 
-<style lang="scss">
+<style lang="postcss">
 	.projects {
 		grid-area: projects;
 	}

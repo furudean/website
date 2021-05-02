@@ -5,10 +5,10 @@
 	import { updateFragmentLinkTarget } from "../lib/link"
 	import { onMount } from "svelte"
 
-	import "../styles/reset.scss"
-	import "../styles/global.scss"
-	import "../styles/theme.scss"
-	import "../styles/code.scss"
+	import "../styles/reset.postcss"
+	import "../styles/global.postcss"
+	import "../styles/theme.postcss"
+	import "../styles/code.postcss"
 
 	const { page } = getStores()
 	let element: HTMLElement

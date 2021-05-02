@@ -32,7 +32,7 @@
 	</nav>
 {/if}
 
-<style lang="scss">
+<style lang="postcss">
 	nav {
 		display: flex;
 		align-items: center;
