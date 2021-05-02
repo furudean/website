@@ -19,5 +19,8 @@ module.exports = {
 	},
 
 	// options passed to svelte.preprocess (https://svelte.dev/docs#svelte_preprocess)
-	preprocess: [sveltePreprocess(), mdsvex(mdsvexConfig)]
+	preprocess: [
+		mdsvex(mdsvexConfig),
+		sveltePreprocess({ postcss: true, typescript: true })
+	]
 }

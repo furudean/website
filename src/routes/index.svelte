@@ -42,7 +42,7 @@
 	<Projects {projects} />
 </div>
 
-<style lang="scss">
+<style lang="postcss">
 	.container {
 		display: grid;
 		grid-template-columns: 1fr 1fr;

@@ -1,5 +1,8 @@
-const autoprefixer = require("autoprefixer")
-
 module.exports = {
-	plugins: [autoprefixer()]
+	plugins: [
+		require("postcss-nested"),
+		require("postcss-pseudo-is"),
+		require("postcss-pseudo-class-any-link"),
+		require("autoprefixer")
+	]
 }

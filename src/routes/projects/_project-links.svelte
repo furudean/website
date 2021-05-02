@@ -39,7 +39,7 @@
 	{/if}
 </ul>
 
-<style lang="scss">
+<style lang="postcss">
 	.links {
 		display: flex;
 		flex-wrap: wrap;

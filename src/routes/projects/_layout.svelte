@@ -52,7 +52,7 @@
 
 <Links {repo} {url} fill={true} />
 
-<style lang="scss">
+<style lang="postcss">
 	nav {
 		font-weight: 600;
 		text-transform: uppercase;
