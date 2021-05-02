@@ -5,9 +5,7 @@
 
 	let mounted = false
 
-	onMount(() => {
-		mounted = true
-	})
+	onMount(() => (mounted = true))
 </script>
 
 <svelte:head>
