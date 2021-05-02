@@ -1,34 +1,6 @@
 <script lang="ts">
 	import { width, height, src } from "./portrait.jpg?w=160&webp&meta"
-
-	let p1 = "hel"
-	let p2 = "lo@ca"
-	let p3 = "ss.m"
-	let p4 = "oe"
-	let eml = p1 + p2 + p3 + p4
-
-	function revealEmail(node: Element) {
-		const selection = window.getSelection()
-		const range = document.createRange()
-
-		node.setAttribute("aria-label", "email is hidden, tap to show")
-		node.innerHTML = "&lt;tap to show&gt;"
-
-		function tap() {
-			if (node.classList.contains("hidden")) {
-				node.classList.remove("hidden")
-				node.removeAttribute("tabindex")
-				node.removeAttribute("aria-label")
-				node.innerHTML = eml
-			} else {
-				range.selectNodeContents(node)
-				selection.removeAllRanges()
-				selection.addRange(range)
-			}
-		}
-
-		node.addEventListener("pointerup", tap)
-	}
+	import { revealEmail } from "./email"
 </script>
 
 <svelte:head>
@@ -68,7 +40,6 @@
 		<p>
 			If you need to reach me, my email is <span
 				class="email hidden"
-				tabindex="0"
 				aria-live
 				use:revealEmail
 			>
