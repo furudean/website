@@ -1,6 +1,13 @@
 <script lang="ts">
 	import { width, height, src } from "./portrait.jpg?w=160&webp&meta"
 	import { revealEmail } from "./email"
+	import { onMount } from "svelte"
+
+	let mounted = false
+
+	onMount(() => {
+		mounted = true
+	})
 </script>
 
 <svelte:head>
@@ -34,18 +41,28 @@
 		<ul class="list">
 			<li>Study japanese</li>
 			<li>Learn new web tech</li>
-			<li>Play roguelikes</li>
+			<li>Play roguelikes (video game genre)</li>
 			<li>Participate in various open source projects</li>
 		</ul>
-		<p>
-			If you need to reach me, my email is <span
-				class="email hidden"
-				aria-live
-				use:revealEmail
-			>
-				&lt;enable javascript to fetch email&gt;
-			</span>.
-		</p>
+		<h3>Contact</h3>
+		{#if mounted}
+			<p>
+				If you need to reach me, my email is <span
+					class="email hidden"
+					tabindex="0"
+					aria-label="email is hidden, tap to reveal"
+					aria-live
+					use:revealEmail>&lt;tap to show&gt;</span
+				>.
+			</p>
+		{:else}
+			<noscript>
+				<blockquote>
+					Contact info is hidden with JavaScript disabled. This is to prevent it
+					from getting picked up by web scrapers. Enable JavaScript to view.
+				</blockquote>
+			</noscript>
+		{/if}
 	</div>
 </article>
 

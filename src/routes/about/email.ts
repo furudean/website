@@ -7,10 +7,6 @@ export function revealEmail(node: Element) {
 	const selection = window.getSelection()
 	const range = document.createRange()
 
-	node.setAttribute("aria-label", "email is hidden, tap to reveal")
-	node.setAttribute("tabindex", "0")
-	node.innerHTML = "&lt;tap to show&gt;"
-
 	function tap() {
 		const isHidden = node.classList.contains("hidden")
 
