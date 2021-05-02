@@ -35,7 +35,7 @@
 		"rehype-slug": "^4.0.1",
 		"rehype-urls": "^1.1.1",
 		"remark-abbr": "^1.4.1",
-		"svelte": "^3.38.1",
+		"svelte": "^3.37.0",
 		"svelte-check": "^1.5.2",
 		"svelte-preprocess": "^4.7.2",
 		"tslib": "^2.0.1",
