@@ -4,19 +4,12 @@
 
 	export let repo: string | undefined
 	export let url: string | undefined
-	export let fill = false
 </script>
 
 <ul class="links">
 	{#if url}
 		<li>
-			<a
-				class="link-button"
-				class:fill
-				href={url}
-				target="_blank"
-				rel="noopener"
-			>
+			<a class="link-button" href={url} target="_blank" rel="noopener">
 				<Icon path={mdiLink} size="1.5em" />
 				<span>Visit project</span>
 			</a>
@@ -26,7 +19,6 @@
 		<li>
 			<a
 				class="link-button"
-				class:fill
 				href={repo}
 				target="_blank"
 				rel="noopener"
@@ -74,12 +66,5 @@
 		&:hover {
 			text-decoration: underline;
 		}
-	}
-
-	.link-button.fill {
-		background: var(--color-secondary-400);
-		border-bottom: 2px solid var(--color-secondary-500);
-		color: var(--color-secondary-400-text);
-		padding: 0.75em 2em;
 	}
 </style>

@@ -48,9 +48,11 @@
 	<Links {repo} {url} />
 
 	<slot />
-</article>
 
-<Links {repo} {url} fill={true} />
+	<hr class="article-end" />
+
+	<Links {repo} {url} />
+</article>
 
 <style lang="postcss">
 	nav {
@@ -71,5 +73,10 @@
 	.article-info {
 		color: var(--color-text-300);
 		margin-bottom: var(--line-space);
+	}
+
+	hr {
+		max-width: 100%;
+		margin: var(--line-space) 0;
 	}
 </style>
