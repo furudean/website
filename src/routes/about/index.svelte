@@ -117,11 +117,12 @@
 
 	.email {
 		animation: flash 1s var(--standard-curve);
+		border: 1px dashed var(--color-text-100);
 	}
 
 	.hidden {
 		cursor: pointer;
-		background: var(--color-secondary-300);
-		color: var(--color-secondary-300-text);
+		background: var(--color-secondary-200);
+		color: var(--color-secondary-200-text);
 	}
 </style>

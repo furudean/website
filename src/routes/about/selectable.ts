@@ -2,11 +2,11 @@ export function selectable(node: Element) {
 	const selection = window.getSelection()
 	const range = document.createRange()
 
-	function tap() {
+	function select() {
 		range.selectNodeContents(node)
 		selection.removeAllRanges()
 		selection.addRange(range)
 	}
 
-	node.addEventListener("click", tap)
+	node.addEventListener("click", select)
 }
