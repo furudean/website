@@ -1,6 +1,21 @@
 <script lang="ts">
-	import { page } from "$app/stores"
+	import { page, navigating } from "$app/stores"
 	import Logo from "$lib/Logo.svelte"
+	import { derived } from "svelte/store"
+
+	const compass = (segment: string) =>
+		derived([navigating, page], ([$navigating, $page]) => {
+			const path =
+				// @ts-ignore
+				$navigating === null ? $page.path : ($navigating?.to.path as string)
+			return {
+				isCurrent: !$navigating && path.startsWith(segment),
+				navigatingTo: $navigating && path.startsWith(segment)
+			}
+		})
+
+	const projects = compass("/projects")
+	const about = compass("/about")
 </script>
 
 {#if $page.path !== "/"}
@@ -13,7 +28,8 @@
 			<li>
 				<a
 					href="/projects"
-					aria-current={$page.path.startsWith("/projects") ? "page" : undefined}
+					aria-current={$projects.isCurrent ? "page" : undefined}
+					class:navigating-to={$projects.navigatingTo}
 					sveltekit:prefetch
 				>
 					projects
@@ -22,7 +38,8 @@
 			<li>
 				<a
 					href="/about"
-					aria-current={$page.path.startsWith("/about") ? "page" : undefined}
+					aria-current={$about.isCurrent ? "page" : undefined}
+					class:navigating-to={$about.navigatingTo}
 					sveltekit:prefetch
 				>
 					about me
@@ -81,12 +98,36 @@
 			transition: width 70ms var(--standard-curve);
 		}
 
-		&[aria-current]::after {
-			width: 100%;
+		&:hover::after {
+			width: 33%;
 		}
 
-		&:not([aria-current]):hover::after {
-			width: 33%;
+		&:is([aria-current], .navigating-to)::after {
+			width: 100% !important;
+		}
+
+		&.navigating-to::after {
+			@keyframes load {
+				0% {
+					background-position: 0% 50%;
+				}
+				50% {
+					background-position: 100% 0%;
+				}
+				100% {
+					background-position: 0% 0%;
+				}
+			}
+
+			background: linear-gradient(
+				90deg,
+				var(--color-primary-400),
+				var(--color-primary-200),
+				var(--color-primary-400)
+			);
+			background-size: 300% 300%;
+
+			animation: 1s infinite load var(--deceleration-curve);
 		}
 	}
 </style>
