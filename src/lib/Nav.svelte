@@ -47,7 +47,7 @@
 		height: 1em;
 		width: 1px;
 		background: var(--color-text-200);
-		margin: 0 1.5rem;
+		margin: 0 2em;
 		flex-shrink: 0;
 	}
 
@@ -61,7 +61,7 @@
 		cursor: pointer;
 
 		&:not(:last-of-type) {
-			margin-right: 1em;
+			margin-right: 1.5em;
 		}
 	}
 
