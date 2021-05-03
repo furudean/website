@@ -1,7 +1,12 @@
 <script lang="ts">
 	import { width, height, src } from "./portrait.jpg?w=160&webp&meta"
-	import { revealEmail } from "./email"
+	import { hiddenText } from "./hiddenText"
 	import { onMount } from "svelte"
+
+	const p1 = "hel"
+	const p2 = "lo@ca"
+	const p3 = "ss.m"
+	const p4 = "oe"
 
 	let mounted = false
 
@@ -50,7 +55,7 @@
 					tabindex="0"
 					aria-label="email is hidden, tap to reveal"
 					aria-live
-					use:revealEmail>&lt;tap to show&gt;</span
+					use:hiddenText={p1 + p2 + p3 + p4}>&lt;tap to show&gt;</span
 				>.
 			</p>
 		{:else}

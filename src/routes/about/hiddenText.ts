@@ -1,9 +1,4 @@
-const p1 = "hel"
-const p2 = "lo@ca"
-const p3 = "ss.m"
-const p4 = "oe"
-
-export function revealEmail(node: Element) {
+export function hiddenText(node: Element, text: string) {
 	const selection = window.getSelection()
 	const range = document.createRange()
 
@@ -15,7 +10,7 @@ export function revealEmail(node: Element) {
 			node.classList.remove("hidden")
 			node.removeAttribute("tabindex")
 			node.removeAttribute("aria-label")
-			node.innerHTML = p1 + p2 + p3 + p4
+			node.innerHTML = text
 		} else {
 			range.selectNodeContents(node)
 			selection.removeAllRanges()
