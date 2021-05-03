@@ -13,7 +13,7 @@
 	{#each projects as project}
 		<article class="project">
 			<h3>
-				<a href={"/projects/" + project.slug} sveltekit:prefetch>
+				<a href="/projects/{project.slug}" sveltekit:prefetch>
 					{project.title}
 				</a>
 				{#if project.repo}
@@ -60,6 +60,11 @@
 		margin-bottom: var(--line-space);
 		border-radius: 1em;
 		overflow: hidden; /* prevent margin collapse */
+
+		@media (prefers-color-scheme: dark) {
+			background: var(--color-background-300);
+			border-color: var(--color-background-300);
+		}
 
 		h3 {
 			margin-bottom: 0;
