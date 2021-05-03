@@ -70,7 +70,6 @@
 <style>
 	.portrait {
 		border-radius: 100%;
-		border: 3px solid var(--color-primary-400);
 		float: left;
 		margin-right: 2em;
 		margin-bottom: 1em;
