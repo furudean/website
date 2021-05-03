@@ -40,7 +40,7 @@
 		"svelte-preprocess": "^4.7.2",
 		"tslib": "^2.0.1",
 		"typescript": "^4.0.3",
-		"unist-util-visit": "^2.0.3",
+		"unist-util-visit": "^3.0.0",
 		"vite": "^2.2.3",
 		"vite-imagetools": "^3.4.0"
 	}
