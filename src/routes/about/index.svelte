@@ -16,8 +16,8 @@
 	<title>About me · Cassidy Bandy</title>
 </svelte:head>
 
-<h1>About me</h1>
 <article class="article">
+	<h1>About me</h1>
 	<div class="profile-card">
 		<img
 			class="portrait"

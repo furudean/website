@@ -28,17 +28,19 @@
 	<title>Projects · Cassidy Bandy</title>
 </svelte:head>
 
-<h1>Projects</h1>
-<ul class="list">
-	{#each projects as project}
-		<li>
-			<a href={"projects/" + project.slug} class="text-link">
-				{project.title}
-			</a>
-			<span class="quiet">- {friendlyDate(project.date, true)}</span>
-		</li>
-	{/each}
-</ul>
+<article class="article">
+	<h1>Projects</h1>
+	<ul class="list">
+		{#each projects as project}
+			<li>
+				<a href={"projects/" + project.slug} class="text-link">
+					{project.title}
+				</a>
+				<span class="quiet">- {friendlyDate(project.date, true)}</span>
+			</li>
+		{/each}
+	</ul>
+</article>
 
 <style>
 	.quiet {

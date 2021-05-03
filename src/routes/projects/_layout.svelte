@@ -28,25 +28,25 @@
 	/>
 </svelte:head>
 
-<nav aria-label="Breadcrumbs">
-	{#each segments as segment, i}
-		<a href={"/" + segments.slice(0, i + 1).join("/")} sveltekit:prefetch>
-			{segment}
-		</a>
-		<span> / </span>
-	{/each}
-</nav>
-<h1>
-	<a href={$page.path}>{title}</a>
-</h1>
-<div class="article-info">
-	<time datetime={date}>{friendlyDate(date)}</time>
-	·
-	<span>{kind}</span>
-</div>
-<Links {repo} {url} />
-
 <article class="article has-tombstone">
+	<nav aria-label="Breadcrumbs">
+		{#each segments as segment, i}
+			<a href={"/" + segments.slice(0, i + 1).join("/")} sveltekit:prefetch>
+				{segment}
+			</a>
+			<span> / </span>
+		{/each}
+	</nav>
+	<h1>
+		<a href={$page.path}>{title}</a>
+	</h1>
+	<div class="article-info">
+		<time datetime={date}>{friendlyDate(date)}</time>
+		·
+		<span>{kind}</span>
+	</div>
+	<Links {repo} {url} />
+
 	<slot />
 </article>
 
