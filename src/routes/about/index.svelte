@@ -7,7 +7,6 @@
 
 	const email = c("axeeh", 7) + "@" + c("jhzz", -7) + "." + c("fhx", 7)
 	let mounted = false
-	let emailVisible = false
 
 	onMount(() => (mounted = true))
 </script>
@@ -50,17 +49,11 @@
 		{#if mounted}
 			<p>
 				If you need to reach me, my email is
-				<HiddenText let:visible>
-					{#if visible}
-						<span class="email" use:selectable>{email}</span>
-					{:else}
-						<span
-							class="hidden"
-							aria-label={!emailVisible
-								? "email is hidden, tap to reveal"
-								: undefined}>&lt;tap to show&gt;</span
-						>
-					{/if}
+				<HiddenText>
+					<span slot="hidden" aria-label="email is hidden, tap to reveal">
+						&lt;tap to show&gt;
+					</span>
+					<span slot="visible" use:selectable>{email}</span>
 				</HiddenText>.
 			</p>
 		{:else}
@@ -104,25 +97,25 @@
 		}
 	}
 
-	@keyframes flash {
-		from {
-			background: var(--color-secondary-400);
-			color: var(--color-secondary-400-text);
-		}
-		to {
-			background: transparent;
-			color: inherit;
-		}
-	}
-
-	.email {
-		animation: flash 1s var(--standard-curve);
-		border: 1px dashed var(--color-text-100);
-	}
-
-	.hidden {
+	[slot="hidden"] {
 		cursor: pointer;
 		background: var(--color-secondary-200);
 		color: var(--color-secondary-200-text);
+	}
+
+	[slot="visible"] {
+		@keyframes flash {
+			from {
+				background: var(--color-secondary-400);
+				color: var(--color-secondary-400-text);
+			}
+			to {
+				background: transparent;
+				color: inherit;
+			}
+		}
+
+		animation: flash 1s var(--standard-curve);
+		border: 1px dashed var(--color-text-100);
 	}
 </style>
