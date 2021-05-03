@@ -1,13 +1,9 @@
 <script lang="ts">
 	import { width, height, src } from "./portrait.jpg?w=160&webp&meta"
-	import { hiddenText } from "./hiddenText"
+	import { ceasar as c, hiddenText } from "./hiddenText"
 	import { onMount } from "svelte"
 
-	const p1 = "hel"
-	const p2 = "lo@ca"
-	const p3 = "ss.m"
-	const p4 = "oe"
-
+	const email = c("axeeh", 7) + "@" + c("jhzz", -7) + "." + c("fhx", 7)
 	let mounted = false
 
 	onMount(() => (mounted = true))
@@ -55,14 +51,14 @@
 					tabindex="0"
 					aria-label="email is hidden, tap to reveal"
 					aria-live
-					use:hiddenText={p1 + p2 + p3 + p4}>&lt;tap to show&gt;</span
+					use:hiddenText={email}>&lt;tap to show&gt;</span
 				>.
 			</p>
 		{:else}
 			<noscript>
 				<blockquote>
 					Contact info is hidden with JavaScript disabled. This is to prevent it
-					from getting picked up by web scrapers.
+					from getting picked up by web scrapers. Sorry!
 				</blockquote>
 			</noscript>
 		{/if}
