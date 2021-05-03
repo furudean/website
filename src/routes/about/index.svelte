@@ -1,10 +1,13 @@
 <script lang="ts">
 	import { width, height, src } from "./portrait.jpg?w=160&webp&meta"
-	import { ceasar as c, hiddenText } from "./hiddenText"
+	import { ceasar as c } from "./cipher"
 	import { onMount } from "svelte"
+	import HiddenText from "./HiddenText.svelte"
+	import { selectable } from "./selectable"
 
 	const email = c("axeeh", 7) + "@" + c("jhzz", -7) + "." + c("fhx", 7)
 	let mounted = false
+	let emailVisible = false
 
 	onMount(() => (mounted = true))
 </script>
@@ -46,19 +49,25 @@
 		<h3>Contact</h3>
 		{#if mounted}
 			<p>
-				If you need to reach me, my email is <span
-					class="email hidden"
-					tabindex="0"
-					aria-label="email is hidden, tap to reveal"
-					aria-live
-					use:hiddenText={email}>&lt;tap to show&gt;</span
-				>.
+				If you need to reach me, my email is
+				<HiddenText let:visible>
+					{#if visible}
+						<span class="email" use:selectable>{email}</span>
+					{:else}
+						<span
+							class="hidden"
+							aria-label={!emailVisible
+								? "email is hidden, tap to reveal"
+								: undefined}>&lt;tap to show&gt;</span
+						>
+					{/if}
+				</HiddenText>.
 			</p>
 		{:else}
 			<noscript>
 				<blockquote>
-					Contact info is hidden with JavaScript disabled. This is to prevent it
-					from getting picked up by web scrapers. Sorry!
+					Contact info is not shown with JavaScript disabled. This is to prevent
+					it from getting picked up by web scrapers. Sorry!
 				</blockquote>
 			</noscript>
 		{/if}
@@ -106,7 +115,7 @@
 		}
 	}
 
-	.email:not(.hidden) {
+	.email {
 		animation: unhide 1s var(--standard-curve);
 	}
 
