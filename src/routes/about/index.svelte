@@ -104,7 +104,7 @@
 		}
 	}
 
-	@keyframes unhide {
+	@keyframes flash {
 		from {
 			background: var(--color-secondary-400);
 			color: var(--color-secondary-400-text);
@@ -116,7 +116,7 @@
 	}
 
 	.email {
-		animation: unhide 1s var(--standard-curve);
+		animation: flash 1s var(--standard-curve);
 	}
 
 	.hidden {
