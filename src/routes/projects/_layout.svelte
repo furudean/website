@@ -50,7 +50,6 @@
 	<slot />
 
 	<hr class="article-end" />
-
 	<Links {repo} {url} />
 </article>
 
