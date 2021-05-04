@@ -107,7 +107,7 @@
 		&.navigating-to::after {
 			@keyframes load {
 				0% {
-					background-position: 0% 50%;
+					background-position: 0% 0%;
 				}
 				50% {
 					background-position: 100% 0%;
