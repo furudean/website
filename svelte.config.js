@@ -1,8 +1,10 @@
-import sveltePreprocess from "svelte-preprocess";
-import vercel from "@sveltejs/adapter-vercel";
-import { mdsvex } from "mdsvex";
-import mdsvexConfig from "./mdsvex.config.js";
-import { imagetools } from "vite-imagetools";
+import sveltePreprocess from "svelte-preprocess"
+import vercel from "@sveltejs/adapter-vercel"
+import mdsvexPkg from "mdsvex"
+const { mdsvex } = mdsvexPkg
+import mdsvexConfig from "./mdsvex.config.js"
+import viteImagetoolsPkg from "vite-imagetools"
+const { imagetools } = viteImagetoolsPkg
 
 /** @type {import('@sveltejs/kit').Config} */
 export default {
