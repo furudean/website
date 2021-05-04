@@ -3,24 +3,20 @@
 	import Logo from "$lib/Logo.svelte"
 	import { derived } from "svelte/store"
 
-	const compass = (segment: string) =>
-		derived([navigating, page], ([$navigating, $page]) => {
-			const path =
-				// @ts-ignore
-				$navigating === null ? $page.path : ($navigating?.to.path as string)
-			return {
-				isCurrent: !$navigating && path.startsWith(segment),
-				navigatingTo: $navigating && path.startsWith(segment)
-			}
-		})
+	const compass = (pattern: RegExp) =>
+		derived([navigating, page], ([$navigating, $page]) => ({
+			isCurrent: !$navigating && pattern.test($page.path),
+			// @ts-ignore
+			navigatingTo: $navigating && pattern.test($navigating?.to.path)
+		}))
 
-	const projects = compass("/projects")
-	const about = compass("/about")
+	const projects = compass(/^\/projects/)
+	const about = compass(/^\/about/)
 </script>
 
 {#if $page.path !== "/"}
 	<nav role="navigation">
-		<a href="/" title="Home" class="logo" sveltekit:prefetch>
+		<a href="/" title="home" class="logo" sveltekit:prefetch>
 			<Logo size="2em" color="var(--color-primary-400)" />
 		</a>
 		<div class="divider" aria-hidden="true" />
@@ -28,6 +24,7 @@
 			<li>
 				<a
 					href="/projects"
+					class="nav-link"
 					aria-current={$projects.isCurrent ? "page" : undefined}
 					class:navigating-to={$projects.navigatingTo}
 					sveltekit:prefetch
@@ -38,6 +35,7 @@
 			<li>
 				<a
 					href="/about"
+					class="nav-link"
 					aria-current={$about.isCurrent ? "page" : undefined}
 					class:navigating-to={$about.navigatingTo}
 					sveltekit:prefetch
@@ -82,10 +80,10 @@
 		}
 	}
 
-	li a {
+	.nav-link {
 		display: block;
-		position: relative;
 		padding: 0.75em 0;
+		position: relative;
 
 		&::after {
 			content: "";
