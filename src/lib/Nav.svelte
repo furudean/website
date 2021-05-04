@@ -6,8 +6,7 @@
 	const compass = (pattern: RegExp) =>
 		derived([navigating, page], ([$navigating, $page]) => ({
 			isCurrent: !$navigating && pattern.test($page.path),
-			// @ts-ignore
-			navigatingTo: $navigating && pattern.test($navigating?.to.path)
+			navigatingTo: $navigating && pattern.test($navigating.to.path)
 		}))
 
 	const projects = compass(/^\/projects/)
