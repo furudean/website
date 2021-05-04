@@ -1,11 +1,11 @@
-const sveltePreprocess = require("svelte-preprocess")
-const vercel = require("@sveltejs/adapter-vercel")
-const { mdsvex } = require("mdsvex")
-const mdsvexConfig = require("./mdsvex.config.cjs")
-const { imagetools } = require("vite-imagetools")
+import sveltePreprocess from "svelte-preprocess";
+import vercel from "@sveltejs/adapter-vercel";
+import { mdsvex } from "mdsvex";
+import mdsvexConfig from "./mdsvex.config.js";
+import { imagetools } from "vite-imagetools";
 
 /** @type {import('@sveltejs/kit').Config} */
-module.exports = {
+export default {
 	// an array of file extensions that should be treated as Svelte components
 	extensions: [".svelte", ".svelte.md"],
 

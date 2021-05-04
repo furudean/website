@@ -1,11 +1,14 @@
-const path = require("path")
-const abbr = require("remark-abbr")
-const urls = require("rehype-urls")
-const slug = require("rehype-slug")
-const link = require("rehype-autolink-headings")
-const addClasses = require("rehype-add-classes")
-const visit = require("unist-util-visit")
-const h = require("hastscript")
+import * as path from "path"
+import { fileURLToPath } from "url"
+import abbr from "remark-abbr"
+import urls from "rehype-urls"
+import slug from "rehype-slug"
+import autoLinkHeadings from "rehype-autolink-headings"
+import addClasses from "rehype-add-classes"
+import { visit } from "unist-util-visit"
+import { h } from "hastscript"
+
+const dirname = path.resolve(fileURLToPath(import.meta.url), "../")
 
 /**
  * Modified from https://github.com/josestg/rehype-figure
@@ -45,16 +48,16 @@ function processUrl(url, node) {
 	}
 }
 
-module.exports = {
+export default {
 	extensions: [".svelte.md"],
-	layout: path.join(__dirname, "./src/routes/projects/_layout.svelte"),
+	layout: path.join(dirname, "./src/routes/projects/_layout.svelte"),
 	smartypants: true,
 	remarkPlugins: [abbr], // adds support for footnote-like abbreviations
 	rehypePlugins: [
 		figure, // convert images into <figure> elements
 		[urls, processUrl], // adds rel and target to <a> elements
 		slug, // adds slug to <h1>-<h6> elements
-		[link, { behavior: "wrap" }], // adds a <a> around slugged <h1>-<h6> elements
+		[autoLinkHeadings, { behavior: "wrap" }], // adds a <a> around slugged <h1>-<h6> elements
 		[addClasses, { "ul,ol": "list" }] // add classes to these elements
 	]
 }
