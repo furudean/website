@@ -9,42 +9,47 @@
 			navigatingTo: $navigating && pattern.test($navigating.to.path)
 		}))
 
+	const home = compass(/^\/$/)
 	const projects = compass(/^\/projects/)
 	const about = compass(/^\/about/)
 </script>
 
-{#if $page.path !== "/"}
-	<nav role="navigation">
-		<a href="/" title="home" class="logo" sveltekit:prefetch>
-			<Logo size="2em" color="var(--color-primary-400)" />
-		</a>
-		<div class="divider" aria-hidden="true" />
-		<ul>
-			<li>
-				<a
-					href="/projects"
-					class="nav-link"
-					aria-current={$projects.isCurrent ? "page" : undefined}
-					class:navigating-to={$projects.navigatingTo}
-					sveltekit:prefetch
-				>
-					projects
-				</a>
-			</li>
-			<li>
-				<a
-					href="/about"
-					class="nav-link"
-					aria-current={$about.isCurrent ? "page" : undefined}
-					class:navigating-to={$about.navigatingTo}
-					sveltekit:prefetch
-				>
-					about me
-				</a>
-			</li>
-		</ul>
-	</nav>
-{/if}
+<nav role="navigation">
+	<a
+		href="/"
+		title="home"
+		class="logo"
+		aria-current={$home.isCurrent ? "page" : undefined}
+		sveltekit:prefetch
+	>
+		<Logo size="2em" color="var(--color-primary-400)" />
+	</a>
+	<div class="divider" aria-hidden="true" />
+	<ul>
+		<li>
+			<a
+				href="/projects"
+				class="nav-link"
+				aria-current={$projects.isCurrent ? "page" : undefined}
+				class:navigating-to={$projects.navigatingTo}
+				sveltekit:prefetch
+			>
+				projects
+			</a>
+		</li>
+		<li>
+			<a
+				href="/about"
+				class="nav-link"
+				aria-current={$about.isCurrent ? "page" : undefined}
+				class:navigating-to={$about.navigatingTo}
+				sveltekit:prefetch
+			>
+				about me
+			</a>
+		</li>
+	</ul>
+</nav>
 
 <style lang="postcss">
 	nav {
