@@ -55,7 +55,7 @@
 	nav {
 		display: flex;
 		align-items: center;
-		margin-bottom: calc(2 * var(--line-space));
+		margin-bottom: var(--line-space);
 	}
 
 	.logo :global(.svg-icon) {
