@@ -9,11 +9,11 @@
 	--deceleration-curve: cubic-bezier(0, 0, 0.2, 1);
 	--line-height: 2;
 	--line-space: 1.75rem;
-	--serif-font-stack: "Lora", "Iowan Old Style", "Apple Garamond", "Baskerville",
+	--serif-font: "Lora", "Iowan Old Style", "Apple Garamond", "Baskerville",
 		"Times New Roman", "Droid Serif", "Times", "Source Serif Pro", serif;
-	--sans-serif-font-stack: "Open Sans", -apple-system, BlinkMacSystemFont,
-		"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-		"Droid Sans", "Helvetica Neue", sans-serif;
+	--sans-serif-font: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+		"Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+		"Helvetica Neue", sans-serif;
 }
 
 html {
@@ -30,7 +30,7 @@ body {
 	width: 100%;
 	padding: 3em;
 
-	font-family: var(--sans-serif-font-stack);
+	font-family: var(--sans-serif-font);
 	line-height: var(--line-height);
 
 	@media screen and (max-width: 45em) {
@@ -47,7 +47,7 @@ p {
 }
 
 h1 {
-	font-family: var(--serif-font-stack);
+	font-family: var(--serif-font);
 	font-size: 3em;
 	font-weight: 500;
 	margin-bottom: var(--line-space);
@@ -55,7 +55,7 @@ h1 {
 }
 
 h2 {
-	font-family: var(--serif-font-stack);
+	font-family: var(--serif-font);
 	font-size: 2em;
 	font-weight: 500;
 	margin-bottom: var(--line-space);
@@ -63,7 +63,7 @@ h2 {
 }
 
 h3 {
-	font-family: var(--serif-font-stack);
+	font-family: var(--serif-font);
 	font-size: 1.5em;
 	font-weight: 500;
 	margin-bottom: var(--line-space);
