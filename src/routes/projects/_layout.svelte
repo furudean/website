@@ -49,7 +49,7 @@
 
 	<slot />
 
-	<hr class="article-end" />
+	<hr class="bold" />
 	<Links {repo} {url} />
 </article>
 
@@ -75,7 +75,6 @@
 	}
 
 	hr {
-		max-width: 100%;
 		margin: var(--line-space) 0;
 	}
 </style>

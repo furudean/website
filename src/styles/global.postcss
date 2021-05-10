@@ -130,10 +130,13 @@ a.text-link[href*="//"]:before
 }
 
 hr {
-	height: 1px;
-	max-width: 15ch;
-	background: var(--color-text-300);
-	margin: calc(2 * var(--line-space)) auto;
+	margin: calc(2 * var(--line-space)) 0;
+	border-bottom: 1px dashed var(--color-text-200);
+}
+
+hr.bold {
+	border-style: solid;
+	border-color: var(--color-text-300);
 }
 
 abbr {
