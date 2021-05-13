@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { mdiGithub, mdiOpenInNew, mdiArrowRight } from "@mdi/js"
+	import { mdiGithub, mdiOpenInNew } from "@mdi/js"
 	import Icon from "$lib/Icon.svelte"
 	import Logo from "$lib/Logo.svelte"
 </script>
@@ -16,14 +16,6 @@
 	<p>
 		In my free time I like to learn more about programming, study Japanese and
 		explore new media.
-		<a
-			href="about"
-			class="text-link fuck"
-			aria-label="more about"
-			sveltekit:prefetch
-		>
-			<Icon path={mdiArrowRight} />
-		</a>
 	</p>
 	<p>
 		I'm currently doing engineering work at <a
@@ -33,7 +25,7 @@
 			rel="noopener">SourceStrike</a
 		>.
 	</p>
-	<hr />
+	<hr class="bold" />
 	<ul class="links">
 		<li>
 			<a
