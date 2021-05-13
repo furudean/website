@@ -41,7 +41,9 @@ function figure() {
 function processUrl(url, node) {
 	if (node.tagName === "a") {
 		node.properties.class = "text-link"
-		if (url.host !== "cass.moe") {
+
+		if (!url.href.startsWith("/")) {
+			// is external link
 			node.properties.target = "_blank"
 			node.properties.rel = "noopener"
 		}
