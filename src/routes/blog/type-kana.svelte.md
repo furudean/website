@@ -1,12 +1,10 @@
 ---
-title: Type Kana
+title: Reimagining Type Kana
 slug: type-kana
-kind: Web app
 date: 2020-08-02T00:00:00
 summary: A quiz app to help you learn hiragana and katakana, the Japanese syllabaries.
 coverImageUrl: https://cass.moe/media/projects/type-kana/session.jpg
-url: https://type-kana.cass.moe/
-repo: https://github.com/c-bandy/type-kana
+tags: [type-kana]
 ---
 
 ![Type Kana screenshot that shows a typical gameplay

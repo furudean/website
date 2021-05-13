@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Icon from "../../lib/Icon.svelte"
+	import Icon from "$lib/Icon.svelte"
 	import { mdiGithub, mdiLink } from "@mdi/js"
 
 	export let repo: string | undefined

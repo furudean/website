@@ -2,19 +2,20 @@
 	import { friendlyDate } from "../lib/dateTime"
 	import Icon from "$lib/Icon.svelte"
 	import { mdiGithub } from "@mdi/js"
+	import type { Project } from "./work/_projects"
 
-	export let projects: any[]
+	export let projects: Project[]
 </script>
 
-<section class="projects">
+<section class="work">
 	<h2>
-		<a href="/projects" sveltekit:prefetch>Projects</a>
+		<a href="/work" sveltekit:prefetch>Work</a>
 	</h2>
 	{#each projects as project}
 		<article class="project">
 			<h3>
-				<a href="/projects/{project.slug}" sveltekit:prefetch>
-					{project.title}
+				<a href="/work/{project.slug}" sveltekit:prefetch>
+					{project.name}
 				</a>
 				{#if project.repo}
 					<a
@@ -29,7 +30,7 @@
 				{/if}
 			</h3>
 			<div class="article-info">
-				<time datetime={project.date}>
+				<time datetime={project.date.toString()}>
 					{friendlyDate(project.date)}
 				</time>
 				·
@@ -37,11 +38,7 @@
 			</div>
 			<p>{project.summary}</p>
 			<p>
-				<a
-					class="text-link"
-					href={"/projects/" + project.slug}
-					sveltekit:prefetch
-				>
+				<a class="text-link" href={"/work/" + project.slug} sveltekit:prefetch>
 					Read more
 				</a>
 			</p>
@@ -50,8 +47,8 @@
 </section>
 
 <style lang="postcss">
-	.projects {
-		grid-area: projects;
+	.work {
+		grid-area: work;
 	}
 
 	.project {

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { width, height, src } from "./portrait.jpg?w=160&webp&meta"
+	import portrait from "../../portrait.jpg?w=160&webp&meta"
 	import { ceasar as c } from "./cipher"
 	import { onMount } from "svelte"
 	import HiddenText from "./HiddenText.svelte"
@@ -12,17 +12,17 @@
 </script>
 
 <svelte:head>
-	<title>About me · Cassidy Bandy</title>
+	<title>About · Cassidy Bandy</title>
 </svelte:head>
 
 <article class="article">
-	<h1>About me</h1>
+	<h1>About</h1>
 	<div class="profile-card">
 		<img
 			class="portrait"
-			{src}
+			src={portrait.src}
 			alt="Cassidy's portrait"
-			style="width: {width}px; height: {height}px"
+			style="width: {portrait.width}px; height: {portrait.height}px"
 		/>
 		<div class="title">
 			<h2>Cassidy Bandy</h2>

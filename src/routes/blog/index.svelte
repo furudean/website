@@ -2,7 +2,7 @@
 	import type { Load } from "@sveltejs/kit"
 
 	export const load: Load = async function ({ fetch }) {
-		const url = "/projects.json"
+		const url = "/blog.json"
 		const res = await fetch(url)
 
 		if (res.ok) {
@@ -25,15 +25,15 @@
 </script>
 
 <svelte:head>
-	<title>Projects · Cassidy Bandy</title>
+	<title>Blog · Cassidy Bandy</title>
 </svelte:head>
 
 <article class="article">
-	<h1>Projects</h1>
+	<h1>Blog</h1>
 	<ul class="list">
 		{#each projects as project}
 			<li>
-				<a href={"projects/" + project.slug} class="text-link">
+				<a href={"blog/" + project.slug} class="text-link">
 					{project.title}
 				</a>
 				<span class="quiet">- {friendlyDate(project.date, true)}</span>

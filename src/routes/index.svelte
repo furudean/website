@@ -2,7 +2,7 @@
 	import type { Load } from "@sveltejs/kit"
 
 	export const load: Load = async function ({ fetch }) {
-		const url = "/projects.json"
+		const url = "/work.json"
 		const res = await fetch(url)
 
 		if (res.ok) {
@@ -21,7 +21,7 @@
 
 <script lang="ts">
 	import Landing from "./_landing.svelte"
-	import Projects from "./_projects.svelte"
+	import Work from "./_work.svelte"
 	import Meta from "$lib/Meta.svelte"
 
 	export let projects: any[]
@@ -39,14 +39,14 @@
 
 <div class="container">
 	<Landing />
-	<Projects {projects} />
+	<Work {projects} />
 </div>
 
 <style lang="postcss">
 	.container {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		grid-template-areas: "landing projects";
+		grid-template-areas: "landing work";
 		column-gap: calc(2 * var(--line-space));
 
 		@media screen and (min-width: 45em) and (max-width: 60em) {
@@ -57,7 +57,7 @@
 			grid-template-columns: 1fr;
 			grid-template-areas:
 				"landing"
-				"projects";
+				"work";
 		}
 	}
 </style>

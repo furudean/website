@@ -15,8 +15,7 @@ export const get: RequestHandler = async () => {
 			date: new Date(meta.date),
 			summary: meta.summary,
 			coverImageUrl: meta.coverImageUrl,
-			url: meta.url,
-			repo: meta.repo
+			tags: meta.tags
 		}
 	})
 
@@ -24,8 +23,6 @@ export const get: RequestHandler = async () => {
 
 	return {
 		status: 200,
-		body: {
-			projects
-		}
+		body: { projects }
 	}
 }
