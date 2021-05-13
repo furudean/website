@@ -27,10 +27,11 @@
 	<Breadcrumbs />
 	<h1>{title}</h1>
 	<div class="article-info">
-		<a href="/about" title="Author" class="author">
+		<a href="/about" class="author">
 			<img
 				{src}
 				alt="Cassidy's portrait"
+				aria-hidden="true"
 				style="width: {width}px; height: {height}px"
 				class="portrait"
 			/>
