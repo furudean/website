@@ -34,7 +34,7 @@
 				style="width: {width}px; height: {height}px"
 				class="portrait"
 			/>
-			<span>Cassidy Bandy</span>
+			Cassidy Bandy
 		</a>
 		<time datetime={date}>{friendlyDate(date)}</time>
 	</div>
