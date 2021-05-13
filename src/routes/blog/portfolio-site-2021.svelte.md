@@ -1,8 +1,9 @@
 ---
 title: Crafting the portfolio site
 date: 2021-02-26T00:00:00
-summary: Updated portfolio website for 2021. Built with Sapper and Svelte
-tags: [website-2021]
+summary: Updated portfolio website for 2021. Built with Sapper and Svelte.
+coverImageUrl: /media/projects/type-kana/session.jpg
+tags: [portfolio-site-2021]
 ---
 
 ![Graphic that has the text 'Making of the 2021 portfolio site' repeated three times, the middle row with linguistic guide lines](/media/projects/portfolio-site-2021/cover.png)

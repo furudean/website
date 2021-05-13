@@ -8,7 +8,6 @@
 
 <script lang="ts">
 	import { dev } from "$app/env"
-	import Breadcrumbs from "$lib/Breadcrumbs.svelte"
 
 	export let status: number
 	export let error: Error
@@ -18,7 +17,6 @@
 	<title>{status}</title>
 </svelte:head>
 
-<Breadcrumbs />
 <h1>{status}</h1>
 
 {#if error && error.message}

@@ -16,7 +16,11 @@
 
 <svelte:head>
 	<title>{`${title} · Projects · Cassidy Bandy`}</title>
-	<Meta {title} description={`${title} — ${summary}`} image={coverImageUrl} />
+	<Meta
+		{title}
+		description={`${title} — ${summary}`}
+		image={new URL(coverImageUrl, "https://cass.moe").href}
+	/>
 </svelte:head>
 
 <article class="article has-tombstone">
