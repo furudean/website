@@ -4,6 +4,7 @@ date: 2020-08-02T00:00:00
 summary: A quiz app to help you learn hiragana and katakana, the Japanese syllabaries.
 coverImageUrl: /media/projects/type-kana/session.jpg
 tags: [type-kana]
+relatedProjects: [type-kana]
 ---
 
 ![Type Kana screenshot that shows a typical gameplay

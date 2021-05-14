@@ -6,9 +6,9 @@
 		const res = await fetch(url)
 
 		if (res.ok) {
-			const data = await res.json()
+			const { posts } = await res.json()
 			return {
-				props: { projects: data.projects }
+				props: { posts }
 			}
 		} else {
 			return {
@@ -21,7 +21,7 @@
 
 <script lang="ts">
 	import { friendlyDate } from "$lib/dateTime"
-	export let projects: any[]
+	export let posts: any[]
 </script>
 
 <svelte:head>
@@ -31,12 +31,12 @@
 <article class="article">
 	<h1>Blog</h1>
 	<ul class="list">
-		{#each projects as project}
+		{#each posts as post}
 			<li>
-				<a href={"blog/" + project.slug} class="text-link">
-					{project.title}
+				<a href={"blog/" + post.slug} class="text-link">
+					{post.title}
 				</a>
-				<span class="quiet">- {friendlyDate(project.date, true)}</span>
+				<span class="quiet">- {friendlyDate(post.date, true)}</span>
 			</li>
 		{/each}
 	</ul>

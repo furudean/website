@@ -18,7 +18,7 @@
 	<title>{`${title} · Projects · Cassidy Bandy`}</title>
 	<Meta
 		{title}
-		description={`${title} — ${summary}`}
+		description={summary}
 		image={new URL(coverImageUrl, "https://cass.moe").href}
 	/>
 </svelte:head>
@@ -35,8 +35,9 @@
 				style="width: {width}px; height: {height}px"
 				class="portrait"
 			/>
-			Cassidy Bandy
+			<span>Cassidy Bandy</span>
 		</a>
+		<span class="separator">·</span>
 		<time datetime={date}>{friendlyDate(date)}</time>
 	</div>
 
@@ -61,7 +62,6 @@
 
 	.author {
 		display: flex;
-		color: var(--color-text-400);
 	}
 
 	.author:hover * {
