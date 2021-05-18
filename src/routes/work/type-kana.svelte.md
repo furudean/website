@@ -8,6 +8,11 @@ repo: https://github.com/c-bandy/type-kana
 url: https://type-kana.cass.moe
 ---
 
+<script context="module">
+  import { load } from "./_load"
+  export const load
+</script>
+
 Type Kana is quiz app to help you learn hiragana and katakana, the Japanese
 syllabaries. The app is built in Svelte, and utilizes the powerful Svelte Kit
 framework for SSR + routing.

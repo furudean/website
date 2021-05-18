@@ -1,18 +1,17 @@
 <script>
 	import Breadcrumbs from "$lib/Breadcrumbs.svelte"
 	import Links from "./_links.svelte"
-	import { page } from "$app/stores"
 	import { friendlyDate } from "$lib/dateTime"
 
 	export let name
 	export let kind
 	export let date
-	export let repo
-	export let url
+	export let summary
+	export let repo = undefined
+	export let url = undefined
+	export let relatedPosts
 
-	const relatedPostsPromise = fetch($page.path + "/related.json").then(
-		async (res) => (res.ok ? (await res.json()).posts : null)
-	)
+	console.log({ name, kind, date, summary, repo, url, relatedPosts })
 </script>
 
 <svelte:head>
@@ -32,25 +31,21 @@
 
 	<Links {repo} {url} />
 
-	<hr />
+	{#if relatedPosts}
+		<hr />
 
-	{#await relatedPostsPromise}
-		<p>Just a moment...</p>
-	{:then relatedPosts}
-		{#if relatedPosts}
-			<h3>Written about</h3>
-			<ul class="list">
-				{#each relatedPosts as post}
-					<li>
-						<a href={"/blog/" + post.slug} class="text-link">
-							{post.title}
-						</a>
-						<span class="quiet">- {friendlyDate(post.date, true)}</span>
-					</li>
-				{/each}
-			</ul>
-		{/if}
-	{/await}
+		<h3>Written about</h3>
+		<ul class="list">
+			{#each relatedPosts as post}
+				<li>
+					<a href={"/blog/" + post.slug} class="text-link">
+						{post.title}
+					</a>
+					<span class="quiet">- {friendlyDate(post.date, true)}</span>
+				</li>
+			{/each}
+		</ul>
+	{/if}
 </article>
 
 <style>

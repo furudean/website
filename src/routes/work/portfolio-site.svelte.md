@@ -6,4 +6,9 @@ summary: New portfolio site for 2021.
 repo: https://github.com/c-bandy/website
 ---
 
+<script context="module">
+  import { load } from "./_load"
+  export const load
+</script>
+
 A new portfolio site I put together for myself.
