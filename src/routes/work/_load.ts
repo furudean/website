@@ -1,21 +1,21 @@
 import type { Load } from "@sveltejs/kit"
 
 export const load: Load = async ({ page }) => {
-	const url = new URL("/related.json", "http://" + page.host + page.path).href
+	const url = "http://" + page.host + page.path + "/related.json"
 	const res = await fetch(url)
 
 	if (res.ok) {
-		const relatedPosts = await res.json()
+		const { posts } = await res.json()
 
 		return {
 			props: {
-				relatedPosts
+				relatedPosts: posts
 			}
 		}
 	} else {
 		return {
 			status: res.status,
-			error: new Error("Oopsie woopsie")
+			error: new Error("Failed to fetch " + url)
 		}
 	}
 }

@@ -10,8 +10,6 @@
 	export let repo = undefined
 	export let url = undefined
 	export let relatedPosts
-
-	console.log({ name, kind, date, summary, repo, url, relatedPosts })
 </script>
 
 <svelte:head>

@@ -10,7 +10,7 @@ url: https://type-kana.cass.moe
 
 <script context="module">
   import { load } from "./_load"
-  export const load
+  export { load }
 </script>
 
 Type Kana is quiz app to help you learn hiragana and katakana, the Japanese

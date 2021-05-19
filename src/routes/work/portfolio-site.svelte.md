@@ -8,7 +8,7 @@ repo: https://github.com/c-bandy/website
 
 <script context="module">
   import { load } from "./_load"
-  export const load
+  export { load }
 </script>
 
 A new portfolio site I put together for myself.
