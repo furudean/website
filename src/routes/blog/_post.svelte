@@ -8,10 +8,16 @@
 	import Breadcrumbs from "$lib/Breadcrumbs.svelte"
 	import { width, height, src } from "../../portrait.jpg?w=28&webp&meta"
 
+	/** @type {string} */
 	export let title
+	/** @type {string} */
 	export let date
+	/** @type {string} */
 	export let summary
+	/** @type {string} */
 	export let coverImageUrl
+	/** @type {Array<import("$lib/works").Project>} */
+	export let relatedProjects
 </script>
 
 <svelte:head>
@@ -19,7 +25,7 @@
 	<Meta
 		{title}
 		description={summary}
-		image={new URL(coverImageUrl, "https://cass.moe").href}
+		image={coverImageUrl && new URL(coverImageUrl, "https://cass.moe").href}
 	/>
 </svelte:head>
 
@@ -42,6 +48,21 @@
 	</div>
 
 	<slot />
+
+	<hr />
+
+	{#if relatedProjects}
+		<h3>In this article</h3>
+		<ul class="list">
+			{#each relatedProjects as project}
+				<li>
+					<a href="/work/{project.slug}" class="text-link" sveltekit:prefetch>
+						{project.name}
+					</a>
+				</li>
+			{/each}
+		</ul>
+	{/if}
 </article>
 
 <style lang="postcss">

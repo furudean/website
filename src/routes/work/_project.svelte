@@ -1,14 +1,25 @@
 <script>
+	// There's currently a bug in mdsvex which mangles script tags with lang="ts"
+	// in layouts. The workaround is to just use js for now.
+	// See: https://github.com/pngwn/MDsveX/issues/116
+
 	import Breadcrumbs from "$lib/Breadcrumbs.svelte"
 	import Links from "./_links.svelte"
 	import { friendlyDate } from "$lib/dateTime"
 
+	/** @type {string} */
 	export let name
+	/** @type {string} */
 	export let kind
+	/** @type {string} */
 	export let date
+	/** @type {string} */
 	export let summary
+	/** @type {string} */
 	export let repo = undefined
+	/** @type {string} */
 	export let url = undefined
+	/** @type {Array<import("$lib/blog-posts").BlogPost>} */
 	export let relatedPosts
 </script>
 
@@ -29,9 +40,9 @@
 
 	<Links {repo} {url} />
 
-	{#if relatedPosts}
-		<hr />
+	<hr />
 
+	{#if relatedPosts}
 		<h3>Written about</h3>
 		<ul class="list">
 			{#each relatedPosts as post}

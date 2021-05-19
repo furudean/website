@@ -21,16 +21,7 @@
 
 <script lang="ts">
 	import { friendlyDate } from "$lib/dateTime"
-
-	interface Project {
-		name: string
-		slug: string
-		kind: string
-		date: Date
-		summary: string
-		repo?: string
-		url?: string
-	}
+	import type { Project } from "$lib/works"
 
 	export let projects: Project[]
 </script>
