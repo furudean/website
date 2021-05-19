@@ -1,7 +1,7 @@
 import type { Load } from "@sveltejs/kit"
 
-export const load: Load = async ({ page }) => {
-	const url = "http://" + page.host + page.path + "/related.json"
+export const load: Load = async ({ fetch, page }) => {
+	const url = page.path + "/related.json"
 	const res = await fetch(url)
 
 	if (res.ok) {
