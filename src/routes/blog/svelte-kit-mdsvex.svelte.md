@@ -77,9 +77,9 @@ Pretty neat, right? Note how the `{title}` was referenced in the markup. The
 data defined in the front matter can also be accessed as variables in the
 component.
 
-Because Svelte Kit renders components in `/src/routes` as pages, this file would
+Because Svelte Kit renders components in `src/routes` as pages, this file would
 be rendered as a page as well. For example, if you have a file at
-`/src/routes/blog/my-cool-counter.svx` this would result as a page at
+`src/routes/blog/my-cool-counter.svx` this would result as a page at
 `/blog/my-cool-counter`.
 
 ## Configuration and plugins
@@ -164,7 +164,7 @@ to define layouts for `.svx` files. These are normal Svelte components
 with a `<slot>`. The slot being where the article goes.
 
 ```svelte
-<!-- /src/routes/blog/layout.svelte -->
+<!-- src/routes/blog/layout.svelte -->
 <script>
 	// These props get filled in from the page's front matter
 	export let title
@@ -204,7 +204,7 @@ export default {
 ```
 
 MDSveX will try to guess which layout should be used based on the filename. If
-you have a a blog post at `/src/routes/blog/my-post.svx`, this would use the
+you have a a blog post at `src/routes/blog/my-post.svx`, this would use the
 `blog` layout because the string `blog` exists in the filename.
 
 You can also force the layout by defining it in the front matter:
@@ -226,15 +226,15 @@ be unified in the future. 🐧
 
 ## Rendering a list of blog posts
 
-In order for users to find your blog post, it's be useful to provide a list of
-the posts on your site. By utilizing Vite's
+In order for users to find your blog post, let's provide a list of the posts on
+our site. By utilizing Vite's
 [`import.meta.glob`](https://vitejs.dev/guide/features.html#glob-import), we can
-automatically grab all the `.svx` files in the current directory with their
-metadata. We can then serve this data as an API using a [Svelte Kit
-endpoint](https://kit.svelte.dev/docs#routing-endpoints).
+automatically grab all the `.svx` files in the current directory, and by
+importing them we can collect metadata. We can then serve this data as an API
+using a [Svelte Kit endpoint](https://kit.svelte.dev/docs#routing-endpoints).
 
 ```js
-/* /src/routes/blog/posts.json.js */
+/* src/routes/blog/posts.json.js */
 
 import pMap from "p-map"
 import { basename } from "path"
@@ -326,7 +326,7 @@ _each_ blog post you'd have to do something like this inside each `.svx` file:
 ```
 
 ```javascript
-/* /src/routes/blog/_load.ts */
+/* src/routes/blog/_load.ts */
 export async function load({ fetch, page }) {
 	// /related.json is an endpoint that returns all related blog posts/projects
 	const url = page.path + "/related.json"
@@ -375,8 +375,8 @@ MDSveX helps bridge the gap between a simple personal blog and full blown CMS
 powered website. It makes writing new blog posts easy without having to add a
 complex blog writing system to your application. For my use case it's perfect!
 
-The source code for this website is available by visiting the project, linked
-below. Check it out if you want to read more.
+The source code for the site is available on GitHub, linked below. Check it out
+if you want to learn more.
 
 That's all for now!
 
