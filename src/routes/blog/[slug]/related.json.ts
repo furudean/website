@@ -30,7 +30,7 @@ export const get: RequestHandler = async function ({ params, host }) {
 	if (relatedProjects.has(slug)) {
 		return {
 			body: {
-				projects: relatedProjects.get(slug) as []
+				projects: relatedProjects.get(slug) as any
 			}
 		}
 	}
