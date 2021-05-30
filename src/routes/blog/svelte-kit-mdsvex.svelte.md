@@ -1,7 +1,7 @@
 ---
 title: MDSveX and Svelte Kit
 date: 2021-05-29T00:00:00 # todo adjust this date
-summary: Is it love?
+summary: Is it love? It just might be...
 relatedProjectSlugs: [portfolio-site]
 ---
 
@@ -18,16 +18,17 @@ A lot has happened since my last post about this site. I spent a lot of time
 making this place pretty and neat, and not enough time writing about my
 discoveries. So without further ado, here is my guide to Svelte Kit + MDSvex.
 
-The [previous, markdown-based setup](/blog/portfolio-site-2021) was something I
-wanted to replace almost immediately after it was integrated into this site. One
-reason is that some of the things that plugged into marked, like
-[Prism](https://prismjs.com/), for code highlighting is poorly modularized. It
-exists in the global scope, making it a bad fit for Svelte Kit which relies
-heavily on ESM's import/export for tree shaking and other goodies. The final
-reason is that I was excited to explore how I could solve things better. The
-current setup worked fine, but could it be even better. Through experimentation
-and a lot of help from the [Svelte Discord server](https://svelte.dev/chat), I
-think I've settled on something pretty darn good.
+A few weeks ago, I replaced the [markdown-based blog
+setup](/blog/portfolio-site-2021) I previously wrote about. It was due for a
+make-over with the upgrade from Sapper to Svelte Kit. One reason is that some of
+the things that plugged into marked, like [the code
+highlighter](https://prismjs.com/), is poorly modularized. It exists in the
+global scope, making it a bad fit for Svelte Kit which relies heavily on ESM's
+import/export for tree shaking and other goodies. The final reason is that I was
+excited to explore how I could solve things better. The current setup worked
+fine, but could it be even better. Through experimentation and a lot of help
+from the [Svelte Discord server](https://svelte.dev/chat), I think I've settled
+on something pretty darn good.
 
 ## Enter MDSveX
 
