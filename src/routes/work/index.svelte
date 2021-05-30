@@ -2,7 +2,7 @@
 	import type { Load } from "@sveltejs/kit"
 
 	export const load: Load = async function ({ fetch }) {
-		const url = "/projects.json"
+		const url = "/work.json"
 		const res = await fetch(url)
 
 		if (res.ok) {
@@ -21,20 +21,22 @@
 
 <script lang="ts">
 	import { friendlyDate } from "$lib/dateTime"
-	export let projects: any[]
+	import type { Project } from "$lib/works"
+
+	export let projects: Project[]
 </script>
 
 <svelte:head>
-	<title>Projects · Cassidy Bandy</title>
+	<title>Work · Cassidy Bandy</title>
 </svelte:head>
 
 <article class="article">
-	<h1>Projects</h1>
+	<h1>Work</h1>
 	<ul class="list">
 		{#each projects as project}
 			<li>
-				<a href={"projects/" + project.slug} class="text-link">
-					{project.title}
+				<a href={"work/" + project.slug} class="text-link">
+					{project.name}
 				</a>
 				<span class="quiet">- {friendlyDate(project.date, true)}</span>
 			</li>

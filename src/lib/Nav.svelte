@@ -10,7 +10,8 @@
 		}))
 
 	const home = compass(/^\/$/)
-	const projects = compass(/^\/projects/)
+	const work = compass(/^\/work/)
+	const blog = compass(/^\/blog/)
 	const about = compass(/^\/about/)
 </script>
 
@@ -28,13 +29,24 @@
 	<ul>
 		<li>
 			<a
-				href="/projects"
+				href="/work"
 				class="nav-link"
-				aria-current={$projects.isCurrent ? "page" : undefined}
-				class:navigating-to={$projects.navigatingTo}
+				aria-current={$work.isCurrent ? "page" : undefined}
+				class:navigating-to={$work.navigatingTo}
 				sveltekit:prefetch
 			>
-				projects
+				work
+			</a>
+		</li>
+		<li>
+			<a
+				href="/blog"
+				class="nav-link"
+				aria-current={$blog.isCurrent ? "page" : undefined}
+				class:navigating-to={$blog.navigatingTo}
+				sveltekit:prefetch
+			>
+				blog
 			</a>
 		</li>
 		<li>
@@ -45,7 +57,7 @@
 				class:navigating-to={$about.navigatingTo}
 				sveltekit:prefetch
 			>
-				about me
+				about
 			</a>
 		</li>
 	</ul>

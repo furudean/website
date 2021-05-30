@@ -51,10 +51,6 @@
 		top: 0.15em; /* visual balance */
 	}
 
-	.fuck :global(.svg-icon) {
-		top: 0.15em; /* visual balance */
-	}
-
 	hr {
 		width: 4em;
 		margin: 0;

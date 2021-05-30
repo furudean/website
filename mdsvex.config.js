@@ -52,7 +52,10 @@ function processUrl(url, node) {
 
 export default {
 	extensions: [".svelte.md"],
-	layout: path.join(dirname, "./src/routes/projects/_layout.svelte"),
+	layout: {
+		blog: path.join(dirname, "./src/routes/blog/_layout.svelte"),
+		work: path.join(dirname, "./src/routes/work/_layout.svelte")
+	},
 	smartypants: true,
 	remarkPlugins: [abbr], // adds support for footnote-like abbreviations
 	rehypePlugins: [

@@ -1,11 +1,16 @@
 ---
-title: Portfolio site
-kind: Website
-date: 2021-02-26T00:00:00
-summary: Updated portfolio website for 2021. Built with Sapper and Svelte
-coverImageUrl: https://cass.moe/media/projects/portfolio-site-2021/cover.png
-repo: https://github.com/c-bandy/website
+title: Crafting the portfolio site
+date: 2021-03-08T00:00:00
+summary: Updated portfolio website for 2021. Built with Sapper and Svelte.
+coverImageUrl: /media/projects/type-kana/session.jpg
+tags: [portfolio-site-2021]
+relatedProjectSlugs: [portfolio-site]
 ---
+
+<script context="module">
+  import { load } from "./_load"
+  export { load }
+</script>
 
 ![Graphic that has the text 'Making of the 2021 portfolio site' repeated three times, the middle row with linguistic guide lines](/media/projects/portfolio-site-2021/cover.png)
 
@@ -105,9 +110,9 @@ Here's a stripped down version of what that code looks like:
 	import marked from "marked"
 
 	export async function preload({ params }) {
-		const project = await this.fetch(
-			`projects/${params.slug}.json`
-		).then((res) => res.json())
+		const project = await this.fetch(`projects/${params.slug}.json`).then(
+			(res) => res.json()
+		)
 		const article = await this.fetch(project.articleUrl).then((res) =>
 			res.text()
 		)
