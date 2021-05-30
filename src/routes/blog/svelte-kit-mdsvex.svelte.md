@@ -1,7 +1,7 @@
 ---
-title: So I tried out MDSveX on Svelte Kit
-date: 2021-05-19T00:00:00 # todo adjust this date
-summary: And not too surprisingly I really like it
+title: MDSveX and Svelte Kit
+date: 2021-05-29T00:00:00 # todo adjust this date
+summary: Is it love?
 relatedProjectSlugs: [portfolio-site]
 ---
 
@@ -16,42 +16,45 @@ relatedProjectSlugs: [portfolio-site]
 
 A lot has happened since my last post about this site. I spent a lot of time
 making this place pretty and neat, and not enough time writing about my
-discoveries. So without further ado, here is my experience with Svelte Kit +
-MDSvex.
+discoveries. So without further ado, here is my guide to Svelte Kit + MDSvex.
 
-The Markdown processor previously in use, `marked`, was something I wanted to
-replace almost immediately after it was integrated -- not just because it has
-some incompatibilities with Vite's ESM-first world, making updating to Svelte
-Kit problematic -- but also because the API isn't perfect. It's possible to hook
-into its renderer to do _some_ custom element rendering, but with its simplicity
-it's also quite limiting.
+The [previous, markdown-based setup](/blog/portfolio-site-2021) was something I
+wanted to replace almost immediately after it was integrated into this site. One
+reason is that some of the things that plugged into marked, like
+[Prism](https://prismjs.com/), for code highlighting is poorly modularized. It
+exists in the global scope, making it a bad fit for Svelte Kit which relies
+heavily on ESM's import/export for tree shaking and other goodies. The final
+reason is that I was excited to explore how I could solve things better. The
+current setup worked fine, but could it be even better. Through experimentation
+and a lot of help from the [Svelte Discord server](https://svelte.dev/chat), I
+think I've settled on something pretty darn good.
 
 ## Enter MDSveX
 
 MDSveX is Svelte in Markdown. It allows you to write Markdown files that contain
-Svelte components. It's also so much more, and it integrates really nicely with
-Svelte Kit.
+Svelte components. It's also a lot more! It is an extensible markdown parser --
+and I've found it integrates really nicely with Svelte Kit despite not even
+being designed for it.
 
-MDSveX comes batteries included:
+MDSveX comes with the stuff you need from a markdown parser:
 
-- A code highlighter is used by default, supporting most languages out of the
-  box.
-- It supports the [remark](https://github.com/remarkjs/remark) and
-  [rehype](https://github.com/rehypejs/rehype) plugins ecosystems out of the
-  box, all you need to do is add them to the config.
-- Front-matter is automatically parsed (more on this later)
+- A code highlighter automatically highlights code blocks, supporting most
+  languages out of the box
+- It hooks into the [remark](https://github.com/remarkjs/remark) and
+  [rehype](https://github.com/rehypejs/rehype) ecosystems, which let you add
+  custom parsing logic
+- Front-matter is automatically parsed as metadata, letting you pull it out by
+  importing the component (more on this later)
 
 A typical MDSveX component is defined with the `.svx` extension. It primarily
 contains Markdown, but it also allows all the Svelte syntax like `<script>`
 blocks and `{curly_braces}`.
 
-### my-cool-counter.svx
-
 ```markdown
 ---
 title: My cool counter
 date: 2021-05-20
-summary: My cool counter I made
+summary: A cool counter I made
 ---
 
 <script>
@@ -64,8 +67,6 @@ Ever want to increment a number? Now you can!
 
 <Counter />
 ```
-
-### Result
 
 > **My cool counter**
 >
@@ -93,28 +94,22 @@ Here's a minimal example:
 /* svelte.config.js */
 
 import { mdsvex } from "mdsvex"
+import sveltePreprocess from "svelte-preprocess"
 
 /** @type {import('@sveltejs/kit').Config} */
 export default {
 	// Pick up both .svelte and .svx files
 	extensions: [".svelte", ".svx"],
 
-	preprocess: [
-		mdsvex({
-			layout: {
-				blog: "./path/to/blog/layout.svelte"
-			}
-		}),
-		sveltePreprocess()
-	]
+	// Run mdsvex transformations, then svelte-preprocess
+	preprocess: [mdsvex(), sveltePreprocess()]
 }
 ```
 
-You can further enhance your output by adding
-[plugins](https://mdsvex.pngwn.io/docs#remarkplugins--rehypeplugins). MDSveX
-supports plugins from both the remark and rehype formats.
-
-For example, here's a sample of what is added to this blog:
+You can further enhance your output by adding [remark and rehype
+plugins](https://mdsvex.pngwn.io/docs#remarkplugins--rehypeplugins) to modify
+the AST before outputting as HTML. For example, here's a sample of the
+processing on this blog:
 
 ```javascript
 /* svelte.config.js */
@@ -131,8 +126,10 @@ function processUrl(url, node) {
 		node.properties.class = "text-link"
 
 		if (!url.href.startsWith("/")) {
-			// is external link
+			// Open external links in new tab
 			node.properties.target = "_blank"
+			// Fix a security concern with offsite links
+			// See: https://web.dev/external-anchors-use-rel-noopener/
 			node.properties.rel = "noopener"
 		}
 	}
@@ -226,12 +223,13 @@ be unified in the future. 🐧
 
 ## Rendering a list of blog posts
 
-In order for users to find your blog post, let's provide a list of the posts on
+In order for users to find your blog post, we can provide a list of the posts on
 our site. By utilizing Vite's
 [`import.meta.glob`](https://vitejs.dev/guide/features.html#glob-import), we can
-automatically grab all the `.svx` files in the current directory, and by
-importing them we can collect metadata. We can then serve this data as an API
-using a [Svelte Kit endpoint](https://kit.svelte.dev/docs#routing-endpoints).
+automatically grab all the `.svx` files in the current directory. These files
+can be imported as modules, and we can collect metadata from them. Finally, we
+serve the payload as a [Svelte Kit
+endpoint](https://kit.svelte.dev/docs#routing-endpoints).
 
 ```js
 /* src/routes/blog/posts.json.js */
@@ -243,18 +241,22 @@ export async function get() {
 	// Import all .svx files in the directory
 	const modules = import.meta.glob("./*.svx")
 
-	// Map over promises
+	// Run a map over each module
+
+	// Check out the docs for p-map if this looks confusing, it's  basically
+	// Array.map(...) but for promises
 	const posts = await pMap(
 		Object.entries(modules),
 		async function ([filename, module]) {
-			// MDSveX adds the front matter to `metadata` for each component
+			// Import the component. The metadata here is added by MDSveX and mirrors
+			// the front matter.
 			const { metadata } = await module()
 
 			return {
 				title: metadata.title,
 				date: new Date(metadata.date),
 				summary: metadata.summary,
-				slug: basename(filename, ".svx") // generate a slug we can link to
+				slug: basename(filename, ".svx") // Generate a slug we can link to
 			}
 		}
 	)
@@ -305,17 +307,18 @@ this as a list of blog posts.
 
 If you're familiar working with TypeScript in Svelte, you'll unfortunately have
 to skip it when it comes to the MDSveX parts of your application. MDSveX does
-not play nice with svelte-preprocess, and will break your whole app if it has to
-process a different language in `<script>` tags. This is tracked in
-[issue #116](https://github.com/pngwn/MDsveX/issues/116).
+not play nice with svelte-preprocess, and will break your whole app if it runs
+into process `<script lang="ts">`. This is tracked in [issue
+#116](https://github.com/pngwn/MDsveX/issues/116).
 
 ### Loading
 
 [`load`](https://kit.svelte.dev/docs#loading) can be really useful for fetching
 additional content before component render time. Sometimes, there's also a case
-for wanting to do this in a MDSveX layout. Unfortunately, load is only supported
-in pages that define a page. This means that if you want to fetch some data for
-_each_ blog post you'd have to do something like this inside each `.svx` file:
+for wanting to do this in a MDSveX layout, say if you want to render a list of
+related posts. Unfortunately, load is only supported in components that define a
+page. This means that if you want to fetch some data for _each_ blog post you'd
+have to do something like this inside each `.svx` file that uses the layout:
 
 ```svelte
 <!-- src/routes/blog/my-post.svx -->
@@ -352,7 +355,7 @@ export async function load({ fetch, page }) {
 ```svelte
 <!-- src/routes/blog/_layout.svelte -->
 <script>
-	export let relatedProjects
+	export let relatedPosts
 </script>
 
 <slot />
