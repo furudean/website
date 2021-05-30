@@ -18,17 +18,17 @@ A lot has happened since my last post about this site. I spent a lot of time
 making this place pretty and neat, and not enough time writing about my
 discoveries. So without further ado, here is my guide to Svelte Kit + MDSvex.
 
-A few weeks ago, I replaced the [markdown-based blog
-setup](/blog/portfolio-site-2021) I previously wrote about. It was due for a
-make-over with the upgrade from Sapper to Svelte Kit. One reason is that some of
-the things that plugged into marked, like [the code
-highlighter](https://prismjs.com/), is poorly modularized. It exists in the
-global scope, making it a bad fit for Svelte Kit which relies heavily on ESM's
-import/export for tree shaking and other goodies. The final reason is that I was
-excited to explore how I could solve things better. The current setup worked
-fine, but could it be even better. Through experimentation and a lot of help
-from the [Svelte Discord server](https://svelte.dev/chat), I think I've settled
-on something pretty darn good.
+A few weeks ago, I replaced the markdown-based blog setup that was [previously
+written about](/blog/portfolio-site-2021). It was due for a make-over with the
+upgrade from Sapper to Svelte Kit. Some of the dependencies was used to make
+that setup work, like [the code highlighter](https://prismjs.com/), is poorly
+modularized. It exists in the global scope, making it a bad fit for Svelte Kit
+which relies heavily on ESM's import/export for tree shaking and other goodies.
+
+I was excited to explore how I could solve things better. Through
+experimentation and a lot of help from the [Svelte Discord
+server](https://svelte.dev/chat), I think I've settled on something pretty darn
+good.
 
 ## Enter MDSveX
 
