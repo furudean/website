@@ -67,7 +67,7 @@
 
 <style lang="postcss">
 	h1 {
-		margin: 0.2em 0;
+		margin: calc(0.5 * var(--line-space)) 0;
 	}
 
 	.article-info {

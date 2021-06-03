@@ -59,7 +59,7 @@
 
 <style>
 	h1 {
-		margin: 0.2em 0;
+		margin: calc(0.5 * var(--line-space)) 0;
 	}
 
 	hr {
@@ -68,6 +68,7 @@
 
 	.project-info {
 		color: var(--color-text-300);
+		line-height: 1;
 		margin-bottom: var(--line-space);
 	}
 
