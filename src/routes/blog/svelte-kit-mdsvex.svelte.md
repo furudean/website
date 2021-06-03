@@ -1,6 +1,6 @@
 ---
 title: MDSveX and Svelte Kit
-date: 2021-05-29T00:00:00 # todo adjust this date
+date: 2021-05-29T00:00:00
 summary: Is it love? It just might be...
 relatedProjectSlugs: [portfolio-site]
 ---
@@ -13,10 +13,6 @@ relatedProjectSlugs: [portfolio-site]
 <script>
   import Counter from "$lib/Counter.svelte"
 </script>
-
-A lot has happened since my last post about this site. I spent a lot of time
-making this place pretty and neat, and not enough time writing about my
-discoveries. So without further ado, here is my guide to Svelte Kit + MDSvex.
 
 A few weeks ago, I replaced the markdown-based blog setup that was [previously
 written about](/blog/portfolio-site-2021). It was due for a make-over with the
