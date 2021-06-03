@@ -359,7 +359,7 @@ export async function load({ fetch, page }) {
 
 {#each relatedPosts as post}
 	<li>
-		<a href={"/blog/" + post.slug} class="text-link">
+		<a href="/blog/{post.slug}" class="text-link">
 			{post.title}
 		</a>
 		<span class="quiet">- {friendlyDate(post.date, true)}</span>

@@ -38,7 +38,7 @@
 			</div>
 			<p>{project.summary}</p>
 			<p>
-				<a class="text-link" href={"/work/" + project.slug} sveltekit:prefetch>
+				<a class="text-link" href="/work/{project.slug}" sveltekit:prefetch>
 					Read more
 				</a>
 			</p>
