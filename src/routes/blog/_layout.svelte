@@ -7,6 +7,7 @@
 	import Meta from "$lib/Meta.svelte"
 	import Breadcrumbs from "$lib/Breadcrumbs.svelte"
 	import { width, height, src } from "../../portrait.jpg?w=28&webp&meta"
+	import { BASE_URL } from "$lib/url"
 
 	/** @type {string} */
 	export let title
@@ -27,7 +28,7 @@
 	<Meta
 		{title}
 		description={summary}
-		image={coverImageUrl && new URL(coverImageUrl, "https://cass.moe").href}
+		image={coverImageUrl && new URL(coverImageUrl, BASE_URL).href}
 	/>
 </svelte:head>
 
