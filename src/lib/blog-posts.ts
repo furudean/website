@@ -1,6 +1,7 @@
 export interface BlogPost {
 	title: string
-	date: string
+	created: Date
+	updated?: Date
 	summary: string
 	slug: string
 	coverImageUrl?: string
@@ -9,7 +10,7 @@ export interface BlogPost {
 }
 
 export async function getBlogPosts(host: string): Promise<BlogPost[]> {
-	const url = new URL("/blog.json", "http://" + host).href
+	const url = new URL("blog.json", "http://" + host).href
 	const res = await fetch(url)
 
 	if (res.ok) {

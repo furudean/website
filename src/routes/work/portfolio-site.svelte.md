@@ -1,6 +1,6 @@
 ---
 name: Portfolio Site
-date: 2021-02-26T00:00:00
+created: 2021-02-26T00:00:00
 kind: Website
 summary: Updated portfolio website for 2021. Built with Svelte Kit.
 repo: https://github.com/c-bandy/website

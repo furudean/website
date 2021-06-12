@@ -38,7 +38,7 @@
 				<a href="/work/{project.slug}" class="text-link">
 					{project.name}
 				</a>
-				<span class="quiet">- {friendlyDate(project.date, true)}</span>
+				<span class="quiet">- {friendlyDate(project.created, true)}</span>
 			</li>
 		{/each}
 	</ul>

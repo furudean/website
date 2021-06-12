@@ -11,11 +11,11 @@ export const get: RequestHandler = async () => {
 		return {
 			...metadata,
 			slug: basename(filename, ".svelte.md"),
-			date: new Date(metadata.date)
+			created: new Date(metadata.created)
 		}
 	})
 
-	projects.sort((a, b) => (a.date > b.date ? -1 : 1))
+	projects.sort((a, b) => (a.created > b.created ? -1 : 1))
 
 	return {
 		status: 200,

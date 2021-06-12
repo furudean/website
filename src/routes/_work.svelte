@@ -30,8 +30,8 @@
 				{/if}
 			</h3>
 			<div class="article-info">
-				<time datetime={project.date.toString()}>
-					{friendlyDate(project.date)}
+				<time datetime={project.created}>
+					{friendlyDate(project.created)}
 				</time>
 				·
 				<span>{project.kind}</span>

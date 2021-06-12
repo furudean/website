@@ -1,6 +1,6 @@
 ---
 title: MDSveX and Svelte Kit
-date: 2021-05-29T00:00:00
+created: 2021-05-29T00:00:00
 summary: Is it love? It just might be...
 relatedProjectSlugs: [portfolio-site]
 ---

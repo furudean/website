@@ -2,14 +2,15 @@ export interface Project {
 	name: string
 	slug: string
 	kind: string
-	date: Date
+	created: Date
+	updated?: Date
 	summary: string
 	repo?: string
 	url?: string
 }
 
 export async function getWorks(host: string): Promise<Map<string, Project>> {
-	const url = new URL("/work.json", "http://" + host).href
+	const url = new URL("work.json", "http://" + host).href
 	const res = await fetch(url)
 
 	if (res.ok) {

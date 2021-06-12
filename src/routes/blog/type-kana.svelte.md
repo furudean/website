@@ -1,6 +1,6 @@
 ---
 title: Reimagining Type Kana
-date: 2021-03-04T00:00:00
+created: 2021-03-04T00:00:00
 summary: A quiz app to help you learn hiragana and katakana, the Japanese syllabaries.
 coverImageUrl: /media/projects/type-kana/session.jpg
 tags: [type-kana]

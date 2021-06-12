@@ -12,7 +12,9 @@
 	/** @type {string} */
 	export let kind
 	/** @type {string} */
-	export let date
+	export let created
+	/** @type {string} */
+	export let updated
 	/** @type {string} */
 	export let summary
 	/** @type {string} */
@@ -31,7 +33,7 @@
 	<Breadcrumbs />
 	<h1>{name}</h1>
 	<div class="project-info">
-		<time datetime={date}>{friendlyDate(date)}</time>
+		<time datetime={created}>{friendlyDate(created)}</time>
 		·
 		<span>{kind}</span>
 	</div>
@@ -50,7 +52,7 @@
 					<a href="/blog/{post.slug}" class="text-link">
 						{post.title}
 					</a>
-					<span class="quiet">- {friendlyDate(post.date, true)}</span>
+					<span class="quiet">- {friendlyDate(post.created, true)}</span>
 				</li>
 			{/each}
 		</ul>

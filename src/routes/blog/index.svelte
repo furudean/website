@@ -36,7 +36,7 @@
 				<a href="/blog/{post.slug}" class="text-link">
 					{post.title}
 				</a>
-				<span class="quiet">- {friendlyDate(post.date, true)}</span>
+				<span class="quiet">- {friendlyDate(post.created, true)}</span>
 			</li>
 		{/each}
 	</ul>

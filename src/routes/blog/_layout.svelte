@@ -11,7 +11,9 @@
 	/** @type {string} */
 	export let title
 	/** @type {string} */
-	export let date
+	export let created
+	/** @type {string} */
+	export let updated
 	/** @type {string} */
 	export let summary
 	/** @type {string} */
@@ -44,7 +46,7 @@
 			<span>Cassidy Bandy</span>
 		</a>
 		<span class="separator">·</span>
-		<time datetime={date}>{friendlyDate(date)}</time>
+		<time datetime={created}>{friendlyDate(created)}</time>
 	</div>
 
 	<slot />

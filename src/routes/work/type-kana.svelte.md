@@ -1,6 +1,6 @@
 ---
 name: Type Kana
-date: 2020-08-02T00:00:00
+created: 2020-08-02T00:00:00
 kind: Web app
 summary: A quiz app to help you learn hiragana and katakana, the Japanese
   syllabaries.
