@@ -1,7 +1,7 @@
 export interface BlogPost {
 	title: string
-	created: Date
-	updated?: Date
+	created: string
+	updated?: string
 	summary: string
 	slug: string
 	coverImageUrl?: string

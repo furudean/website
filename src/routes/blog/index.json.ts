@@ -13,13 +13,12 @@ export const get: RequestHandler = async () => {
 
 			return {
 				...metadata,
-				slug: basename(filename, ".svelte.md"),
-				created: new Date(metadata.created)
+				slug: basename(filename, ".svelte.md")
 			}
 		}
 	)
 
-	posts.sort((a, b) => (a.created > b.created ? -1 : 1))
+	posts.sort((a, b) => (new Date(a.created) > new Date(b.created) ? -1 : 1))
 
 	return {
 		status: 200,

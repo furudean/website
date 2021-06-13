@@ -2,8 +2,8 @@ export interface Project {
 	name: string
 	slug: string
 	kind: string
-	created: Date
-	updated?: Date
+	created: string
+	updated?: string
 	summary: string
 	repo?: string
 	url?: string
