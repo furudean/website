@@ -38,7 +38,7 @@
 			of 2020, I left my home country for Utah, USA. Now I live and work here.
 			It still feels a little bit crazy.
 		</p>
-		<p>When I'm not serving my corporate overlords I like to:</p>
+		<p>In my free time I like to:</p>
 		<ul class="list">
 			<li>Study japanese</li>
 			<li>Learn new web tech</li>
