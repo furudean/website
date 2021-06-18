@@ -8,7 +8,7 @@
 	--standard-curve: cubic-bezier(0.4, 0, 0.2, 1);
 	--deceleration-curve: cubic-bezier(0, 0, 0.2, 1);
 	--line-height: 2;
-	--line-space: 1.75rem;
+	--line-space: 1.5rem;
 	--serif-font: "Lora", "Iowan Old Style", "Apple Garamond", "Baskerville",
 		"Times New Roman", "Droid Serif", "Times", "Source Serif Pro", serif;
 	--sans-serif-font: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -23,18 +23,19 @@ html {
 }
 
 body {
+	--padding: calc(2 * var(--line-space));
 	background: var(--color-background-400);
 	color: var(--color-text-400);
 	position: relative;
 	min-height: 100%;
 	width: 100%;
-	padding: 3em;
+	padding: 0 var(--padding) var(--padding);
 
 	font-family: var(--sans-serif-font);
 	line-height: var(--line-height);
 
 	@media screen and (max-width: 45em) {
-		padding: 1.5em;
+		--padding: calc(1 * var(--line-space));
 	}
 }
 
@@ -146,8 +147,8 @@ abbr {
 
 .article {
 	max-width: 45em;
-	margin-left: auto;
-	margin-right: auto;
+	/* margin-left: auto;
+	margin-right: auto; */
 	margin-bottom: var(--line-space);
 }
 

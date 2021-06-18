@@ -67,7 +67,7 @@
 	nav {
 		display: flex;
 		align-items: center;
-		margin-bottom: var(--line-space);
+		margin: calc(1.5 * var(--line-space)) 0;
 	}
 
 	.logo :global(.svg-icon) {
@@ -98,7 +98,7 @@
 
 	.nav-link {
 		display: block;
-		padding: 0.75em 0;
+		padding: 0.5em 0;
 		position: relative;
 
 		&::after {
