@@ -5,6 +5,7 @@ const { mdsvex } = mdsvexPkg
 import mdsvexConfig from "./mdsvex.config.js"
 import viteImagetoolsPkg from "vite-imagetools"
 const { imagetools } = viteImagetoolsPkg
+import path from "path"
 
 /** @type {import('@sveltejs/kit').Config} */
 export default {
@@ -23,6 +24,12 @@ export default {
 			plugins: [imagetools()],
 			json: {
 				namedExports: true
+			},
+			resolve: {
+				alias: {
+					$components: path.resolve("./src/components"),
+					$lib: path.resolve("./src/lib")
+				}
 			}
 		}
 	},

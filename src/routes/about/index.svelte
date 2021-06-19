@@ -1,4 +1,5 @@
 <script lang="ts">
+	// @ts-ignore
 	import portrait from "../../portrait.jpg?w=160&webp&meta"
 	import { ceasar as c } from "./cipher"
 	import { onMount } from "svelte"

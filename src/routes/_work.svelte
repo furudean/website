@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { friendlyDate } from "../lib/dateTime"
-	import Icon from "$lib/Icon.svelte"
+	import { friendlyDate } from "$lib/dateTime"
+	import Icon from "$components/Icon.svelte"
 	import { mdiGithub } from "@mdi/js"
 	import type { Project } from "./work/_projects"
 

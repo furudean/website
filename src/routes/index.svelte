@@ -22,7 +22,7 @@
 <script lang="ts">
 	import Landing from "./_landing.svelte"
 	import Work from "./_work.svelte"
-	import Meta from "$lib/Meta.svelte"
+	import Meta from "$components/Meta.svelte"
 
 	export let projects: any[]
 </script>

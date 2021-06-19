@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page, navigating } from "$app/stores"
-	import Logo from "$lib/Logo.svelte"
+	import Logo from "$components/Logo.svelte"
 	import { derived } from "svelte/store"
 
 	const compass = (pattern: RegExp) =>

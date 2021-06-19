@@ -3,7 +3,7 @@
 	// in layouts. The workaround is to just use js for now.
 	// See: https://github.com/pngwn/MDsveX/issues/116
 
-	import Breadcrumbs from "$lib/Breadcrumbs.svelte"
+	import Breadcrumbs from "$components/Breadcrumbs.svelte"
 	import Links from "./_links.svelte"
 	import { friendlyDate } from "$lib/dateTime"
 

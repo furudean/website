@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { mdiGithub, mdiOpenInNew } from "@mdi/js"
-	import Icon from "$lib/Icon.svelte"
-	import Logo from "$lib/Logo.svelte"
+	import Icon from "$components/Icon.svelte"
+	import Logo from "$components/Logo.svelte"
 </script>
 
 <section class="landing">

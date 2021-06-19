@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Nav from "$lib/Nav.svelte"
+	import Nav from "$components/Nav.svelte"
 	import { getStores } from "$app/stores"
 	import LoadingBar from "./_loading-bar.svelte"
-	import { updateFragmentLinkTarget } from "../lib/link"
+	import { updateFragmentLinkTarget } from "$lib/link"
 	import { onMount } from "svelte"
 
 	import "../styles/reset.postcss"

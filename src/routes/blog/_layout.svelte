@@ -4,8 +4,9 @@
 	// See: https://github.com/pngwn/MDsveX/issues/116
 
 	import { friendlyDate } from "../../lib/dateTime"
-	import Meta from "$lib/Meta.svelte"
-	import Breadcrumbs from "$lib/Breadcrumbs.svelte"
+	import Meta from "$components/Meta.svelte"
+	import Breadcrumbs from "$components/Breadcrumbs.svelte"
+	// @ts-ignore
 	import { width, height, src } from "../../portrait.jpg?w=28&webp&meta"
 	import { BASE_URL } from "$lib/url"
 
