@@ -11,7 +11,7 @@ relatedProjectSlugs: [portfolio-site]
 </script>
 
 <script>
-  import Counter from "$lib/Counter.svelte"
+  import Counter from "$components/Counter.svelte"
 </script>
 
 A few weeks ago, I replaced the markdown-based blog setup that was [previously
