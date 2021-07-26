@@ -19,7 +19,7 @@
 		"@sveltejs/adapter-vercel": "next",
 		"@sveltejs/kit": "next",
 		"@types/common-tags": "^1.8.0",
-		"@types/node": "^15.0.1",
+		"@types/node": "^16.4.3",
 		"autoprefixer": "^10.2.4",
 		"hastscript": "^7.0.0",
 		"mdsvex": "^0.9.6",
