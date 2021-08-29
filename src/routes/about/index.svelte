@@ -2,14 +2,11 @@
 	// @ts-ignore
 	import portrait from "../../portrait.jpg?w=160&webp&meta"
 	import { ceasar as c } from "./cipher"
-	import { onMount } from "svelte"
 	import HiddenText from "./HiddenText.svelte"
 	import { selectable } from "./selectable"
+	import { browser } from "$app/env"
 
 	const email = c("axeeh", 7) + "@" + c("jhzz", -7) + "." + c("fhx", 7)
-	let mounted = false
-
-	onMount(() => (mounted = true))
 </script>
 
 <svelte:head>
@@ -42,12 +39,13 @@
 		<p>In my free time I like to:</p>
 		<ul class="list">
 			<li>Study japanese</li>
+			<li>Draw!</li>
 			<li>Learn new web tech</li>
 			<li>Play roguelikes (video game genre)</li>
 			<li>Participate in various open source projects</li>
 		</ul>
 		<h3>Contact</h3>
-		{#if mounted}
+		{#if browser}
 			<p>
 				If you need to reach me, my email is
 				<HiddenText>
