@@ -2,7 +2,7 @@
 	import { friendlyDate } from "$lib/dateTime"
 	import Icon from "$components/Icon.svelte"
 	import { mdiGithub } from "@mdi/js"
-	import type { Project } from "./work/_projects"
+	import type { Project } from "$lib/works"
 
 	export let projects: Project[]
 </script>
