@@ -23,12 +23,13 @@
 	import Landing from "./_landing.svelte"
 	import Work from "./_work.svelte"
 	import Meta from "$components/Meta.svelte"
+	import type { Project } from "$lib/works"
 
-	export let projects: any[]
+	export let projects: Project[]
 </script>
 
 <svelte:head>
-	<title>Home · Cassidy Bandy</title>
+	<title>Cassidy Bandy</title>
 	<Meta
 		title="Cassidy Bandy"
 		description="Cassidy Bandy is a full-stack engineer based in UT, USA."
