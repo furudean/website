@@ -13,7 +13,7 @@
 	"dependencies": {
 		"@mdi/js": "^5.9.55",
 		"common-tags": "^1.8.0",
-		"p-map": "^4.0.0"
+		"p-map": "^5.1.0"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-vercel": "next",
