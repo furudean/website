@@ -20,7 +20,7 @@
 <div
 	class="hidden-text"
 	tabindex={visible ? undefined : 0}
-	aria-live
+	aria-live="polite"
 	on:keyup={keyPress}
 	on:click={show}
 >
