@@ -47,13 +47,13 @@
 		<h3>Contact</h3>
 		{#if browser}
 			<p>
-				If you need to reach me, my email is
+				If you need to reach me, you can send me a message at:
 				<HiddenText>
 					<span slot="hidden" aria-label="email is hidden, tap to reveal">
 						&lt;tap to show&gt;
 					</span>
 					<span slot="visible" use:selectable>{email}</span>
-				</HiddenText>.
+				</HiddenText>
 			</p>
 		{:else}
 			<noscript>
