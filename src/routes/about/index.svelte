@@ -60,6 +60,7 @@
 						I have <a
 							href="https://anilist.co/user/whimzee/"
 							target="_blank"
+							rel="noopener"
 							class="text-link">one of these</a
 						> to track all of that
 					</li>
