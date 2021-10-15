@@ -16,7 +16,7 @@ export default {
 		adapter: vercel(),
 		prerender: {
 			enabled: true,
-			pages: ["*"],
+			entries: ["*"],
 			crawl: true
 		},
 		target: "body",
