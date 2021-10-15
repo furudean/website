@@ -26,28 +26,53 @@
 			<h2>Cassidy Bandy</h2>
 			<div class="tagline">Full Stack Engineer, Designer</div>
 		</div>
+
 		<p>
-			Hi, I'm Cassidy! Cassie works too, if we're friends. Pronouns are she/her.
-			As a day job I'm a full-stack engineer. I like to design things too, like
-			this website.
+			Hi, I'm Cassidy! Cassie works too, if we're friends. As a day job I'm a
+			full-stack engineer. I like to design things too, like this website. My
+			pronouns are she/her.
 		</p>
+
 		<p>
-			I grew up in a (relatively) small town called Örebro, Sweden. At the end
-			of 2020, I left my home country for Utah, USA. Now I live and work here.
-			It still feels a little bit crazy.
+			I grew up in a relatively small town in Sweden, called Örebro. I went to
+			school for computer science, and picked up web development there. It's
+			been a passion since. Örebro has a big medieval castle, but otherwise a
+			pretty calm and normal Swedish set piece.
 		</p>
+
+		<p>
+			At the end of 2020, I left the safe and calm life I was leading for
+			something completely unknown. I moved to the US! Now I live and work here.
+			It doesn't quite feel like my normal yet, but having every day be an
+			adventure is fun too!
+		</p>
+
 		<p>In my free time I like to:</p>
 		<ul class="list">
-			<li>Study japanese</li>
-			<li>Draw!</li>
+			<li>Draw! 🖍</li>
+			<li>Play roguelikes (it's a kind of video game)</li>
 			<li>Learn new web tech</li>
-			<li>Play roguelikes (video game genre)</li>
+			<li>Study japanese <sup lang="jp">(はじめまして)</sup></li>
+			<li>
+				Watch anime, read manga and visual novels
+				<ul>
+					<li>
+						I have <a
+							href="https://anilist.co/user/whimzee/"
+							target="_blank"
+							class="text-link">one of these</a
+						> to track all of that
+					</li>
+				</ul>
+			</li>
 			<li>Participate in various open source projects</li>
 		</ul>
+
 		<h3>Contact</h3>
+
 		{#if browser}
 			<p>
-				If you need to reach me, you can send me a message at:
+				If you want to get in touch, you can send me a message at:
 				<HiddenText>
 					<span slot="hidden" aria-label="email is hidden, tap to reveal">
 						&lt;tap to show&gt;
