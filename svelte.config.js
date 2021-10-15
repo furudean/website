@@ -8,7 +8,7 @@ const { imagetools } = viteImagetoolsPkg
 import path from "path"
 
 /** @type {import('@sveltejs/kit').Config} */
-export default {
+const config = {
 	// an array of file extensions that should be treated as Svelte components
 	extensions: [".svelte", ".svelte.md"],
 
@@ -39,3 +39,5 @@ export default {
 		sveltePreprocess({ postcss: true, typescript: true })
 	]
 }
+
+export default config
