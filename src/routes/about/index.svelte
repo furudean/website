@@ -53,19 +53,8 @@
 			<li>Play roguelikes (it's a kind of video game)</li>
 			<li>Learn new web tech</li>
 			<li>Study japanese <sup lang="jp">(はじめまして)</sup></li>
-			<li>
-				Watch anime, read manga and visual novels
-				<ul>
-					<li>
-						I have <a
-							href="https://anilist.co/user/whimzee/"
-							target="_blank"
-							rel="noopener"
-							class="text-link">one of these</a
-						> to track all of that
-					</li>
-				</ul>
-			</li>
+			<li>Watch anime, read manga and visual novels</li>
+			<li>Get the little worlds I have in my head out into cohesive writing</li>
 			<li>Participate in various open source projects</li>
 		</ul>
 
