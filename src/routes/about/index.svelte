@@ -34,17 +34,17 @@
 		</p>
 
 		<p>
-			I grew up in a relatively small town in Sweden, called Örebro. I went to
-			school for computer science, and picked up web development there. It's
-			been a passion since. Örebro has a big medieval castle, but otherwise a
-			pretty calm and normal Swedish set piece.
+			I grew up in the relatively small Örebro, Sweden. It has a big medieval
+			castle, but otherwise is a pretty calm and normal Swedish set piece. I
+			went to high school for computer science and picked up an interest for web
+			development there. It's been a passion since then.
 		</p>
 
 		<p>
-			At the end of 2020, I left the safe and calm life I was leading for
-			something completely unknown. I moved to the US! Now I live and work here.
-			It doesn't quite feel like my normal yet, but having every day be an
-			adventure is fun too!
+			At the end of 2020 I left the safe and calm life I was leading for
+			something completely unknown. I moved to the US! Now I live and work here
+			along with 4 roommates. It doesn't quite feel like my normal yet, but
+			having every day be an adventure is fun too!
 		</p>
 
 		<p>In my free time I like to:</p>
@@ -62,7 +62,7 @@
 
 		{#if browser}
 			<p>
-				If you want to get in touch, you can send me a message at:
+				If you want to get in touch you can send me a message at:
 				<HiddenText>
 					<span slot="hidden" aria-label="email is hidden, tap to reveal">
 						&lt;tap to show&gt;
