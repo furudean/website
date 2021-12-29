@@ -30,7 +30,7 @@
 		<p>
 			Hi, I'm Merilynn! As a day job I'm a full-stack engineer. I like design,
 			implementation and user experience. I like to be meticulous with
-			everything I make when time permits it. My pronouns are she/her.
+			everything I make. My pronouns are she/her.
 		</p>
 
 		<p>
