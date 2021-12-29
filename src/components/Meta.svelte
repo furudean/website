@@ -30,7 +30,7 @@
 <meta name="theme-color" content="#bd84bc" />
 
 {#if !isRoot}
-	<meta property="og:site_name" content="Cassidy Bandy" />
+	<meta property="og:site_name" content="Merilynn Bandy" />
 {/if}
 <meta property="og:type" content="website" />
 <meta property="og:title" content={title} />

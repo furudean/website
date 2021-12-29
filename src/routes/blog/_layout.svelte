@@ -25,7 +25,7 @@
 </script>
 
 <svelte:head>
-	<title>{`${title} · Blog · Cassidy Bandy`}</title>
+	<title>{title} · Blog · Merilynn Bandy</title>
 	<Meta
 		{title}
 		description={summary}
@@ -40,12 +40,12 @@
 		<a href="/about" class="author">
 			<img
 				{src}
-				alt="Cassidy's portrait"
+				alt="Merilynn's portrait"
 				aria-hidden="true"
 				style="width: {width}px; height: {height}px"
 				class="portrait"
 			/>
-			<span>Cassidy Bandy</span>
+			<span>Merilynn Bandy</span>
 		</a>
 		<span class="separator">·</span>
 		<time datetime={created}>{friendlyDate(created)}</time>

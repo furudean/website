@@ -10,7 +10,7 @@
 </script>
 
 <svelte:head>
-	<title>About · Cassidy Bandy</title>
+	<title>About · Merilynn Bandy</title>
 </svelte:head>
 
 <article class="article">
@@ -19,18 +19,18 @@
 		<img
 			class="portrait"
 			src={portrait.src}
-			alt="Cassidy's portrait"
+			alt="Merilynn's portrait"
 			style="width: {portrait.width}px; height: {portrait.height}px"
 		/>
 		<div class="title">
-			<h2>Cassidy Bandy</h2>
+			<h2>Merilynn Bandy</h2>
 			<div class="tagline">Full Stack Engineer, Designer</div>
 		</div>
 
 		<p>
-			Hi, I'm Cassidy! Cassie works too, if we're friends. As a day job I'm a
-			full-stack engineer. I like to design things too, like this website. My
-			pronouns are she/her.
+			Hi, I'm Merilynn! As a day job I'm a full-stack engineer. I like design,
+			implementation and user experience. I like to be meticulous with
+			everything I make when time permits it. My pronouns are she/her.
 		</p>
 
 		<p>

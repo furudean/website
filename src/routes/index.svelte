@@ -29,10 +29,10 @@
 </script>
 
 <svelte:head>
-	<title>Cassidy Bandy</title>
+	<title>Merilynn Bandy</title>
 	<Meta
-		title="Cassidy Bandy"
-		description="Cassidy Bandy is a full-stack engineer based in UT, USA."
+		title="Merilynn Bandy"
+		description="Merilynn Bandy is a full-stack engineer based in UT, USA."
 		image="/embed.png"
 		isRoot={true}
 	/>

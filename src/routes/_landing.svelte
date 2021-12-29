@@ -6,7 +6,7 @@
 
 <section class="landing">
 	<h1>
-		Hi, I'm <br /> Cassidy Bandy
+		Hi, I'm <br /> Merilynn Bandy
 		<Logo size="0.9em" color="var(--color-primary-400)" />
 	</h1>
 	<p>
