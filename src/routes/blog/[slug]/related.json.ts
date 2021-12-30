@@ -18,13 +18,13 @@ async function getRelatedProjectsMap(host: string) {
 
 let relatedProjects: Map<string, Project[]>
 
-export const get: RequestHandler = async function ({ params, host }) {
+export const get: RequestHandler = async function ({ params, url }) {
 	// the `slug` parameter is available because this file
 	// is called [slug].json.js
 	const { slug } = params
 
 	if (!relatedProjects) {
-		relatedProjects = await getRelatedProjectsMap(host)
+		relatedProjects = await getRelatedProjectsMap(url.host)
 	}
 
 	if (relatedProjects.has(slug)) {

@@ -1,8 +1,8 @@
 import type { Load } from "@sveltejs/kit"
 
-export const load: Load = async ({ fetch, page }) => {
-	const url = page.path + "/related.json"
-	const res = await fetch(url)
+export const load: Load = async ({ fetch, url }) => {
+	const requestUrl = url.pathname + "/related.json"
+	const res = await fetch(requestUrl)
 
 	if (res.ok) {
 		const { projects } = await res.json()
@@ -15,7 +15,7 @@ export const load: Load = async ({ fetch, page }) => {
 	} else {
 		return {
 			status: res.status,
-			error: new Error("Failed to fetch " + url)
+			error: new Error("Failed to fetch " + requestUrl)
 		}
 	}
 }

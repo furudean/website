@@ -3,13 +3,13 @@ import type { RequestHandler } from "@sveltejs/kit"
 
 let posts: any[]
 
-export const get: RequestHandler = async function ({ params, host }) {
+export const get: RequestHandler = async function ({ params, url }) {
 	// the `slug` parameter is available because this file
 	// is called [slug].json.js
 	const { slug } = params
 
 	if (!posts) {
-		posts = await getBlogPosts(host)
+		posts = await getBlogPosts(url.host)
 	}
 
 	return {

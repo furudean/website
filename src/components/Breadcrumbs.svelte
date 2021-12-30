@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from "$app/stores"
 
-	$: segments = $page.path.slice(1).split("/").slice(0, -1)
+	$: segments = $page.url.pathname.slice(1).split("/").slice(0, -1)
 </script>
 
 <nav class="breadcrumbs" aria-label="Breadcrumbs">
