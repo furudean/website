@@ -50,7 +50,7 @@ tags that render link-embeds for dynamic routes:
 	"summary": "A quiz app to help you learn hiragana and katakana, the Japanese syllabaries. Powered by Svelte.",
 	"coverImageUrl": "https://cass.moe/media/projects/type-kana/session.jpg",
 	"link": "https://type-kana.cass.moe/",
-	"repo": "https://github.com/c-bandy/type-kana",
+	"repo": "https://github.com/furudean/type-kana",
 	"articleUrl": "/articles/type-kana.md"
 }
 ```

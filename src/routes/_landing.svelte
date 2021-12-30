@@ -29,7 +29,7 @@
 	<ul class="links">
 		<li>
 			<a
-				href="https://github.com/c-bandy"
+				href="https://github.com/furudean"
 				title="GitHub profile"
 				target="_blank"
 				rel="noopener"
