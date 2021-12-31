@@ -15,13 +15,13 @@ function createUrlElement(href: string, lastmod?: string | Date) {
 	`.replace(EMPTY_LINES, "")
 }
 
-export const get: RequestHandler = async ({ host }) => {
-	const blogPosts = await getBlogPosts(host)
+export const get: RequestHandler = async ({ url }) => {
+	const blogPosts = await getBlogPosts(url.host)
 	const blogUrls = blogPosts.map((post) =>
 		createUrlElement("blog/" + post.slug, post.updated ?? post.created)
 	)
 
-	const works = await getWorks(host)
+	const works = await getWorks(url.host)
 	const worksUrls = [...works.entries()].map(([slug, work]) =>
 		createUrlElement("work/" + slug, work.updated ?? work.created)
 	)
