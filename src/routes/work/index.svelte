@@ -27,7 +27,7 @@
 </script>
 
 <svelte:head>
-	<title>Work · Merilynn Bandy</title>
+	<title>Work</title>
 </svelte:head>
 
 <article class="article">

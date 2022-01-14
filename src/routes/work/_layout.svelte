@@ -4,6 +4,7 @@
 	// See: https://github.com/pngwn/MDsveX/issues/116
 
 	import Breadcrumbs from "$components/Breadcrumbs.svelte"
+	import Meta from "$components/Meta.svelte"
 	import Links from "./_links.svelte"
 	import { friendlyDate } from "$lib/dateTime"
 
@@ -26,7 +27,8 @@
 </script>
 
 <svelte:head>
-	<title>{name} · Work · Merilynn Bandy</title>
+	<title>{name}</title>
+	<Meta title={name} description={summary} />
 </svelte:head>
 
 <article class="article">

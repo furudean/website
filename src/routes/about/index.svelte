@@ -10,7 +10,7 @@
 </script>
 
 <svelte:head>
-	<title>About · Merilynn Bandy</title>
+	<title>About</title>
 </svelte:head>
 
 <article class="article">

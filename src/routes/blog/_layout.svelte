@@ -25,7 +25,7 @@
 </script>
 
 <svelte:head>
-	<title>{title} · Blog · Merilynn Bandy</title>
+	<title>{title}</title>
 	<Meta
 		{title}
 		description={summary}

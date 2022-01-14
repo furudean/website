@@ -25,7 +25,7 @@
 </script>
 
 <svelte:head>
-	<title>Blog · Merilynn Bandy</title>
+	<title>Blog</title>
 </svelte:head>
 
 <article class="article">
