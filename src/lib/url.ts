@@ -1,2 +1,2 @@
-export const HOST = "cass.moe"
+export const HOST = "furudean.moe"
 export const BASE_URL = "https://" + HOST

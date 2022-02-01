@@ -1,4 +1,4 @@
-# [website](https://cass.moe/)
+# [website](https://furudean.com/)
 
 <img src="static/favicon.svg" 
   width="128" 
