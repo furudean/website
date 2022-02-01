@@ -1,47 +1,51 @@
 <script lang="ts">
-	import { browser } from "$app/env"
-	import { onDestroy } from "svelte"
-
-	export let title: string
-	export let description: string
+	export let title: string = undefined
+	export let description: string = undefined
 	export let image: string = undefined
 	export let isRoot = false
 
-	onDestroy(() => {
-		if (browser) {
-			/* 
-        Remove meta tags on unmount to fix client-side issue where svelte:head
-        appends tags on navigation and never cleans them up.
-        See: https://github.com/sveltejs/sapper/issues/976 
-      */
-			const remove = (el: HTMLElement) => el.remove()
-
-			document.head.querySelector("title")?.remove()
-			document.head.querySelector("description")?.remove()
-			document.head.querySelector("theme-color")?.remove()
-			document.head.querySelectorAll('meta[property^="og:"]').forEach(remove)
-			document.head.querySelectorAll('meta[name^="twitter:"]').forEach(remove)
-		}
-	})
+	$: any = (title ?? description ?? image) !== undefined
 </script>
 
-<meta name="title" content={title} />
-<meta name="description" content={description} />
-<meta name="theme-color" content="#bd84bc" />
+<svelte:head>
+	<!-- Regular Meta -->
+	{#if title}
+		<meta name="title" content={title} />
+	{/if}
+	{#if description}
+		<meta name="description" content={description} />
+	{/if}
 
-{#if !isRoot}
-	<meta property="og:site_name" content="Merilynn Bandy" />
-{/if}
-<meta property="og:type" content="website" />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-{#if image}
-	<meta property="og:image" content={image} />
-{/if}
+	<meta name="theme-color" content="#bd84bc" />
 
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content={title} />
-<meta name="twitter:description" content={description} />
-{#if image}
-	<meta name="twitter:image" content={image} />
-{/if}
+	<!-- OpenGraph -->
+	{#if any}
+		{#if !isRoot}
+			<meta property="og:site_name" content="Merilynn Bandy" />
+		{/if}
+		<meta property="og:type" content="website" />
+	{/if}
+	{#if title}
+		<meta property="og:title" content={title} />
+	{/if}
+	{#if description}
+		<meta property="og:description" content={description} />
+	{/if}
+	{#if image}
+		<meta property="og:image" content={image} />
+	{/if}
+
+	<!-- Twitter -->
+	{#if any}
+		<meta name="twitter:card" content="summary_large_image" />
+	{/if}
+	{#if title}
+		<meta name="twitter:title" content={title} />
+	{/if}
+	{#if description}
+		<meta name="twitter:description" content={description} />
+	{/if}
+	{#if image}
+		<meta name="twitter:image" content={image} />
+	{/if}
+</svelte:head>

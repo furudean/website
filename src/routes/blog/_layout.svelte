@@ -26,12 +26,13 @@
 
 <svelte:head>
 	<title>{title}</title>
-	<Meta
-		{title}
-		description={summary}
-		image={coverImageUrl && new URL(coverImageUrl, BASE_URL).href}
-	/>
 </svelte:head>
+
+<Meta
+	{title}
+	description={summary}
+	image={coverImageUrl && new URL(coverImageUrl, BASE_URL).href}
+/>
 
 <article class="article has-tombstone">
 	<Breadcrumbs />

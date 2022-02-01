@@ -28,8 +28,9 @@
 
 <svelte:head>
 	<title>{name}</title>
-	<Meta title={name} description={summary} />
 </svelte:head>
+
+<Meta title={name} description={summary} />
 
 <article class="article">
 	<Breadcrumbs />

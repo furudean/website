@@ -31,13 +31,14 @@
 
 <svelte:head>
 	<title>Merilynn Bandy</title>
-	<Meta
-		title="Merilynn Bandy"
-		description="Merilynn Bandy is a full-stack engineer based in UT, USA."
-		image={new URL("/embed.png", BASE_URL).href}
-		isRoot={true}
-	/>
 </svelte:head>
+
+<Meta
+	title="Merilynn Bandy"
+	description="Merilynn Bandy is a full-stack engineer based in UT, USA."
+	image={new URL("/embed.png", BASE_URL).href}
+	isRoot={true}
+/>
 
 <div class="container">
 	<Landing />
