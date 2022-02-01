@@ -1,12 +1,12 @@
 <script lang="ts">
 	// @ts-ignore
 	import portrait from "../../portrait.jpg?w=160&webp&meta"
-	import { ceasar as c } from "./cipher"
+	import { rot } from "./cipher"
 	import HiddenText from "./HiddenText.svelte"
 	import { selectable } from "./selectable"
 	import { browser } from "$app/env"
 
-	const email = c("axeeh", 7) + "@" + c("jhzz", -7) + "." + c("fhx", 7)
+	const email = rot("uryyb@shehqrna.pbz", -13)
 </script>
 
 <svelte:head>
