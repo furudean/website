@@ -14,16 +14,8 @@
 		accessibility and cute things.
 	</p>
 	<p>
-		In my free time I like to learn more about programming, study Japanese and
+		In my free time I like to learn more about programming, write stories, and
 		explore new media.
-	</p>
-	<p>
-		I'm currently doing engineering work at <a
-			href="https://www.sourcestrike.com/"
-			class="text-link"
-			target="_blank"
-			rel="noopener">SourceStrike</a
-		>.
 	</p>
 	<hr class="bold" />
 	<ul class="links">
@@ -53,8 +45,7 @@
 
 	hr {
 		width: 4em;
-		margin: 0;
-		margin-bottom: var(--line-space);
+		margin: calc(1.5 * var(--line-space)) 0;
 	}
 
 	ul.links {
