@@ -24,6 +24,7 @@
 	import Work from "./_work.svelte"
 	import Meta from "$components/Meta.svelte"
 	import type { Project } from "$lib/works"
+	import { BASE_URL } from "$lib/url"
 
 	export let projects: Project[]
 </script>
@@ -33,7 +34,7 @@
 	<Meta
 		title="Merilynn Bandy"
 		description="Merilynn Bandy is a full-stack engineer based in UT, USA."
-		image="/embed.png"
+		image={new URL("/embed.png", BASE_URL).href}
 		isRoot={true}
 	/>
 </svelte:head>
