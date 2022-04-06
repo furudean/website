@@ -6,7 +6,7 @@
   align="right" 
   alt="Logotype" />
 
-Personal portfolio website. Built with Sapper and Svelte.
+Personal portfolio website. Built with Svelte + Svelte Kit.
 
 ## Quick start
 
