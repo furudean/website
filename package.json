@@ -26,7 +26,7 @@
 		"postcss": "^8.2.6",
 		"postcss-load-config": "^3.0.1",
 		"postcss-nested": "^5.0.5",
-		"postcss-pseudo-class-any-link": "^7.0.1",
+		"postcss-pseudo-class-any-link": "^8.0.2",
 		"postcss-pseudo-is": "^0.3.0",
 		"prettier": "^2.2.1",
 		"prettier-plugin-svelte": "^2.2.0",
